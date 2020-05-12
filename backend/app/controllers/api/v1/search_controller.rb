@@ -1,14 +1,12 @@
 class Api::V1::SearchController < ApplicationController
 
     def new
-        RSpotify.authenticate(ENV['CLIENT_ID'], ENV['CLIENT_SECRET'])
-        render json: RSpotify::Track.search(search_params)
-    end
-
-    private
-
-    def search_params
-        params.require(:search).permit(:query, :limit)
+        query = params[:query]
+        if query
+            render json: RSpotify::Track.search(query)
+        else
+            render json: { error: 'Invalid request' , messages: ["Parameter 'query' is required."] }, status: :bad_request
+        end
     end
 
 end
