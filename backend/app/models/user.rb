@@ -1,8 +1,15 @@
 class User < ApplicationRecord
+    # Associations
     has_many :songs
-
+    
+    # Bcrypt secure password
     has_secure_password
 
+    # Validations
+    validates :first_name, :last_name, :email, :password_digest, presence: true 
+    validates :email, uniqueness: true
+
+    # ActiveRecord callbacks
     before_save :downcase_name
 
     def downcase_name

@@ -1,3 +1,7 @@
 class Section < ApplicationRecord
-  belongs_to :song
+    # Associations
+    belongs_to :song
+
+    # Validations
+    validates :name, :chords, :display_order, presence: true 
 end
