@@ -1,6 +1,16 @@
 Rails.application.routes.draw do
-  resources :sections
-  resources :songs
-  resources :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
+  # Namespace endpoints to /api/v1
+  namespace :api do
+    namespace :v1 do
+
+      post '/login', to: 'sessions#create'
+      get '/current_user', to: 'sessions#show'
+
+      resources :sections
+      resources :songs
+      resources :users
+    end
+  end
+
 end
