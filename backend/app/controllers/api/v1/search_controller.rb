@@ -1,6 +1,6 @@
 class Api::V1::SearchController < ApplicationController
 
-    def new
+    def tracks
         query = params[:query]
         if query
             render json: RSpotify::Track.search(query)

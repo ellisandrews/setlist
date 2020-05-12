@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post '/login', to: 'sessions#create'
       get '/current_user', to: 'sessions#show'
 
-      get '/search', to: 'search#new'
+      get '/search/tracks', to: 'search#tracks'
 
       resources :sections
       resources :songs
