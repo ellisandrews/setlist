@@ -68,3 +68,6 @@ yarn-debug.log*
 
 # Mac
 .DS_Store*
+
+# Rails tmp/ directory
+backend/tmp*
