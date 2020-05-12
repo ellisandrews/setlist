@@ -15,6 +15,6 @@ class CreateSongs < ActiveRecord::Migration[6.0]
     end
 
     # Unique on (user_id, spotify_id)
-    add_index :songs, [:user, :spotify_id], unique: true
+    add_index :songs, [:user_id, :spotify_id], unique: true
   end
 end

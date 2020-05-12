@@ -12,6 +12,6 @@ class CreateSections < ActiveRecord::Migration[6.0]
     end
 
     # Unique on (song_id, display_order)
-    add_index :sections, [:song, :display_order], unique: true
+    add_index :sections, [:song_id, :display_order], unique: true
   end
 end
