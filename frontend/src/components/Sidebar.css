@@ -1,0 +1,20 @@
+.sidebar-link {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#layout-row {
+    height: 100vh;
+}
+ 
+#sidebar-column {
+    height: 100%;
+}
+
+#sidebar {
+    height: 100%;
+}
+
+#sidebar-nav {
+    height: 100%;
+}

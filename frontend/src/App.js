@@ -1,11 +1,13 @@
 import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import Layout from './components/Layout'
 
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>Welcome to Setlist</h1>
-    </div>
+    <Router>
+      <Layout/>
+    </Router>  
   )
 }
 
