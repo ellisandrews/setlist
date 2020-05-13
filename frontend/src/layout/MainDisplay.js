@@ -1,10 +1,10 @@
 import React from 'react'
 import SearchContainer from '../components/SearchContainer'
+import './layout.css'
 
-
-const Display = props => {
+const MainDisplay = props => {
   return (
-    <div>
+    <div id="main-display">
       <h1>Display Content</h1>
       <SearchContainer/>
     </div>
@@ -12,4 +12,4 @@ const Display = props => {
 }
 
 
-export default Display
+export default MainDisplay
