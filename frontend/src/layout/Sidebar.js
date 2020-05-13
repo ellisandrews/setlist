@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
-import './Sidebar.css'
+import './layout.css'
 
 
 const Sidebar = props => {

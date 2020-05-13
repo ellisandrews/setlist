@@ -2,12 +2,12 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import Sidebar from './Sidebar.js'
 import Display from './Display.js'
-import './Sidebar.css'
+import './layout.css'
 
 
 const Layout = props => {
   return (
-    <Container fluid>
+    <Container fluid id="layout-container">
       <Row id="layout-row">
         <Col xs={2} id="sidebar-column">      
           <Sidebar/>
