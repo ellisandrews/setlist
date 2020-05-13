@@ -72,3 +72,6 @@ yarn-debug.log*
 # Rails directories
 backend/log/*
 backend/tmp/*
+
+# Script for exporting private variables
+backend/env_variables.sh

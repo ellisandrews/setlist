@@ -1,0 +1,21 @@
+/* Style sidebar */
+#sidebar-nav {
+    position: fixed;      /* Fixed on position on scroll */
+    height: 100%;         /* Full page height */
+    width: 150px;         /* Fixed width, so that rest of page can be pushed right this exact amount */
+    overflow-x: hidden;   /* Disable horizontal scroll */
+    z-index: 1;           /* Stay on top */
+    top: 0;               /* Stay at the top */
+}
+
+.sidebar-link {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+/* Style main display */
+#main-display {
+    margin-left: 170px;  /* Width of the sidebar + 20 */
+    margin-right: 20px;  /* Same as distance from sidebar on the left */
+}

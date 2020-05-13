@@ -1,14 +1,18 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+
+import Sidebar from './layout/Sidebar'
+import MainDisplay from './layout/MainDisplay'
 
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <h1>Welcome to Setlist</h1>
-    </div>
-  );
+    <Router>
+      <Sidebar/>
+      <MainDisplay/>
+    </Router>  
+  )
 }
 
 
-export default App;
+export default App
