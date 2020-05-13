@@ -51,7 +51,7 @@ class SearchConatiner extends Component {
     return (
       <div id="search-container">
         <SearchForm query={query} handleChange={this.handleChange} />
-        <SearchResults results={results} />
+        <SearchResults results={results}/>
       </div>
     )
   }

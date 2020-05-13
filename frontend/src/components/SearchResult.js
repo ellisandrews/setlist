@@ -7,7 +7,7 @@ const SearchResult = props => {
 
   return (
     <div>
-      <img src={imgSrc}/>
+      <img style={{maxHeight: 30, maxWidth: 30}} src={imgSrc}/>
       <span style={{paddingLeft: 20}}>{title} - {artist}</span>
     </div>
   )
