@@ -14,12 +14,7 @@ const SessionFormContainer = props => {
           <Image src={sessionFormImg} fluid />
         </Col>
         <Col>
-          {
-            props.location.pathname === '/signup' ?
-            <SignUpForm/>
-              :
-            <LogInForm/>
-          }
+          {props.location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
         </Col>
       </Row>
     </Container>
