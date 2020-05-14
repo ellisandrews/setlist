@@ -10,6 +10,8 @@ class SignUpForm extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      first_name: '',
+      last_name: '',
       email: '',
       password: '',
       password_confirmation: ''
@@ -32,9 +34,7 @@ class SignUpForm extends Component {
 
     // Call the signup action creator with a callback to send the user to the homepage after success
     signup(
-      this.state.email,
-      this.state.password,
-      this.state.password_confirmation,
+      this.state,
       () => history.push('/')
     )
   }
@@ -45,6 +45,12 @@ class SignUpForm extends Component {
       <Container className="col-4 text-center">
         <h1>Sign Up</h1>
         <Form onSubmit={this.handleSubmit}>
+          <Form.Group>
+            <Form.Control type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleInputChange}/>
+          </Form.Group>
+          <Form.Group>
+            <Form.Control type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/>
+          </Form.Group>
           <Form.Group>
             <Form.Control type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
           </Form.Group>

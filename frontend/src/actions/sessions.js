@@ -1,11 +1,28 @@
-export const login = (username, password, callback) => {
+export const login = (formData, callback) => {
     return dispatch => {
       console.log('Login action creator called')  
     }
 }
 
-export const signup = (username, password, password_confirmation, callback) => {
+export const signup = (formData, callback) => {
   return dispatch => {
-    console.log('signup action creator called')  
+
+    const req = {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        user: formData
+      })
+    }
+
+    fetch('http://localhost:3000/api/v1/users', req)
+      .then(resp => resp.json())
+      .then(user => {
+        console.log(user)
+        dispatch({ type: 'LOG_IN_SUCCESS', user })
+        callback()
+      })
   }
 }
