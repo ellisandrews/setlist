@@ -35,8 +35,7 @@ class LogInForm extends Component {
 
     // Call the login action creator with a callback to send the user to the homepage after successful login
     login(
-      this.state.email,
-      this.state.password,
+      this.state,
       () => history.replace(from)
     )
   }

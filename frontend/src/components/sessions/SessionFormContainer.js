@@ -1,11 +1,14 @@
 import React from 'react'
 import { Container, Row, Col, Image } from 'react-bootstrap'
+import { useLocation } from 'react-router-dom'
 import sessionFormImg from './session_form.jpg'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
 
 
-const SessionFormContainer = props => {
+const SessionFormContainer = () => {
+
+  const location = useLocation()
 
   return (
     <Container className="border">
@@ -14,7 +17,7 @@ const SessionFormContainer = props => {
           <Image src={sessionFormImg} fluid />
         </Col>
         <Col>
-          {props.location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
+          { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
         </Col>
       </Row>
     </Container>
