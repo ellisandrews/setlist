@@ -1,11 +1,10 @@
 import React from 'react'
-import SearchContainer from '../components/SearchContainer'
 import './layout.css'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../components/Home'
 import PrivateRoute from '../components/PrivateRoute'
-import SearchConatiner from '../components/SearchContainer'
 import Login from '../components/Login'
+import SearchContainer from '../components/SearchContainer'
 
 
 const MainDisplay = props => {
@@ -19,7 +18,7 @@ const MainDisplay = props => {
           <Login />
         </Route>
         <PrivateRoute exact path="/songs/new">
-          <SearchConatiner />
+          <SearchContainer />
         </PrivateRoute>
       </Switch>
     </div>

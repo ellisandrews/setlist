@@ -3,7 +3,7 @@ import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 
 
-class SearchConatiner extends Component {
+class SearchContainer extends Component {
 
   constructor() {
     super()
@@ -60,4 +60,4 @@ class SearchConatiner extends Component {
 }
 
 
-export default SearchConatiner
+export default SearchContainer
