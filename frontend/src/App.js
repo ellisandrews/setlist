@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Sidebar from './layout/Sidebar'
-import MainDisplay from './layout/MainDisplay'
+import Sidebar from './components/layout/Sidebar'
+import MainDisplay from './components/layout/MainDisplay'
 
 
 const App = () => {

@@ -1,10 +1,10 @@
 import React from 'react'
-import './layout.css'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../components/Home'
-import PrivateRoute from '../components/PrivateRoute'
-import SessionFormContainer from '../components/SessionFormContainer'
-import SearchContainer from '../components/SearchContainer'
+import Home from '../Home'
+import PrivateRoute from '../PrivateRoute'
+import SessionFormContainer from '../session/SessionFormContainer'
+import SearchContainer from '../search/SearchContainer'
+import './layout.css'
 
 
 const MainDisplay = props => {

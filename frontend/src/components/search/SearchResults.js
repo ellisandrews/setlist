@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { ListGroup } from 'react-bootstrap'
 import SearchResult from './SearchResult'
-import './Search.css'
+import './search.css'
 
 
 class SearchResults extends Component {

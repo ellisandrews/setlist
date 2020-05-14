@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { mapUserToProps } from '../../utils'
 import './layout.css'
-import { mapUserToProps } from '../utils'
 
 
 class Sidebar extends Component {
