@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap'
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
 import './layout.css'
+import { mapUserToProps } from '../utils'
 
 
 class Sidebar extends Component {
@@ -51,11 +52,4 @@ class Sidebar extends Component {
 }
 
 
-const mapStateToProps = state => {
-  return {
-    user: state.loggedInUser
-  }
-}
-
-
-export default connect(mapStateToProps)(Sidebar)
+export default connect(mapUserToProps)(Sidebar)
