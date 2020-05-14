@@ -5,7 +5,7 @@ import { Button, Container, Form } from 'react-bootstrap'
 import { signup } from '../actions/sessions'
 
 
-class LogInForm extends Component {
+class SignUpForm extends Component {
   
   constructor(props) {
     super(props)
@@ -68,4 +68,4 @@ class LogInForm extends Component {
 export default connect(
   null, 
   { signup }
-)(withRouter(LogInForm))
+)(withRouter(SignUpForm))
