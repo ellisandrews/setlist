@@ -7,17 +7,15 @@ import LogInForm from './LogInForm'
 
 const SessionFormContainer = props => {
 
-  const path = props.location.pathname
-
   return (
-    <Container className="border vertical-center">
+    <Container className="border">
       <Row>
         <Col xs={3}>
           <Image src={sessionFormImg} fluid />
         </Col>
         <Col>
           {
-            path === '/signup' ?
+            props.location.pathname === '/signup' ?
             <SignUpForm/>
               :
             <LogInForm/>
