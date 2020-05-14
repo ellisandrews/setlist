@@ -20,7 +20,7 @@ class SearchResults extends Component {
       const artist = result.artists[0].name
 
       return (
-        <ListGroup.Item action as="button" onClick={() => this.handleClick(result)} key={result.id}>
+        <ListGroup.Item action as='button' onClick={() => this.handleClick(result)} key={result.id}>
           <SearchResult imgSrc={imgSrc} title={title} artist={artist} />
         </ListGroup.Item>
       )
@@ -29,7 +29,7 @@ class SearchResults extends Component {
 
   render() {
     return (
-      <ListGroup id="search-results">
+      <ListGroup id='search-results'>
         {this.renderResults()}
       </ListGroup>
     )

@@ -9,15 +9,15 @@ import SearchContainer from '../components/SearchContainer'
 
 const MainDisplay = props => {
   return (
-    <div id="main-display">
+    <div id='main-display'>
       <Switch>
-        <Route exact path="/">
+        <Route exact path='/'>
           <Home />
         </Route>
-        <Route exact path="/login">
+        <Route exact path='/login'>
           <Login />
         </Route>
-        <PrivateRoute exact path="/songs/new">
+        <PrivateRoute exact path='/songs/new'>
           <SearchContainer />
         </PrivateRoute>
       </Switch>
