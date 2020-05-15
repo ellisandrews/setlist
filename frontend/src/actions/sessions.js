@@ -1,46 +1,51 @@
-export const login = (formData, callback) => {
-  return dispatch => {
-    
-    const req = {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        user: formData
-      })
-    }
+import { backendURL, handleResponse } from '../utils'
 
-    fetch('http://localhost:3000/api/v1/login', req)
-      .then(resp => resp.json())
-      .then(userData => {
-        dispatch({ type: 'LOG_IN_SUCCESS', user: userData.user })
-        localStorage.setItem('auth_token', userData.token)  // Save the JWT in localStorage
-        callback()
-      })
+
+const tokenName = 'auth_token'
+
+export const signup = (bodyData, callback) => {
+  return dispatch => {
+    sessionRequest('users', bodyData, callback, dispatch)
   }
 }
 
-
-export const signup = (formData, callback) => {
+export const login = (bodyData, callback) => {
   return dispatch => {
-
-    const req = {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({
-        user: formData
-      })
-    }
-
-    fetch('http://localhost:3000/api/v1/users', req)
-      .then(resp => resp.json())
-      .then(userData => {
-        dispatch({ type: 'LOG_IN_SUCCESS', user: userData.user })
-        localStorage.setItem('auth_token', userData.token)  // Save the JWT in localStorage
-        callback()
-      })
+    sessionRequest('login', bodyData, callback, dispatch)
   }
+}
+
+export const logout = () => {
+  localStorage.removeItem(tokenName)
+  return { type: 'LOG_OUT_USER' }
+}
+
+const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
+
+  const req = {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      user: bodyData
+    })
+  }
+
+  const success = userData => {
+    dispatch({ type: 'LOG_IN_USER', user: userData.user })  // Store user's data (including notes!)
+    localStorage.setItem(tokenName, userData.token)           // Save the user's token in localStorage
+    callback()
+  }
+
+  const failure = errorData => {
+    const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
+    window.alert(errorMessage)
+  }
+
+  fetch(`${backendURL}/${endpoint}`, req)
+    .then(resp => handleResponse(resp, success, failure))
+    .catch(err => {
+      window.alert(`Unknown Error: ${err}`)
+    })
 }
