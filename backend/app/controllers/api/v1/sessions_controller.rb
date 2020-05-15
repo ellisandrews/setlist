@@ -1,14 +1,22 @@
 class Api::V1::SessionsController < ApplicationController
+    
+    skip_before_action :authorized, only: [:create]
 
     def create
         user = User.find_by(email: session_params[:email])
         if user && user.authenticate(session_params[:password])
-            render json: user, status: :created
+            token = encode_token(user_id: user.id)  # Create a JWT encoded with the user_id
+            render json: { user: UserSerializer.new(user), token: token }, status: :created
         else
             render json: { error: 'Failed to log in', messages: ['Invalid email or password'] }, status: :forbidden
         end
     end
-  
+
+    def show
+        # The `authorized` action will return an error before we get to this line if applicable
+        render json: { user: UserSerializer.new(@user) }
+    end
+
     private
   
     def session_params
