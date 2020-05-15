@@ -1,34 +1,49 @@
 import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap'
 import { connect } from 'react-redux'
+import { LinkContainer } from 'react-router-bootstrap'
 import { mapUserToProps } from '../../utils'
+import { logout } from '../../actions/sessions'
 import './layout.css'
 
 
 class Sidebar extends Component {
   
+  renderHomeItem = () => {
+    // TODO: Change this first item to be a clickable app logo instead?
+    return (
+      <LinkContainer to='/'>
+        <Nav.Item as='button' className='border sidebar-link'>              
+          <ion-icon name='home-outline'></ion-icon><br/>
+          <span>Home</span>
+        </Nav.Item>
+      </LinkContainer>
+    )
+  }
+
   renderNavItems = () => {
+
+    const { user, logout } = this.props
+
     // Render navbar links if the user is logged in
-    if ( !!this.props.user ) {
+    if ( !!user ) {
       return (
         <>
-          <Nav.Item className='border'>
-            <Nav.Link className='sidebar-link' href='/songs/new' eventKey='new-song'>
+          <LinkContainer to='/songs/new'>
+            <Nav.Item as='button' className='border sidebar-link'>              
               <ion-icon name='musical-notes-outline'></ion-icon><br/>
               <span>New Song</span>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item className='border'>
-            <Nav.Link className='sidebar-link' href='/songs' eventKey='repertoire'>
+            </Nav.Item>
+          </LinkContainer>
+          <LinkContainer to='/songs'>
+            <Nav.Item as='button' className='border sidebar-link'>              
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item className='border'>
-            <Nav.Link className='sidebar-link' href='/songs' eventKey='log-out'>
-              <ion-icon name='log-out-outline'></ion-icon><br/>
-              <span>Log Out</span>
-            </Nav.Link>
+            </Nav.Item>
+          </LinkContainer>
+          <Nav.Item as='button' className='border sidebar-link' onClick={logout}>              
+            <ion-icon name='log-out-outline'></ion-icon><br/>
+            <span>Log Out</span>
           </Nav.Item>
         </>
       )
@@ -38,13 +53,7 @@ class Sidebar extends Component {
   render() {
     return (
       <Nav className='flex-column border' id='sidebar-nav'>
-        {/* TODO: Change this first item to app logo? */}
-        <Nav.Item className='border'>
-          <Nav.Link className='sidebar-link' href='/' eventKey='home'>
-            <ion-icon name='home-outline'></ion-icon><br/>
-            <span>Home</span>
-          </Nav.Link>
-        </Nav.Item>
+        {this.renderHomeItem()}
         {this.renderNavItems()}
       </Nav>
     )
@@ -52,4 +61,7 @@ class Sidebar extends Component {
 }
 
 
-export default connect(mapUserToProps)(Sidebar)
+export default connect(
+  mapUserToProps,
+  { logout }
+)(Sidebar)
