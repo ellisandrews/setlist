@@ -13,9 +13,9 @@ export const login = (formData, callback) => {
 
     fetch('http://localhost:3000/api/v1/login', req)
       .then(resp => resp.json())
-      .then(user => {
-        console.log(user)
-        dispatch({ type: 'LOG_IN_SUCCESS', user })
+      .then(userData => {
+        dispatch({ type: 'LOG_IN_SUCCESS', user: userData.user })
+        localStorage.setItem('auth_token', userData.token)  // Save the JWT in localStorage
         callback()
       })
   }
@@ -37,9 +37,9 @@ export const signup = (formData, callback) => {
 
     fetch('http://localhost:3000/api/v1/users', req)
       .then(resp => resp.json())
-      .then(user => {
-        console.log(user)
-        dispatch({ type: 'LOG_IN_SUCCESS', user })
+      .then(userData => {
+        dispatch({ type: 'LOG_IN_SUCCESS', user: userData.user })
+        localStorage.setItem('auth_token', userData.token)  // Save the JWT in localStorage
         callback()
       })
   }
