@@ -1,14 +1,15 @@
 import React from 'react'
+import { Image } from 'react-bootstrap'
 
 
 const SearchResult = props => {
 
-  const { imgSrc, title, artist } = props
+  const { artwork_url, title, artist } = props
   const displayText = `${title} - ${artist}`
 
   return (
     <div>
-      <img style={{maxHeight: 30, maxWidth: 30}} src={imgSrc} alt={`${displayText} album artwork`} />
+      <Image rounded fluid src={artwork_url} alt={`${displayText} album artwork`} />
       <span style={{paddingLeft: 20}}>{displayText}</span>
     </div>
   )

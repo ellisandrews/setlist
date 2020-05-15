@@ -5,23 +5,21 @@ import './search.css'
 
 
 class SearchResults extends Component {
-  
-  // TODO! This should really render the new song form with result data pre-popped somehow (redux?)
-  handleClick = result => {
-    console.log(result)
-  }
 
   renderResults = () => {
-    return this.props.results.map(result => {
+
+    const { results, handleSpotifyData } = this.props
+
+    return results.map(result => {
 
       // Extract the relevant data from the result object
-      const imgSrc = result.album.images.find(image => image.height === 64).url
+      const artwork_url = result.album.images.find(image => image.height === 64).url
       const title = result.name
       const artist = result.artists[0].name
 
       return (
-        <ListGroup.Item action as='button' onClick={() => this.handleClick(result)} key={result.id}>
-          <SearchResult imgSrc={imgSrc} title={title} artist={artist} />
+        <ListGroup.Item action as='button' onClick={() => handleSpotifyData(result)} key={result.id}>
+          <SearchResult artwork_url={artwork_url} title={title} artist={artist} />
         </ListGroup.Item>
       )
     })
