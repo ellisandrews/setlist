@@ -29,8 +29,8 @@ class App extends Component {
         headers: getAuthTokenHeader()
       }
       
-      const success = user => {
-        this.props.setLoggedInUser(user)
+      const success = userData => {
+        this.props.setLoggedInUser(userData.user)
         this.setState({ loading: false })
       }
 
