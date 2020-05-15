@@ -1,6 +1,11 @@
 export const backendURL = 'http://localhost:3000/api/v1'
 
-export const handleResponse = (resp, success, failure) => {
+export const genericAPIFailure = errorData => {
+  const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
+  window.alert(errorMessage)
+}
+
+export const handleResponse = (resp, success, failure = genericAPIFailure) => {
   // This function handles a fetch response object with appropriate callback functions.
   // The `success` and `failure` functions will be passed the JSON data returned from the server.
   
@@ -17,3 +22,14 @@ export const mapUserToProps = state => {
     user: state.loggedInUser
   }
 }
+
+const authTokenName = 'auth_token'
+
+export const getAuthToken = () => localStorage.getItem(authTokenName)
+
+export const setAuthToken = token => { localStorage.setItem(authTokenName, token) }
+
+export const removeAuthToken = () => { localStorage.removeItem(authTokenName) }
+
+export const getAuthTokenHeader = () => ({'Authorization': `Bearer ${getAuthToken()}`})
+

@@ -1,7 +1,5 @@
-import { backendURL, handleResponse } from '../utils'
+import { backendURL, handleResponse, setAuthToken, removeAuthToken } from '../utils'
 
-
-const tokenName = 'auth_token'
 
 export const signup = (bodyData, callback) => {
   return dispatch => {
@@ -16,8 +14,12 @@ export const login = (bodyData, callback) => {
 }
 
 export const logout = () => {
-  localStorage.removeItem(tokenName)
+  removeAuthToken()
   return { type: 'LOG_OUT_USER' }
+}
+
+export const setLoggedInUser = user => {
+  return { type: 'LOG_IN_USER', user }
 }
 
 const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
@@ -33,18 +35,14 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
   }
 
   const success = userData => {
-    dispatch({ type: 'LOG_IN_USER', user: userData.user })  // Store user's data (including notes!)
-    localStorage.setItem(tokenName, userData.token)           // Save the user's token in localStorage
+    dispatch(setLoggedInUser(userData.user))  // Store user's data (including notes!)
+    setAuthToken(userData.token)              // Save the user's auth token in localStorage
     callback()
   }
 
-  const failure = errorData => {
-    const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
-    window.alert(errorMessage)
-  }
-
+  // Fall back on the generic API failure of `handleResponse`
   fetch(`${backendURL}/${endpoint}`, req)
-    .then(resp => handleResponse(resp, success, failure))
+    .then(resp => handleResponse(resp, success))
     .catch(err => {
       window.alert(`Unknown Error: ${err}`)
     })

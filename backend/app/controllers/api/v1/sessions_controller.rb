@@ -14,7 +14,7 @@ class Api::V1::SessionsController < ApplicationController
 
     def show
         # The `authorized` action will return an error before we get to this line if applicable
-        render json: UserSerializer.new(@user)
+        render json: { user: UserSerializer.new(@user) }
     end
 
     private
