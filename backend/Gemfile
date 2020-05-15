@@ -45,3 +45,6 @@ gem 'rspotify'
 
 # JSON Web Tokens for auth
 gem 'jwt'
+
+# JSON serialization
+gem 'active_model_serializers', '~> 0.10.0'

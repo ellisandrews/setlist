@@ -5,7 +5,7 @@ const tokenName = 'auth_token'
 
 export const signup = (bodyData, callback) => {
   return dispatch => {
-    sessionRequest('users', bodyData, callback, dispatch)
+    sessionRequest('signup', bodyData, callback, dispatch)
   }
 }
 
