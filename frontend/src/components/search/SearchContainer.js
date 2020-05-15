@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
+import { backendURL } from '../../utils'
 
 
 class SearchContainer extends Component {
@@ -34,7 +35,7 @@ class SearchContainer extends Component {
     // Make a request to the backend, which hits the Spotify API and returns the results.
     // Then set the state to results, so that they are rendered
     // TODO: Don't hard-code backend URL. Also, catch errors.
-    const uri = encodeURI(`http://localhost:3000/api/v1/search/tracks?query=${query}`)
+    const uri = encodeURI(`${backendURL}/search/tracks?query=${query}`)
     fetch(uri)
       .then(resp => resp.json())
       .then(results => {
