@@ -31,13 +31,12 @@ class App extends Component {
       
       const success = userData => {
         this.props.setLoggedInUser(userData.user)
-        this.setState({ loading: false })
       }
 
-      // Fall back on the generic API failure of `handleResponse`
+      // Fall back on the generic API failure of `handleResponse`. Set loading to `false` regardless of success or failure.
       fetch(`${backendURL}/current_user`, req)
         .then(resp => handleResponse(resp, success))
-        .catch(() => { this.setState({ loading: false })})
+        .finally(() => { this.setState({ loading: false })})
     }
   }
 
