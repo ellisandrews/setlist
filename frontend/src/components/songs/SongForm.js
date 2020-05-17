@@ -4,7 +4,7 @@ import update from 'immutability-helper'
 import SongHeader from './SongHeader'
 
 
-const sectionFactory = (name = 'Fake Name', chords = 'Fake Chords', strumming = 'Fake Strumming') => ({ name, chords, strumming })
+const sectionFactory = (name = '', chords = '', strumming = '') => ({ name, chords, strumming })
 
 
 class SongForm extends Component {
@@ -41,19 +41,19 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Name</Form.Label>
             <Col sm={10}>
-              <Form.Control name="name" type="text" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control name="name" type="text" placeholder="Intro" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Chords</Form.Label>
             <Col sm={10}>
-              <Form.Control name="chords" type="text" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Strumming</Form.Label>
             <Col sm={10}>
-              <Form.Control name="strumming" type="text" value={section.strumming} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={section.strumming} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
         </div>
@@ -63,9 +63,6 @@ class SongForm extends Component {
   }
 
   render() {
-
-    // TODO: DELETE!
-    console.log(this.state)
 
     const { handleChange, handleSubmit, spotifyData } = this.props
     return (
