@@ -12,12 +12,27 @@ class SongForm extends Component {
   constructor(props) {
     super(props)
 
-    // Songs must have at least one section, so initialize with one
     this.state = {
-      sections: [sectionFactory()]
+      type: '',
+      capo: '',
+      notes: '',
+      sections: [sectionFactory()]  // Songs must have at least one section, so initialize with one
     }
   }
   
+  handleChange = event => {
+    const { name, value } = event.target
+    this.setState({
+      [name]: value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault()
+    const submitData = Object.assign({}, this.state, this.props.spotifyData)
+    console.log('Data to submit:', submitData)
+  }
+
   handleSectionChange = (event, index) => {
     
     const { name, value } = event.target
@@ -85,19 +100,13 @@ class SongForm extends Component {
     })
   }
 
-  renderAddSectionButton = () => {
-    return <Button onClick={this.addSection}>Add Section</Button>
-  }
-
   render() {
-    
-    const { handleChange, handleSubmit, spotifyData } = this.props
     
     return (
       <>
-        <SongHeader spotifyData={spotifyData} />
+        <SongHeader spotifyData={this.props.spotifyData} />
         
-        <Form onSubmit={handleSubmit}>
+        <Form onSubmit={this.handleSubmit}>
 
           <h3>General Info</h3>
 
@@ -105,18 +114,18 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Capo</Form.Label>
             <Col sm={10}>
-              <Form.Control name="capo" type="number" onChange={handleChange}/>
+              <Form.Control name="capo" type="number" onChange={this.handleChange}/>
             </Col>
           </Form.Group>
 
           {/* Type */}
           <fieldset>
-            <Form.Group as={Row} onChange={handleChange}>
+            <Form.Group as={Row} onChange={this.handleChange}>
               <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
               <Col sm={10}>
-                <Form.Check type="radio" name="type" label="None" value="" onChange={handleChange}/>
-                <Form.Check type="radio" name="type" label="Acoustic" value="Acoustic" onChange={handleChange}/>
-                <Form.Check type="radio" name="type" label="Electric" value="Electric" onChange={handleChange}/>
+                <Form.Check type="radio" name="type" label="None" value="" onChange={this.handleChange}/>
+                <Form.Check type="radio" name="type" label="Acoustic" value="Acoustic" onChange={this.handleChange}/>
+                <Form.Check type="radio" name="type" label="Electric" value="Electric" onChange={this.handleChange}/>
               </Col>
             </Form.Group>
           </fieldset>
@@ -124,7 +133,7 @@ class SongForm extends Component {
           <h3>Sections</h3>
 
           {this.renderSections()}
-          {this.renderAddSectionButton()}
+          <Button onClick={this.addSection}>Add Section</Button>
 
           <h3>Notes</h3>
 
@@ -132,7 +141,7 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Notes</Form.Label>
             <Col sm={10}>
-              <Form.Control as="textarea" rows="5" name="notes" onChange={handleChange}/>
+              <Form.Control as="textarea" rows="5" name="notes" onChange={this.handleChange}/>
             </Col>
           </Form.Group>
 
