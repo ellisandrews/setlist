@@ -29,6 +29,7 @@ class SongForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
+    // Combine data entered by the user in the form with spotify data collected to submit to the backend.
     const submitData = Object.assign({}, this.state, this.props.spotifyData)
     console.log('Data to submit:', submitData)
   }
