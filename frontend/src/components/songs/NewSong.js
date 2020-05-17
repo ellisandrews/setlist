@@ -47,14 +47,13 @@ class NewSong extends Component {
   }
 
   renderContent = () => {
-    const { step, title, artist, type, capo, notes, spotify_id, artwork_url, sections } = this.state
-    const values = { title, artist, type, capo, notes, spotify_id, artwork_url, sections }
-    
-    switch (step) {
+    switch (this.state.step) {
       case 1:
         return <SearchContainer handleSpotifyData={this.handleSpotifyData}/>
       case 2:
-        return <SongForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} values={values}/>
+        const { title, artist, spotify_id, artwork_url } = this.state
+        const spotifyData = { title, artist, spotify_id, artwork_url }
+        return <SongForm handleChange={this.handleChange} handleSubmit={this.handleSubmit} spotifyData={spotifyData}/>
     }
   }
 
