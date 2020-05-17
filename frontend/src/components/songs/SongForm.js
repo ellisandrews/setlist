@@ -59,12 +59,25 @@ class SongForm extends Component {
         </div>
       )
     })
-    
+  }
+
+  addSection = () => {
+    // Update the state to show another section. Use immutability helper to simplify the update while not mutating the state.
+    this.setState(prevState => {
+      return update(
+        prevState, 
+        {sections: {$push: [sectionFactory()] }}
+      )
+    })
+  }
+
+  renderAddSectionButton = () => {
+    return <Button onClick={this.addSection}>Add Section</Button>
   }
 
   render() {
-
     const { handleChange, handleSubmit, spotifyData } = this.props
+    
     return (
       <>
         <SongHeader spotifyData={spotifyData} />
@@ -95,8 +108,8 @@ class SongForm extends Component {
 
           <h3>Sections</h3>
 
-          {/* Section(s) */}
           {this.renderSections()}
+          {this.renderAddSectionButton()}
 
           <h3>Notes</h3>
 
