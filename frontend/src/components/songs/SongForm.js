@@ -56,6 +56,11 @@ class SongForm extends Component {
               <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={section.strumming} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
+          <Form.Group as={Row}>
+            <Col sm={{ span: 10, offset: 2 }}>
+              <Button onClick={() => this.removeSection(index)}>Remove</Button>
+            </Col>
+          </Form.Group>
         </div>
       )
     })
@@ -71,11 +76,21 @@ class SongForm extends Component {
     })
   }
 
+  removeSection = index => {
+    // Update the state to remove the section at position `index`
+    this.setState(prevState => {
+      return {
+        sections: prevState.sections.filter((section, i) => i !== index)
+      }
+    })
+  }
+
   renderAddSectionButton = () => {
     return <Button onClick={this.addSection}>Add Section</Button>
   }
 
   render() {
+    
     const { handleChange, handleSubmit, spotifyData } = this.props
     
     return (
