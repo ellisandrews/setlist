@@ -31,12 +31,18 @@ class App extends Component {
       
       const success = userData => {
         this.props.setLoggedInUser(userData.user)
+        this.setState({ loading: false })
       }
 
-      // Fall back on the generic API failure of `handleResponse`. Set loading to `false` regardless of success or failure.
+      const failure = () => {
+        // An error in this case simply means we failed to authenticate the user. They will be redirected to the /login page.
+        this.setState({ loading: false })
+      }
+
+      // Make the request to the backend to try to authenticate the user.
       fetch(`${backendURL}/current_user`, req)
-        .then(resp => handleResponse(resp, success))
-        .finally(() => { this.setState({ loading: false })})
+        .then(resp => handleResponse(resp, success, failure))
+        .catch(error => { console.log(error) })
     }
   }
 
