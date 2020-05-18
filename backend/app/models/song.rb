@@ -5,4 +5,8 @@ class Song < ApplicationRecord
     has_many :sections
 
     accepts_nested_attributes_for :sections 
+
+    # Validations
+    validates :spotify_track, uniqueness: { scope: :user, message: "already has a song created by this user"  }
+
 end
