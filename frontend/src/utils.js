@@ -23,6 +23,12 @@ export const mapUserToProps = state => {
   }
 }
 
+export const mapSongsToProps = state => {
+  return {
+    songs: state.songs
+  }
+}
+
 const authTokenName = 'auth_token'
 
 export const getAuthToken = () => localStorage.getItem(authTokenName)
