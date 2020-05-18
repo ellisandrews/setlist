@@ -35,7 +35,6 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
   }
 
   const success = userData => {
-    console.log('USER', userData)
     dispatch(setLoggedInUser(userData.user))  // Store user's data (including notes!)
     setAuthToken(userData.token)              // Save the user's auth token in localStorage
     callback()
