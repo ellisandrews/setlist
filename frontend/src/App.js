@@ -4,7 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import Sidebar from './components/layout/Sidebar'
 import MainDisplay from './components/layout/MainDisplay'
 import { backendURL, getAuthToken, getAuthTokenHeader, handleResponse, mapUserToProps } from './utils'
-import { setLoggedInUser, setUserSongs } from './actions/sessions'
+import { setLoggedInUser } from './actions/sessions'
+import { setSongs } from './actions/songs'
 import Loading from './components/Loading'
 
 
@@ -29,11 +30,11 @@ class App extends Component {
         headers: getAuthTokenHeader()
       }
       
-      const { setLoggedInUser, setUserSongs } = this.props
+      const { setLoggedInUser, setSongs } = this.props
 
       const success = userData => {
         setLoggedInUser(userData.user)
-        setUserSongs(userData.songs)
+        setSongs(userData.songs)
         this.setState({ loading: false })
       }
 
@@ -69,5 +70,5 @@ class App extends Component {
 
 export default connect(
   mapUserToProps,
-  { setLoggedInUser, setUserSongs }
+  { setLoggedInUser, setSongs }
 )(App)
