@@ -10,7 +10,10 @@ const songsReducer = (state = initialState, action) => {
 
     case 'LOG_OUT_USER':
       return initialState
-        
+
+    case 'ADD_SONG':
+      return [...state, action.song]
+      
     default:
       return state
   }
