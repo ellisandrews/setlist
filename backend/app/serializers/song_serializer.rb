@@ -1,3 +1,4 @@
 class SongSerializer < ActiveModel::Serializer
-    attributes :title, :artist, :guitar_type, :capo, :notes, :spotify_id, :artwork_url, :user_id
+    attributes :id, :spotify_id, :title, :artist, :artwork_url, :guitar_type, :capo, :notes, :user_id
+    has_many :sections
 end

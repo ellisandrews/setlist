@@ -22,6 +22,10 @@ export const setLoggedInUser = user => {
   return { type: 'LOG_IN_USER', user }
 }
 
+export const setUserSongs = songs => {
+  return { type: 'SET_USER_SONGS', songs }
+}
+
 const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
 
   const req = {
@@ -35,7 +39,8 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
   }
 
   const success = userData => {
-    dispatch(setLoggedInUser(userData.user))  // Store user's data (including notes!)
+    dispatch(setLoggedInUser(userData.user))  // Store user's data in redux
+    dispatch(setUserSongs(userData.songs))    // Store the user's songs in redux
     setAuthToken(userData.token)              // Save the user's auth token in localStorage
     callback()
   }
