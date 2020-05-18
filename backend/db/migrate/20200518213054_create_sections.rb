@@ -15,3 +15,6 @@ class CreateSections < ActiveRecord::Migration[6.0]
     add_index :sections, [:song_id, :display_order], unique: true
   end
 end
+
+
+# Original: 20200512165059

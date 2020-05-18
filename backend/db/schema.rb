@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_12_165059) do
+ActiveRecord::Schema.define(version: 2020_05_18_213054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,18 +28,26 @@ ActiveRecord::Schema.define(version: 2020_05_12_165059) do
   end
 
   create_table "songs", force: :cascade do |t|
-    t.string "title", null: false
-    t.string "artist", null: false
     t.string "guitar_type"
     t.integer "capo"
     t.text "notes"
-    t.string "spotify_id", null: false
-    t.string "artwork_url"
     t.bigint "user_id", null: false
+    t.bigint "spotify_track_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id", "spotify_id"], name: "index_songs_on_user_id_and_spotify_id", unique: true
+    t.index ["spotify_track_id"], name: "index_songs_on_spotify_track_id"
+    t.index ["user_id", "spotify_track_id"], name: "index_songs_on_user_id_and_spotify_track_id", unique: true
     t.index ["user_id"], name: "index_songs_on_user_id"
+  end
+
+  create_table "spotify_tracks", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "artist", null: false
+    t.string "spotify_id", null: false
+    t.string "artwork_url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["spotify_id"], name: "index_spotify_tracks_on_spotify_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -53,5 +61,6 @@ ActiveRecord::Schema.define(version: 2020_05_12_165059) do
   end
 
   add_foreign_key "sections", "songs"
+  add_foreign_key "songs", "spotify_tracks"
   add_foreign_key "songs", "users"
 end
