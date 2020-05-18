@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form, Row, Col } from 'react-bootstrap'
 import update from 'immutability-helper'
-import SongHeader from './SongHeader'
-import { getAuthTokenHeader, backendURL } from '../../utils'
 
 
 const sectionFactory = (name = '', chords = '', strumming = '') => ({ name, chords, strumming })
@@ -26,36 +24,6 @@ class SongForm extends Component {
     this.setState({
       [name]: value
     })
-  }
-
-  // TODO: Move this logic to a prop, so this SongForm component can be reused across New/Edit views.
-  handleSubmit = event => {
-    event.preventDefault()
-    
-    // Create new object to aggregate spotify and user-entered data to be sent to the server
-    const songData = {}
-
-    // Aggregate the data, renaming `sections` to `sections_attributes` which is what the server expects
-    delete Object.assign(songData, this.props.spotifyData, this.state, { sections_attributes: this.state.sections }).sections
-
-    // Each section needs to have a `display_order` attribute at time of submit. Use the order of the array.
-    songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
-
-    const req = {
-      method: 'POST',
-      headers:{
-        ...getAuthTokenHeader(),
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        song: songData
-      })
-    }
-
-    // TODO: Standardize with rest of project
-    fetch(`${backendURL}/songs`, req)
-    .then(resp => resp.json())
-    .then(song => console.log('Data returned:', song))
   }
 
   handleSectionChange = (event, index) => {
@@ -128,58 +96,53 @@ class SongForm extends Component {
   render() {
     
     return (
-      <>
-        <SongHeader spotifyData={this.props.spotifyData} />
-        
-        <Form onSubmit={this.handleSubmit}>
+      <Form onSubmit={event => this.props.handleSubmit(event, this.state)}>
 
-          <h3>General Info</h3>
+        <h3>General Info</h3>
 
-          {/* Capo */}
-          <Form.Group as={Row}>
-            <Form.Label column sm={2}>Capo</Form.Label>
+        {/* Capo */}
+        <Form.Group as={Row}>
+          <Form.Label column sm={2}>Capo</Form.Label>
+          <Col sm={10}>
+            <Form.Control name="capo" type="number" onChange={this.handleChange}/>
+          </Col>
+        </Form.Group>
+
+        {/* Type */}
+        <fieldset>
+          <Form.Group as={Row} onChange={this.handleChange}>
+            <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
             <Col sm={10}>
-              <Form.Control name="capo" type="number" onChange={this.handleChange}/>
+              <Form.Check type="radio" name="guitar_type" label="None" value="" onChange={this.handleChange}/>
+              <Form.Check type="radio" name="guitar_type" label="Acoustic" value="Acoustic" onChange={this.handleChange}/>
+              <Form.Check type="radio" name="guitar_type" label="Electric" value="Electric" onChange={this.handleChange}/>
             </Col>
           </Form.Group>
+        </fieldset>
 
-          {/* Type */}
-          <fieldset>
-            <Form.Group as={Row} onChange={this.handleChange}>
-              <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
-              <Col sm={10}>
-                <Form.Check type="radio" name="guitar_type" label="None" value="" onChange={this.handleChange}/>
-                <Form.Check type="radio" name="guitar_type" label="Acoustic" value="Acoustic" onChange={this.handleChange}/>
-                <Form.Check type="radio" name="guitar_type" label="Electric" value="Electric" onChange={this.handleChange}/>
-              </Col>
-            </Form.Group>
-          </fieldset>
+        <h3>Sections</h3>
 
-          <h3>Sections</h3>
+        {this.renderSections()}
+        <Button onClick={this.addSection}>Add Section</Button>
 
-          {this.renderSections()}
-          <Button onClick={this.addSection}>Add Section</Button>
+        <h3>Notes</h3>
 
-          <h3>Notes</h3>
+        {/* Notes */}
+        <Form.Group as={Row}>
+          <Form.Label column sm={2}>Notes</Form.Label>
+          <Col sm={10}>
+            <Form.Control as="textarea" rows="5" name="notes" onChange={this.handleChange}/>
+          </Col>
+        </Form.Group>
 
-          {/* Notes */}
-          <Form.Group as={Row}>
-            <Form.Label column sm={2}>Notes</Form.Label>
-            <Col sm={10}>
-              <Form.Control as="textarea" rows="5" name="notes" onChange={this.handleChange}/>
-            </Col>
-          </Form.Group>
+        {/* Submit */}
+        <Form.Group as={Row}>
+          <Col sm={{ span: 10, offset: 2 }}>
+            <Button type="submit">Save</Button>
+          </Col>
+        </Form.Group>
 
-          {/* Submit */}
-          <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
-              <Button type="submit">Save</Button>
-            </Col>
-          </Form.Group>
-
-        </Form>
-      
-      </>
+      </Form>
     )
   }
 }
