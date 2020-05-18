@@ -60,7 +60,10 @@ class NewSong extends Component {
       })
     }
 
-    // TODO: Standardize with rest of project
+    // TODO: Standardize with rest of project.
+    // On success should:
+    //     1. Redirect the user to the newly created song's show page
+    //     2. Add the song to the redux store of the user's songs
     fetch(`${backendURL}/songs`, req)
     .then(resp => resp.json())
     .then(song => console.log('Data returned:', song))
