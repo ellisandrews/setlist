@@ -19,6 +19,7 @@ class Api::V1::SongsController < ApplicationController
         # Make sure the spotify track is valid before proceeding. Don't persist yet due to the fact that we don't know if the Song is valid.
         if !spotify_track.valid?
             render json: { error: 'Failed to create song', messages: spotify_track.errors.full_messages }, status: :bad_request
+        end
 
         # Create the Song and associate it with the SpotifyTrack and User
         song = Song.new(song_params)
@@ -44,7 +45,7 @@ class Api::V1::SongsController < ApplicationController
 
         permitted_spotify_track_params = spotify_track_params.permit(:title, :artist, :spotify_id, :artwork_url)
 
-        return song_params, spotify_track_params
+        return permitted_song_params, permitted_spotify_track_params
     end
 
 end

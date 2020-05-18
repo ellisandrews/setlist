@@ -4,10 +4,10 @@ import SongHeader from './SongHeader'
 
 
 const SongFormContainer = props => {
-  const { spotifyData, handleSubmit } = props
+  const { spotifyTrack, handleSubmit } = props
   return (
     <div>
-      <SongHeader spotifyData={spotifyData} />
+      <SongHeader spotifyTrack={spotifyTrack} />
       <SongForm handleSubmit={handleSubmit} />
     </div>
   )

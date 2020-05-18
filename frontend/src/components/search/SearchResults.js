@@ -8,7 +8,7 @@ class SearchResults extends Component {
 
   renderResults = () => {
 
-    const { results, handleSpotifyData } = this.props
+    const { results, handleSpotifyTrack } = this.props
 
     return results.map(result => {
 
@@ -18,7 +18,7 @@ class SearchResults extends Component {
       const artist = result.artists[0].name
 
       return (
-        <ListGroup.Item action as='button' onClick={() => handleSpotifyData(result)} key={result.id}>
+        <ListGroup.Item action as='button' onClick={() => handleSpotifyTrack(result)} key={result.id}>
           <SearchResult artwork_url={artwork_url} title={title} artist={artist} />
         </ListGroup.Item>
       )
