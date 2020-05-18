@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :spotify_tracks
   # Namespace endpoints to /api/v1
   namespace :api do
     namespace :v1 do
