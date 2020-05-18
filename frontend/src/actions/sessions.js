@@ -1,4 +1,5 @@
 import { backendURL, handleResponse, setAuthToken, removeAuthToken } from '../utils'
+import { setSongs } from './songs'
 
 
 export const signup = (bodyData, callback) => {
@@ -35,7 +36,8 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
   }
 
   const success = userData => {
-    dispatch(setLoggedInUser(userData.user))  // Store user's data (including notes!)
+    dispatch(setLoggedInUser(userData.user))  // Store user's data in redux
+    dispatch(setSongs(userData.songs))    // Store the user's songs in redux
     setAuthToken(userData.token)              // Save the user's auth token in localStorage
     callback()
   }

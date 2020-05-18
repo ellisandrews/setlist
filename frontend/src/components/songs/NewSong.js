@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import SearchContainer from '../search/SearchContainer'
 import SongFormContainer from './SongFormContainer'
-import { getAuthTokenHeader, backendURL } from '../../utils'
+import { addSong } from '../../actions/songs'
+import { getAuthTokenHeader, backendURL, handleResponse } from '../../utils'
 
 
 class NewSong extends Component {
@@ -60,13 +63,16 @@ class NewSong extends Component {
       })
     }
 
-    // TODO: Standardize with rest of project.
-    // On success should:
-    //     1. Redirect the user to the newly created song's show page
-    //     2. Add the song to the redux store of the user's songs
+    const { addSong, history } = this.props
+
+    const success = song => {
+      addSong(song)  // Add the song to redux store
+      history.push(`/songs/${song.id}`)  // Redirect to the newly created song's show view
+    }
+
+    // TODO: What to do on failure?
     fetch(`${backendURL}/songs`, req)
-    .then(resp => resp.json())
-    .then(song => console.log('Data returned:', song))
+      .then(resp => handleResponse(resp, success))
   }
 
   render() {
@@ -85,4 +91,7 @@ class NewSong extends Component {
 }
 
 
-export default NewSong
+export default connect(
+  null,
+  { addSong }
+)(withRouter(NewSong))
