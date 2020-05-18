@@ -4,7 +4,7 @@ class CreateSongs < ActiveRecord::Migration[6.0]
     create_table :songs do |t|
       t.string :title, null: false
       t.string :artist, null: false
-      t.string :type
+      t.string :guitar_type
       t.integer :capo
       t.text :notes
       t.string :spotify_id, null: false

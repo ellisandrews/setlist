@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
-import { backendURL } from '../../utils'
+import { backendURL, getAuthTokenHeader, handleResponse } from '../../utils'
 
 
 class SearchContainer extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
 
     this.state = {
       query: '',
@@ -32,28 +32,24 @@ class SearchContainer extends Component {
       return
     }
 
+    const success = results => {
+      this.setState({ results })
+    }
+
     // Make a request to the backend, which hits the Spotify API and returns the results.
     // Then set the state to results, so that they are rendered
-    // TODO: Don't hard-code backend URL. Also, catch errors.
     const uri = encodeURI(`${backendURL}/search/tracks?query=${query}`)
-    fetch(uri)
-      .then(resp => resp.json())
-      .then(results => {
-        this.setState({
-          results: results
-        })
-      })
+    fetch(uri, { headers: getAuthTokenHeader() })
+      .then(resp => handleResponse(resp, success))
   }
 
   render() {
-
     const { query, results } = this.state
 
     return (
       <div id='search-container'>
-        <h1>New Song</h1>
         <SearchForm query={query} handleChange={this.handleChange} />
-        <SearchResults results={results}/>
+        <SearchResults results={results} handleSpotifyData={this.props.handleSpotifyData}/>
       </div>
     )
   }
