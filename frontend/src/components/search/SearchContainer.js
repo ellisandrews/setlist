@@ -49,7 +49,7 @@ class SearchContainer extends Component {
     return (
       <div id='search-container'>
         <SearchForm query={query} handleChange={this.handleChange} />
-        <SearchResults results={results} handleSpotifyData={this.props.handleSpotifyData}/>
+        <SearchResults results={results} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
       </div>
     )
   }

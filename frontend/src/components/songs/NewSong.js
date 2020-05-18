@@ -12,11 +12,11 @@ class NewSong extends Component {
   constructor(props) {
     super(props)
 
-    // Hold spotify data that will be collected via search and then passed along to the SongForm.
+    // Hold spotify trakc data that will be collected via search and then passed along to the SongForm.
     // Also hold a boolean for whether to display the spotify search bar, or the SongForm
     this.state = {
       displaySearch: true,
-      spotifyData: {
+      spotifyTrack: {
         spotify_id: '',
         title: '',
         artist: '',
@@ -25,12 +25,12 @@ class NewSong extends Component {
     }
   }
 
-  handleSpotifyData = trackData => {
+  handleSpotifyTrack = trackData => {
     // Extract relevant data for the Spotify track that was clicked on in search results.
     const artwork = trackData.album.images.find(image => image.height === 640) || trackData.album.images[0]    
     this.setState({
-      displaySearch: false,  // Toggle to now display the SongForm (to which spotifyData will be passed)
-      spotifyData: {
+      displaySearch: false,  // Toggle to now display the SongForm (to which spotifyTrack will be passed)
+      spotifyTrack: {
         title: trackData.name,
         artist: trackData.artists[0].name,
         spotify_id: trackData.id,
@@ -43,15 +43,16 @@ class NewSong extends Component {
   handleSubmit = (event, formData) => {
     event.preventDefault()
     
-    // Create new object to aggregate spotify and user-entered form data to be sent to the server
+    // Create new object to hold the song data (independent of the spotifyTrack)
     const songData = {}
 
-    // Aggregate the spotify and form data, renaming `sections` to `sections_attributes` which is what the server expects
-    delete Object.assign(songData, this.state.spotifyData, formData, { sections_attributes: formData.sections }).sections
+    // Rename `sections` to `sections_attributes` which is what the server expects.
+    delete Object.assign(songData, formData, { sections_attributes: formData.sections }).sections
 
-    // Each section needs to have a `display_order` attribute at time of submit. Use the order of the array.
+    // Add `display_order` attribute to each section. Use the order of the array.
     songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
 
+    // Prepare the request to the server, including both the song data and the spotify track data
     const req = {
       method: 'POST',
       headers:{
@@ -59,7 +60,8 @@ class NewSong extends Component {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        song: songData
+        song: songData,
+        spotify_track: this.state.spotifyTrack
       })
     }
 
@@ -70,6 +72,7 @@ class NewSong extends Component {
       history.push(`/songs/${song.id}`)  // Redirect to the newly created song's show view
     }
 
+    // Make the request to the backend to create the Song (and the SpotifyTrack if necessary)
     // TODO: What to do on failure?
     fetch(`${backendURL}/songs`, req)
       .then(resp => handleResponse(resp, success))
@@ -81,9 +84,9 @@ class NewSong extends Component {
         <h3>New Song</h3>
         {
           this.state.displaySearch ?
-          <SearchContainer handleSpotifyData={this.handleSpotifyData}/>
+          <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <SongFormContainer spotifyData={this.state.spotifyData} handleSubmit={this.handleSubmit}/>
+          <SongFormContainer spotifyTrack={this.state.spotifyTrack} handleSubmit={this.handleSubmit}/>
         }
       </div>
     )

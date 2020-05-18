@@ -4,7 +4,7 @@ import { Row, Col, Image } from 'react-bootstrap'
 
 const SongHeader = props => {
 
-  const { artwork_url, title, artist, spotify_id } = props.spotifyData
+  const { artwork_url, title, artist, spotify_id } = props.spotifyTrack
 
   return (
     <div>

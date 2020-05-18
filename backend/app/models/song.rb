@@ -1,10 +1,12 @@
 class Song < ApplicationRecord
     # Associations
     belongs_to :user
+    belongs_to :spotify_track
     has_many :sections
 
-    accepts_nested_attributes_for :sections
+    accepts_nested_attributes_for :sections 
 
     # Validations
-    validates :title, :artist, :spotify_id, presence: true 
+    validates :spotify_track, uniqueness: { scope: :user, message: "already has a song created by this user"  }
+
 end

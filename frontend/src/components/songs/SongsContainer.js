@@ -5,7 +5,7 @@ import NewSong from './NewSong'
 import ShowSong from './ShowSong'
 
 
-const SongsContainer = props => {
+const SongsContainer = () => {
 
   const { path } = useRouteMatch()
 
