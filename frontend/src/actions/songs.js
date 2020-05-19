@@ -67,7 +67,7 @@ export const deleteSongAsync = (songId, redirect) => {
       window.alert(error.messages.join(', '))
     }
 
-    fetch(`http://localhost:3000/songs/${songId}`, req)
+    fetch(`${backendURL}/songs/${songId}`, req)
       .then(resp => handleResponse(resp, success, failure))
       .catch(err => {
         window.alert(`Unknown Error: ${err}`)

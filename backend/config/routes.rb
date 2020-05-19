@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       # https://guides.rubyonrails.org/routing.html#shallow-nesting
       
       resources :users, only: [:create]
-      resources :songs, only: [:create]
+      resources :songs, only: [:create, :destroy]
 
       post '/signup', to: 'users#create'
       post '/login', to: 'sessions#create'

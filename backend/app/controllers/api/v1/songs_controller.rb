@@ -33,6 +33,16 @@ class Api::V1::SongsController < ApplicationController
         end
     end
     
+    def destroy
+        song = Song.find(params[:id])
+        begin
+            song.destroy!
+            render json: { messages: ['Song successfully deleted'] }
+        rescue ActiveRecord::RecordNotDestroyed => invalid
+            render json: { error: 'Failed to delete song', message: invalid.record.errors.full_messages }, status: :internal_server_error
+        end
+    end
+
     private
 
     def create_params
