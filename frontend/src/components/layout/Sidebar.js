@@ -35,7 +35,7 @@ class Sidebar extends Component {
               <span>New Song</span>
             </Nav.Item>
           </LinkContainer>
-          <LinkContainer to='/songs'>
+          <LinkContainer to='/repertoire'>
             <Nav.Item as='button' className='border sidebar-link'>              
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
