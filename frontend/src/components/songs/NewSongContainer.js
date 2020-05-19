@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import SearchContainer from '../search/SearchContainer'
-import SongFormContainer from './SongFormContainer'
+import SongForm from './SongForm'
+import SongHeader from './SongHeader'
 import { addSongAsync } from '../../actions/songs'
 
 
@@ -38,6 +39,13 @@ class NewSongContainer extends Component {
     })
   }
 
+  handleCancel = () => {
+    const abandonChanges = window.confirm('Are you sure you want to abondon changes?')
+    if (abandonChanges) {
+      this.props.history.push(`/notes`)
+    }
+  }
+
   // Form submit action that is specific to creating a new song (must pass spotify data and form data to backend)
   handleSubmit = (event, formData) => {
     event.preventDefault()
@@ -68,7 +76,10 @@ class NewSongContainer extends Component {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <SongFormContainer spotifyTrack={this.state.spotifyTrack} handleSubmit={this.handleSubmit}/>
+          <>
+            <SongHeader spotifyTrack={this.state.spotifyTrack}/>
+            <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
+          </>
         }
       </div>
     )

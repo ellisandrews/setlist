@@ -12,7 +12,7 @@ const SongsContainer = () => {
   return (
     <Switch>
       <Route exact path={path}>
-        <h3>Songs</h3>
+        <h2>Songs</h2>
       </Route>
       <Route exact path={`${path}/new`}>
         <NewSongContainer/>

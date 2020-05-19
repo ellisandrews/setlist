@@ -11,6 +11,10 @@ export const addSong = song => {
   return { type: 'ADD_SONG', song}
 }
 
+export const updateSong = (songId, updatedSong) => {
+  return { type: 'UPDATE_SONG', songId, updatedSong }
+}
+
 export const deleteSong = songId => {
   return { type: 'DELETE_SONG', songId }
 }
@@ -43,6 +47,37 @@ export const addSongAsync = (songData, spotifyTrack, redirectToSong) => {
     }
 
     fetch(`${backendURL}/songs`, req)
+      .then(resp => handleResponse(resp, success, failure))
+      .catch(err => {
+        window.alert(`Unknown Error: ${err}`)
+      })
+  }
+}
+
+export const updateSongAsync = (songId, songData, redirectToSong) => {
+  return dispatch => {    
+
+    const req = {
+      method: 'PATCH',
+      headers: {
+        ...getAuthTokenHeader(),
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        song: songData
+      })
+    }
+
+    const success = song => {
+      dispatch(updateSong(songId, song))
+      redirectToSong(song.id)
+    }
+
+    const failure = error => {
+      window.alert(error.messages.join(', '))
+    }
+    
+    fetch(`${backendURL}/songs/${songId}`, req)
       .then(resp => handleResponse(resp, success, failure))
       .catch(err => {
         window.alert(`Unknown Error: ${err}`)
