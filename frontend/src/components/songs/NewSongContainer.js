@@ -7,7 +7,7 @@ import { addSong } from '../../actions/songs'
 import { getAuthTokenHeader, backendURL, handleResponse } from '../../utils'
 
 
-class NewSong extends Component {
+class NewSongContainer extends Component {
   
   constructor(props) {
     super(props)
@@ -81,7 +81,7 @@ class NewSong extends Component {
   render() {
     return (
       <div>
-        <h3>New Song</h3>
+        <h2>New Song</h2>
         {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
@@ -97,4 +97,4 @@ class NewSong extends Component {
 export default connect(
   null,
   { addSong }
-)(withRouter(NewSong))
+)(withRouter(NewSongContainer))
