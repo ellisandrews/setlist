@@ -47,7 +47,7 @@ class ShowSong extends Component {
 
         <div id="setup">
           <h3>Setup</h3>
-          <h5>Guitar Type: {guitar_type}</h5>
+          <h5>Guitar Type: {guitar_type || 'Any'}</h5>
           <h5>Capo: {capo || 'None'}</h5>
         </div>
 
@@ -58,7 +58,7 @@ class ShowSong extends Component {
               
         <div id="notes">
           <h3>Notes</h3>
-          <p>{notes}</p>
+          <p>{notes || 'None'}</p>
         </div>
 
         <Button variant="primary" href={`/songs/${id}/edit`}>Edit</Button>{' '}

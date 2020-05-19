@@ -33,6 +33,16 @@ class Api::V1::SongsController < ApplicationController
         end
     end
     
+    def update
+        song = Song.find(params[:id])
+        song.assign_attributes(update_params)
+        if song.save
+            render json: song, status: :created
+        else
+            render json: { error: 'Failed to update song', messages: song.errors.full_messages }, status: :bad_request
+        end
+    end
+
     def destroy
         song = Song.find(params[:id])
         begin
@@ -46,16 +56,30 @@ class Api::V1::SongsController < ApplicationController
     private
 
     def create_params
+        # Require both `:song` and `:spotify_track` top-level keys
         song_params, spotify_track_params = params.require([:song, :spotify_track])
         
-        permitted_song_params = song_params.permit(
-            :guitar_type, :capo, :notes,  # User generated data
-            sections_attributes: [:id, :name, :chords, :strumming, :display_order, :_destroy]  # Associations data
-        )
+        # Permit fields of each top-level key
+        permitted_song_params = permit_song_params(song_params)
+        permitted_spotify_track_params = permit_spotify_track_params(spotify_track_params)
 
-        permitted_spotify_track_params = spotify_track_params.permit(:title, :artist, :spotify_id, :artwork_url)
-
+        # Return the permitted params
         return permitted_song_params, permitted_spotify_track_params
     end
 
+    def update_params
+        song_params = params.require(:song)
+        permit_song_params(song_params)
+    end
+
+    def permit_song_params(raw_song_params)
+        raw_song_params.permit(
+            :guitar_type, :capo, :notes,  # User generated data
+            sections_attributes: [:id, :name, :chords, :strumming, :display_order, :_destroy]  # Associations data
+        )
+    end
+
+    def permit_spotify_track_params(raw_spotify_track_params)
+        raw_spotify_track_params.permit(:title, :artist, :spotify_id, :artwork_url)
+    end
 end
