@@ -80,7 +80,7 @@ class NewSongContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div id="new-song-container">
         <h2>New Song</h2>
         {
           this.state.displaySearch ?

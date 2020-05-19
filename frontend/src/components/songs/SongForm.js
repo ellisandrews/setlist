@@ -44,7 +44,7 @@ class SongForm extends Component {
   renderSections = () => {
     return this.state.sections.map((section, index) => {
       return (
-        <div>
+        <div id="song-form">
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Name</Form.Label>

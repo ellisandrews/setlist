@@ -25,7 +25,7 @@ class ShowSong extends Component {
     const { spotify_track, guitar_type, capo, notes } = this.props.song
 
     return (
-      <div>
+      <div id="show-song">
         <SongHeader spotifyTrack={spotify_track}/>
 
         <div id="setup">

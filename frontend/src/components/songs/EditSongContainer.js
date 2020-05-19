@@ -4,7 +4,9 @@ import React, { Component } from 'react'
 class EditSongContainer extends Component {
   render() {
     return (
-      <h2>Edit Song</h2>
+      <div id="edit-song-container">
+        <h2>Edit Song</h2>
+      </div>
     )
   }
 }
