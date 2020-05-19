@@ -3,8 +3,7 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import SearchContainer from '../search/SearchContainer'
 import SongFormContainer from './SongFormContainer'
-import { addSong } from '../../actions/songs'
-import { getAuthTokenHeader, backendURL, handleResponse } from '../../utils'
+import { addSongAsync } from '../../actions/songs'
 
 
 class NewSongContainer extends Component {
@@ -52,30 +51,13 @@ class NewSongContainer extends Component {
     // Add `display_order` attribute to each section. Use the order of the array.
     songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
 
-    // Prepare the request to the server, including both the song data and the spotify track data
-    const req = {
-      method: 'POST',
-      headers:{
-        ...getAuthTokenHeader(),
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        song: songData,
-        spotify_track: this.state.spotifyTrack
-      })
-    }
+    const { addSongAsync, history } = this.props
 
-    const { addSong, history } = this.props
-
-    const success = song => {
-      addSong(song)  // Add the song to redux store
-      history.push(`/songs/${song.id}`)  // Redirect to the newly created song's show view
-    }
-
-    // Make the request to the backend to create the Song (and the SpotifyTrack if necessary)
-    // TODO: What to do on failure?
-    fetch(`${backendURL}/songs`, req)
-      .then(resp => handleResponse(resp, success))
+    addSongAsync(
+      songData,
+      this.state.spotifyTrack,
+      songId => { history.push(`/songs/${songId}`) }
+    )
   }
 
   render() {
@@ -96,5 +78,5 @@ class NewSongContainer extends Component {
 
 export default connect(
   null,
-  { addSong }
+  { addSongAsync }
 )(withRouter(NewSongContainer))

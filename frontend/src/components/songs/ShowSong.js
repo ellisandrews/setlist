@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { Button } from 'react-bootstrap'
+import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
 import SongHeader from './SongHeader'
+import { deleteSongAsync } from '../../actions/songs'
 
 
 class ShowSong extends Component {
@@ -18,14 +22,27 @@ class ShowSong extends Component {
         </div>
       )
     })
-  } 
+  }
+
+  handleDeleteClick = () => {
+    // Ask the user if they really want to delete the song
+    const proceed = window.confirm('Are you sure you want to permanently delete this song?')
+    if (proceed) {
+      const { history, song, deleteSongAsync } = this.props
+      deleteSongAsync(
+        song.id, 
+        () => { history.push('/songs') }
+      )
+    }
+  }
 
   render() {
     
-    const { spotify_track, guitar_type, capo, notes } = this.props.song
+    const { id, spotify_track, guitar_type, capo, notes } = this.props.song
 
     return (
       <div id="show-song">
+        
         <SongHeader spotifyTrack={spotify_track}/>
 
         <div id="setup">
@@ -44,9 +61,16 @@ class ShowSong extends Component {
           <p>{notes}</p>
         </div>
 
+        <Button variant="primary" href={`/songs/${id}/edit`}>Edit</Button>{' '}
+        <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
+
       </div>
     )
   }
 }
 
-export default ShowSong
+
+export default connect(
+  null,
+  { deleteSongAsync }
+)(withRouter(ShowSong))
