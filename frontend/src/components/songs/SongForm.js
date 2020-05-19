@@ -117,7 +117,7 @@ class SongForm extends Component {
           <Form.Group as={Row} onChange={this.handleChange}>
             <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
             <Col sm={10}>
-              <Form.Check type="radio" name="guitar_type" label="None" value="" checked={!guitar_type} onChange={this.handleChange}/>
+              <Form.Check type="radio" name="guitar_type" label="Any" value="" checked={!guitar_type} onChange={this.handleChange}/>
               <Form.Check type="radio" name="guitar_type" label="Acoustic" value="Acoustic" checked={guitar_type === 'Acoustic'} onChange={this.handleChange}/>
               <Form.Check type="radio" name="guitar_type" label="Electric" value="Electric" checked={guitar_type === 'Electric'} onChange={this.handleChange}/>
             </Col>

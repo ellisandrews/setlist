@@ -19,20 +19,11 @@ class EditSong extends Component {
   handleSubmit = (event, formData) => {
     event.preventDefault()
   
-    // Create new object to hold the song data due to some data munging to happen
-    const songData = {}
-
-    // Rename `sections` to `sections_attributes` which is what the server expects.
-    delete Object.assign(songData, formData, { sections_attributes: formData.sections }).sections
-
-    // Add `display_order` attribute to each section. Use the order of the array.
-    songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
-
     const { history, updateSongAsync, song } = this.props
     
     updateSongAsync(
       song.id,
-      songData,
+      formData,
       songId => { history.push(`/songs/${songId}`) }
     )
   }

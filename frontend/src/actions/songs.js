@@ -22,7 +22,7 @@ export const deleteSong = songId => {
 
 // Asynchronus action creators (redux thunk)
 
-export const addSongAsync = (songData, spotifyTrack, redirectToSong) => {
+export const addSongAsync = (formData, spotifyTrack, redirectToSong) => {
   return dispatch => {
 
     const req = {
@@ -32,7 +32,7 @@ export const addSongAsync = (songData, spotifyTrack, redirectToSong) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        song: songData,
+        song: formatSongData(formData),
         spotify_track: spotifyTrack
       })
     }
@@ -54,7 +54,7 @@ export const addSongAsync = (songData, spotifyTrack, redirectToSong) => {
   }
 }
 
-export const updateSongAsync = (songId, songData, redirectToSong) => {
+export const updateSongAsync = (songId, formData, redirectToSong) => {
   return dispatch => {    
 
     const req = {
@@ -64,7 +64,7 @@ export const updateSongAsync = (songId, songData, redirectToSong) => {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        song: songData
+        song: formatSongData(formData)
       })
     }
 
@@ -108,4 +108,21 @@ export const deleteSongAsync = (songId, redirect) => {
         window.alert(`Unknown Error: ${err}`)
       })
   }
+}
+
+
+// Helper functions
+
+const formatSongData = formData => {
+  // Create new object to hold the formatted data
+  const songData = {}
+
+  // Rename `sections` to `sections_attributes` which is what the server expects.
+  delete Object.assign(songData, formData, { sections_attributes: formData.sections }).sections
+
+  // Add/updated the `display_order` attribute for each section. Use the order of the array.
+  songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
+
+  // Return the formatted data that is ready to be sent to the server.
+  return songData
 }

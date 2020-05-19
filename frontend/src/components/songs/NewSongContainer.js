@@ -16,13 +16,12 @@ class NewSongContainer extends Component {
     // Also hold a boolean for whether to display the spotify search bar, or the SongForm
     this.state = {
       displaySearch: true,
-      spotifyTrack: {
-        spotify_id: '',
-        title: '',
-        artist: '',
-        artwork_url: ''
-      }
+      spotifyTrack: this.spotifyTrackFactory()
     }
+  }
+
+  spotifyTrackFactory = (spotify_id='', title='', artist='', artwork_url='') => {
+    return { spotify_id, title, artist, artwork_url }
   }
 
   handleSpotifyTrack = trackData => {
@@ -30,12 +29,7 @@ class NewSongContainer extends Component {
     const artwork = trackData.album.images.find(image => image.height === 640) || trackData.album.images[0]    
     this.setState({
       displaySearch: false,  // Toggle to now display the SongForm (to which spotifyTrack will be passed)
-      spotifyTrack: {
-        title: trackData.name,
-        artist: trackData.artists[0].name,
-        spotify_id: trackData.id,
-        artwork_url: artwork.url
-      }
+      spotifyTrack: this.spotifyTrackFactory(trackData.id, trackData.name, trackData.artists[0].name, artwork.url)
     })
   }
 
@@ -50,19 +44,10 @@ class NewSongContainer extends Component {
   handleSubmit = (event, formData) => {
     event.preventDefault()
     
-    // Create new object to hold the song data (independent of the spotifyTrack)
-    const songData = {}
-
-    // Rename `sections` to `sections_attributes` which is what the server expects.
-    delete Object.assign(songData, formData, { sections_attributes: formData.sections }).sections
-
-    // Add `display_order` attribute to each section. Use the order of the array.
-    songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
-
     const { addSongAsync, history } = this.props
 
     addSongAsync(
-      songData,
+      formData,
       this.state.spotifyTrack,
       songId => { history.push(`/songs/${songId}`) }
     )
@@ -76,10 +61,10 @@ class NewSongContainer extends Component {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <>
+          <div id="new-song">
             <SongHeader spotifyTrack={this.state.spotifyTrack}/>
             <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
-          </>
+          </div>
         }
       </div>
     )
