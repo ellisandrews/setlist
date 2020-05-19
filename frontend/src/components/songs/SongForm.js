@@ -44,7 +44,7 @@ class SongForm extends Component {
   renderSections = () => {
     return this.state.sections.map((section, index) => {
       return (
-        <div>
+        <div id="song-form" key={index + 1}>
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Name</Form.Label>
@@ -98,17 +98,9 @@ class SongForm extends Component {
     return (
       <Form onSubmit={event => this.props.handleSubmit(event, this.state)}>
 
-        <h3>General Info</h3>
+        <h3>Setup</h3>
 
-        {/* Capo */}
-        <Form.Group as={Row}>
-          <Form.Label column sm={2}>Capo</Form.Label>
-          <Col sm={10}>
-            <Form.Control name="capo" type="number" onChange={this.handleChange}/>
-          </Col>
-        </Form.Group>
-
-        {/* Type */}
+        {/* Guitar Type */}
         <fieldset>
           <Form.Group as={Row} onChange={this.handleChange}>
             <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
@@ -119,6 +111,14 @@ class SongForm extends Component {
             </Col>
           </Form.Group>
         </fieldset>
+
+        {/* Capo */}
+        <Form.Group as={Row}>
+          <Form.Label column sm={2}>Capo</Form.Label>
+          <Col sm={10}>
+            <Form.Control name="capo" type="number" onChange={this.handleChange}/>
+          </Col>
+        </Form.Group>
 
         <h3>Sections</h3>
 
@@ -135,7 +135,7 @@ class SongForm extends Component {
           </Col>
         </Form.Group>
 
-        {/* Submit */}
+        {/* Submit Button */}
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
             <Button type="submit">Save</Button>

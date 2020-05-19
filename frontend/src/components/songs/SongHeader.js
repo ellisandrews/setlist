@@ -7,7 +7,7 @@ const SongHeader = props => {
   const { artwork_url, title, artist, spotify_id } = props.spotifyTrack
 
   return (
-    <div>
+    <div id="song-header">
       <Row>
         <Col xs={4}>
           <Image thumbnail fluid src={artwork_url} alt="album-artwork" />

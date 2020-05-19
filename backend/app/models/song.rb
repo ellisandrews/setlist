@@ -2,7 +2,7 @@ class Song < ApplicationRecord
     # Associations
     belongs_to :user
     belongs_to :spotify_track
-    has_many :sections
+    has_many :sections, dependent: :destroy 
 
     accepts_nested_attributes_for :sections 
 

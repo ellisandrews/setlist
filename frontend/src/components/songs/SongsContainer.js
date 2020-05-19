@@ -1,8 +1,8 @@
 import React from 'react'
 import { Route, Switch, useRouteMatch } from 'react-router-dom'
-import EditSong from './EditSong'
-import NewSong from './NewSong'
-import ShowSong from './ShowSong'
+import EditSongContainer from './EditSongContainer'
+import NewSongContainer from './NewSongContainer'
+import ShowSongContainer from './ShowSongContainer'
 
 
 const SongsContainer = () => {
@@ -15,13 +15,13 @@ const SongsContainer = () => {
         <h3>Songs</h3>
       </Route>
       <Route exact path={`${path}/new`}>
-        <NewSong/>
+        <NewSongContainer/>
       </Route>
       <Route exact path={`${path}/:songId`}>
-        <ShowSong/>
+        <ShowSongContainer/>
       </Route>
       <Route exact path={`${path}/:songId/edit`}>
-        <EditSong/>
+        <EditSongContainer/>
       </Route>
     </Switch>
   )
