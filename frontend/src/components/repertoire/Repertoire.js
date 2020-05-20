@@ -10,8 +10,8 @@ class Repertoire extends Component {
   renderSongCards = () => {
     return this.props.songs.map(song => {
       return (
-        <Col md="auto" className="mb-3">
-          <SongCard key={song.id} song={song}/>
+        <Col md="auto" className="mb-3" key={song.id}>
+          <SongCard song={song}/>
         </Col>
       )
     })
