@@ -6,7 +6,7 @@ class RepertoireContainer extends Component {
   render() {
     return (
       <div id="repertoire-container">
-        <h2>Repertoire</h2>
+        <h1>Repertoire</h1>
         <Repertoire/>
       </div>
     )

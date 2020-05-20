@@ -15,7 +15,6 @@ const ShowSongContainer = props => {
   
   return (
     <div id="show-song-container">
-      <h2>Show Song</h2>
       <ShowSong song={song} />
     </div>
   )
