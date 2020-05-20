@@ -15,7 +15,8 @@ const SongHeader = props => {
         <Col>
           <h3>{title}</h3>
           <h4>{artist}</h4>
-          <iframe title="spotify-preview" src={`https://open.spotify.com/embed/track/${spotify_id}`} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>        </Col>
+          <iframe title="spotify-preview" src={`https://open.spotify.com/embed/track/${spotify_id}`} width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+        </Col>
       </Row>
     </div>
   )

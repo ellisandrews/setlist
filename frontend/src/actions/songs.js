@@ -94,8 +94,8 @@ export const deleteSongAsync = (songId, redirect) => {
     }
 
     const success = () => {
-      dispatch(deleteSong(songId))  // Dispatch the synchronus action to remove the song from redux store state
-      redirect()                    // Redirect callback to send the user to a new page
+      redirect()                    // Redirect first, because we know the song was successfully deleted in the backend.
+      dispatch(deleteSong(songId))  // Dispatch the synchronus action to remove the deleted song from redux store state
     }
 
     const failure = error => {

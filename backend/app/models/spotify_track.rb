@@ -1,7 +1,9 @@
 class SpotifyTrack < ApplicationRecord
     # Associations
-    has_many :songs
+    has_many :songs, dependent: :destroy
+
+    accepts_nested_attributes_for :songs
 
     # Validations
-    validates :title, :artist, :spotify_id, presence: true
+    validates :spotify_id, :title, :artist, :artwork_url, presence: true
 end

@@ -8,5 +8,5 @@ class Song < ApplicationRecord
 
     # Validations
     validates :spotify_track, uniqueness: { scope: :user, message: "already has a song created by this user"  }
-
+    
 end

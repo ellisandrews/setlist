@@ -36,7 +36,7 @@ class NewSongContainer extends Component {
   handleCancel = () => {
     const abandonChanges = window.confirm('Are you sure you want to abondon changes?')
     if (abandonChanges) {
-      this.props.history.push(`/notes`)
+      this.props.history.push(`/repertoire`)
     }
   }
 

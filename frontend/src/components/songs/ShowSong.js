@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Button } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 import { connect } from 'react-redux'
 import SongHeader from './SongHeader'
 import { deleteSongAsync } from '../../actions/songs'
@@ -31,7 +32,7 @@ class ShowSong extends Component {
       const { history, song, deleteSongAsync } = this.props
       deleteSongAsync(
         song.id, 
-        () => { history.push('/songs') }
+        () => { history.push('/repertoire') }
       )
     }
   }
@@ -61,7 +62,9 @@ class ShowSong extends Component {
           <p>{notes || 'None'}</p>
         </div>
 
-        <Button variant="primary" href={`/songs/${id}/edit`}>Edit</Button>{' '}
+        <LinkContainer to={`/songs/${id}/edit`}>
+          <Button variant="primary">Edit</Button>
+        </LinkContainer>{' '}
         <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
 
       </div>

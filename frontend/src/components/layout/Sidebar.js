@@ -12,7 +12,7 @@ class Sidebar extends Component {
   renderHomeItem = () => {
     // TODO: Change this first item to be a clickable app logo instead?
     return (
-      <LinkContainer to='/'>
+      <LinkContainer exact to='/'>
         <Nav.Item as='button' className='border sidebar-link'>              
           <ion-icon name='home-outline'></ion-icon><br/>
           <span>Home</span>
@@ -35,7 +35,7 @@ class Sidebar extends Component {
               <span>New Song</span>
             </Nav.Item>
           </LinkContainer>
-          <LinkContainer to='/songs'>
+          <LinkContainer to='/repertoire'>
             <Nav.Item as='button' className='border sidebar-link'>              
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
