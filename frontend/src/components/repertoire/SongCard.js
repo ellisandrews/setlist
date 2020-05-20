@@ -11,12 +11,12 @@ class SongCard extends Component {
 
     return (
       <Link to={`/songs/${id}`} style={{ color: 'inherit', textDecoration: 'inherit'}} >
-        <Card style={{ width: '18rem' }} className="text-center">
+        <Card style={{ width: '15rem' }} className="text-center">
           <Card.Img variant="top" src={artwork_url} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Text>{artist}</Card.Text>
-          </Card.Body>        
+            <Card.Subtitle>{artist}</Card.Subtitle>
+          </Card.Body>
         </Card>      
       </Link>
     )
