@@ -1,4 +1,5 @@
 import React from 'react'
+import { Container } from 'react-bootstrap'
 import { Switch, Route } from 'react-router-dom'
 import Home from '../Home'
 import PrivateRoute from '../PrivateRoute'
@@ -10,7 +11,7 @@ import './layout.css'
 
 const MainDisplay = () => {
   return (
-    <div id='main-display'>
+    <Container id='main-display'>
       <Switch>
         <Route exact path='/'>
           <Home/>
@@ -25,7 +26,7 @@ const MainDisplay = () => {
           <RepertoireContainer/>
         </PrivateRoute>
       </Switch>
-    </div>
+    </Container>
   )
 }
 

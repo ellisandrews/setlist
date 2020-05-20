@@ -3,6 +3,7 @@ import { Redirect, Route, Switch, useRouteMatch } from 'react-router-dom'
 import EditSongContainer from './EditSongContainer'
 import NewSongContainer from './NewSongContainer'
 import ShowSongContainer from './ShowSongContainer'
+import './songs.css'
 
 
 const SongsContainer = () => {
