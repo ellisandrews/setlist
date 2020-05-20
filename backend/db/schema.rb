@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_213054) do
     t.string "title", null: false
     t.string "artist", null: false
     t.string "spotify_id", null: false
-    t.string "artwork_url"
+    t.string "artwork_url", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["spotify_id"], name: "index_spotify_tracks_on_spotify_id", unique: true
