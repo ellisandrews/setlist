@@ -8,7 +8,7 @@ import SongsContainer from '../songs/SongsContainer'
 import './layout.css'
 
 
-const MainDisplay = props => {
+const MainDisplay = () => {
   return (
     <div id='main-display'>
       <Switch>
