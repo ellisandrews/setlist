@@ -18,6 +18,10 @@
     outline:0;           /* Remove the blue outline when the sidebar-link button is clicked */
 }
 
+.sidebar-link.active {
+    background-color: lightgray;  /* Selected navbar tab highlighting */
+}
+
 /* Style main display */
 #main-display {
     margin-left: 170px;  /* Width of the sidebar + 20 */
