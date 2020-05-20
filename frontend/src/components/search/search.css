@@ -1,5 +1,16 @@
+#search-container {
+    max-width: 50vw;
+    text-align: center;
+}
+
 #search-results {
-    max-height: 250px;
-    margin-bottom: 10px;
+    max-height: 50vh;
+    margin-bottom: 10vh;
     overflow: scroll;
+    text-align: left;
+}
+
+#spotify-logo {
+    height: 150px;
+    width: 150px;
 }
