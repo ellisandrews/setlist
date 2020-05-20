@@ -4,7 +4,7 @@ class CreateSpotifyTracks < ActiveRecord::Migration[6.0]
       t.string :title, null: false
       t.string :artist, null: false
       t.string :spotify_id, null: false
-      t.string :artwork_url
+      t.string :artwork_url, null: false
 
       t.timestamps
     end

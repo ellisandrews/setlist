@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
     # Validations
     validates :first_name, :last_name, :email, :password_digest, presence: true 
-    validates :email, uniqueness: true
+    validates :email, uniqueness: { case_sensitive: false }
 
     # ActiveRecord callbacks
     before_save :downcase_name

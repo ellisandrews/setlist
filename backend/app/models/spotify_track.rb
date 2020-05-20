@@ -3,5 +3,5 @@ class SpotifyTrack < ApplicationRecord
     has_many :songs
 
     # Validations
-    validates :title, :artist, :spotify_id, presence: true
+    validates :spotify_id, :title, :artist, :artwork_url, presence: true
 end
