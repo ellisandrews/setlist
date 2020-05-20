@@ -15,7 +15,7 @@ class SongCard extends Component {
           <Card.Img variant="top" src={artwork_url} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
-            <Card.Subtitle>{artist}</Card.Subtitle>
+            <Card.Text className="text-muted">{artist}</Card.Text>
           </Card.Body>
         </Card>      
       </Link>
