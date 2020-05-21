@@ -3,6 +3,7 @@ import RepertoireDisplay from './RepertoireDisplay'
 import RepertoireSearchContainer from './RepertoireSearchContainer'
 import { mapSongsToProps } from '../../utils'
 import { connect } from 'react-redux'
+import './repertoire.css'
 
 
 class RepertoireContainer extends Component {
