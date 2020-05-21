@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { Container } from 'react-bootstrap'
+import SearchHeader from './SearchHeader'
 import SearchForm from './SearchForm'
 import SearchResults from './SearchResults'
 import { backendURL, getAuthTokenHeader, handleResponse } from '../../utils'
@@ -47,10 +49,11 @@ class SearchContainer extends Component {
     const { query, results } = this.state
 
     return (
-      <div id='search-container'>
+      <Container id='search-container'>
+        <SearchHeader/>
         <SearchForm query={query} handleChange={this.handleChange} />
         <SearchResults results={results} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
-      </div>
+      </Container>
     )
   }
 

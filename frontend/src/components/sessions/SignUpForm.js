@@ -42,8 +42,8 @@ class SignUpForm extends Component {
   render() {
 
     return (
-      <Container className="col-4 text-center">
-        <h1>Sign Up</h1>
+      <Container className="col-10 text-center">
+        <h1 className="session-form-header">Sign Up</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Control type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleInputChange}/>

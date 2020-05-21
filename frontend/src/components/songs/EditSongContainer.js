@@ -15,7 +15,6 @@ const EditSongContainer = props => {
   
   return (
     <div id="edit-song-container">
-      <h2>Edit Song</h2>
       <EditSong song={song} />
     </div>
   )
