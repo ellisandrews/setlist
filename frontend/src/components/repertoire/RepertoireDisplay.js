@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SongCard from './SongCard'
-import { mapSongsToProps } from '../../utils'
 
 
-class Repertoire extends Component {
+class RepertoireDisplay extends Component {
   
   renderSongCards = () => {
 
@@ -34,16 +32,14 @@ class Repertoire extends Component {
   
   render() {
     return (
-      <div id="repertoire">
-        <Container fluid className="mt-4">
-          <Row className="justify-content-left">
-            {this.renderSongCards()}
-          </Row>
-        </Container>      
-      </div>
+      <Container id="repertoire" fluid className="mt-4">
+        <Row className="justify-content-left">
+          {this.renderSongCards()}
+        </Row>
+      </Container>
     )
   }
 }
 
 
-export default connect(mapSongsToProps)(Repertoire)
+export default RepertoireDisplay
