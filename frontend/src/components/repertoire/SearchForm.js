@@ -3,8 +3,8 @@ import { Form } from 'react-bootstrap'
 
 
 const SearchForm = props => {
-  const { query, handleSearchChange} = props
-  return <Form.Control type='text' placeholder='Search by song title or artist...' value={query} onChange={handleSearchChange}/>
+  const { query, handleChange} = props
+  return <Form.Control type='text' name='query' placeholder='Search by song title or artist...' value={query} onChange={handleChange}/>
 }
 
 

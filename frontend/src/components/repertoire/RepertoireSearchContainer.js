@@ -8,12 +8,12 @@ class RepertoireSearchContainer extends Component {
   
   render() {
 
-    const { query, handleSearchChange } = this.props 
+    const { searchData: { query, guitarType, orderBy, ascending }, handleChange } = this.props 
 
     return (
       <Container fluid id="repertoire-search-container">
-        <SearchForm query={query} handleSearchChange={handleSearchChange}/>
-        <Filters/>
+        <SearchForm query={query} handleChange={handleChange}/>
+        <Filters guitarType={guitarType} orderBy={orderBy} ascending={ascending} handleChange={handleChange}/>
       </Container>
     )
   }
