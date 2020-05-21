@@ -26,23 +26,33 @@ class RepertoireContainer extends Component {
   }
 
   sortSongs = (property, ascending) => {
+
+    console.log(property, ascending)
+
     return (song1, song2) => {
 
-      // Handle nested `spotify_track` properties
+      let operand1
+      let operand2
+
       if (property === 'title' || property === 'artist') {
-        return ( ascending ? 
-          song1.spotify_track[property] - song2.spotify_track[property]
-            :
-          song2.spotify_track[property] - song1.spotify_track[property]
-        )
+        operand1 = song1.spotify_track[property]
+        operand2 = song2.spotify_track[property]
+      } else {
+        operand1 = song1[property]
+        operand2 = song2[property]
       }
 
-      // Otherwise, handle top-level song properties
-      return ( ascending ?
-        song1[property] - song2[property]
-          :
-        song2[property] - song1[property]  
-      )
+      let comparisonResult
+
+      if ( operand1 < operand2 ) {
+        comparisonResult = -1
+      } else if ( operand1 > operand2 ) {
+        comparisonResult = 1
+      } else {
+        comparisonResult = 0
+      }
+
+      return ascending ? comparisonResult : comparisonResult * -1
     }
   }
 
