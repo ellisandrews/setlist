@@ -44,7 +44,7 @@ class LogInForm extends Component {
 
     return (
       <Container className="col-10 text-center">
-        <h1>Log In</h1>
+        <h1 className="session-form-header">Log In</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
             <Form.Control type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
