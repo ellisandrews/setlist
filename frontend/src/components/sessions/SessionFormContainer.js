@@ -4,6 +4,7 @@ import { useLocation } from 'react-router-dom'
 import sessionFormImg from './session_form.jpg'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
+import './sessions.css'
 
 
 const SessionFormContainer = () => {
@@ -11,10 +12,10 @@ const SessionFormContainer = () => {
   const location = useLocation()
 
   return (
-    <Container className="border">
-      <Row>
-        <Col xs={3}>
-          <Image src={sessionFormImg} fluid />
+    <Container id="session-form-container" className="border">
+      <Row className="align-items-center h-100">
+        <Col className="h-100">
+          <Image src={sessionFormImg} alt="session-form-image" className="h-100"/>
         </Col>
         <Col>
           { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}

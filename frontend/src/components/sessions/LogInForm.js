@@ -43,7 +43,7 @@ class LogInForm extends Component {
   render() {
 
     return (
-      <Container className="col-4 text-center">
+      <Container className="col-10 text-center">
         <h1>Log In</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
