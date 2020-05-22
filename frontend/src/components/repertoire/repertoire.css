@@ -2,10 +2,3 @@
     outline: none;
     box-shadow:none;
 }
-
-#search-form {
-    max-width: 30vw;
-    text-align: center;
-    margin-top: 4vh;
-    margin-bottom: 4vh;
-}
