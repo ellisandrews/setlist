@@ -1,12 +1,10 @@
 import React, { Component } from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
-import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import SongCard from './SongCard'
-import { mapSongsToProps } from '../../utils'
 
 
-class Repertoire extends Component {
+class RepertoireDisplay extends Component {
   
   renderSongCards = () => {
 
@@ -15,9 +13,9 @@ class Repertoire extends Component {
     // If there are no songs yet, display that information
     if (!songs || songs.length === 0) {
       return (
-        <Container className="justify-content-center">
-          <p>You haven't logged any songs yet!</p>
-          <p>Once created, songs will show up here. Create a <Link to="/songs/new">new song</Link> to get started.</p>
+        <Container>
+          <p>No songs to display.</p>
+          <p>Refine your search, or create a <Link to="/songs/new">new song</Link>.</p>
         </Container>
       )
     }
@@ -34,16 +32,14 @@ class Repertoire extends Component {
   
   render() {
     return (
-      <div id="repertoire">
-        <Container fluid className="mt-4">
-          <Row className="justify-content-left">
-            {this.renderSongCards()}
-          </Row>
-        </Container>      
-      </div>
+      <Container id="repertoire-display" fluid className="mt-4">
+        <Row className="justify-content-center">
+          {this.renderSongCards()}
+        </Row>
+      </Container>
     )
   }
 }
 
 
-export default connect(mapSongsToProps)(Repertoire)
+export default RepertoireDisplay
