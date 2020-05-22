@@ -27,3 +27,9 @@
     margin-left: 150px;  /* Width of the sidebar */
     text-align: center;
 }
+
+.vertical-center {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { mapUserToProps } from '../utils'
 
@@ -14,7 +14,6 @@ class Home extends Component {
       return (
         <>
           <p>Hi, {user.first_name}!</p>
-          <p>Ready to log a new song?</p>
           <LinkContainer to='/songs/new'>
             <Button variant='primary'>New Song</Button>
           </LinkContainer>
@@ -38,9 +37,11 @@ class Home extends Component {
 
   render() {
     return (
-      <div>
-        <h1>Setlist</h1>
-        {this.renderContent()}
+      <div className="vertical-center">
+        <Container id="home" className="border">
+          <h1>Setlist</h1>
+          {this.renderContent()}
+        </Container>
       </div>
     )
   }
