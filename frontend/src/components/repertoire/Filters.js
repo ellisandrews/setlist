@@ -19,7 +19,7 @@ class Filters extends Component {
   render() {
     const { guitarType, orderBy, ascending } = this.props
     return (
-      <Container>
+      <Container id="search-filters">
         <Row>
           <Col>
             <Form.Group>

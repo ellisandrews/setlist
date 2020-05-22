@@ -6,4 +6,6 @@
 #search-form {
     max-width: 50vw;
     text-align: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
 }

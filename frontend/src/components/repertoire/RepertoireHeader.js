@@ -12,9 +12,7 @@ class RepertoireHeader extends Component {
     return (
       <div id="repertoire-header">
         <SearchForm query={query} handleChange={handleChange}/>
-        <div>
-          <Filters guitarType={guitarType} orderBy={orderBy} ascending={ascending} handleChange={handleChange}/>
-        </div>
+        <Filters guitarType={guitarType} orderBy={orderBy} ascending={ascending} handleChange={handleChange}/>
       </div>
     )
   }
