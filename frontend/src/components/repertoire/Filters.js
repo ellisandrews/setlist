@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Form, Row, ToggleButton, ToggleButtonGroup, Col } from 'react-bootstrap'
+import { Container, Form, Row, ToggleButton, ToggleButtonGroup, Col } from 'react-bootstrap'
 
 
 class Filters extends Component {
@@ -19,11 +19,11 @@ class Filters extends Component {
   render() {
     const { guitarType, orderBy, ascending } = this.props
     return (
-      <Form>
+      <Container>
         <Row>
           <Col>
             <Form.Group>
-              <Form.Label>Guitar Type</Form.Label>
+              <p>Guitar Type</p>
               <ToggleButtonGroup type="radio" name="guitarType" defaultValue={guitarType} onChange={value => this.mockChangeEvent('guitarType', value)}>
                 <ToggleButton value="">Any</ToggleButton>
                 <ToggleButton value="Acoustic">Acoustic</ToggleButton>
@@ -33,7 +33,7 @@ class Filters extends Component {
           </Col>
           <Col>
             <Form.Group>
-              <Form.Label>Order By</Form.Label>
+              <p>Order By</p>
               <ToggleButtonGroup type="radio" name="orderBy" defaultValue={orderBy} onChange={value => this.mockChangeEvent('orderBy', value)}>
                 <ToggleButton value="title">Title</ToggleButton>
                 <ToggleButton value="artist">Artist</ToggleButton>
@@ -42,7 +42,7 @@ class Filters extends Component {
             </Form.Group>
           </Col>
         </Row>
-      </Form>
+      </Container>
     )
   }
 }

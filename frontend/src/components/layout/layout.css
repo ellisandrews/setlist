@@ -24,7 +24,6 @@
 
 /* Style main display */
 #main-display {
-    margin-left: 170px;  /* Width of the sidebar + 20 */
-    margin-right: 20px;  /* Same as distance from sidebar on the left */
+    margin-left: 150px;  /* Width of the sidebar */
     text-align: center;
 }

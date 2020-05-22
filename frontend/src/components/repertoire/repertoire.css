@@ -2,3 +2,8 @@
     outline: none;
     box-shadow:none;
 }
+
+#search-form {
+    max-width: 50vw;
+    text-align: center;
+}

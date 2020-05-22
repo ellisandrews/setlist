@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import RepertoireDisplay from './RepertoireDisplay'
-import RepertoireSearchContainer from './RepertoireSearchContainer'
+import RepertoireHeader from './RepertoireHeader'
 import { mapSongsToProps } from '../../utils'
 import { connect } from 'react-redux'
 import './repertoire.css'
@@ -79,14 +79,14 @@ class RepertoireContainer extends Component {
     }
 
     // Last, order the filtered songs and return them
-    return [...displaySongs].sort(this.sortSongs(orderBy, ascending))
+    return displaySongs.sort(this.sortSongs(orderBy, ascending))
   }
 
   render() {
     return (
       <div id="repertoire-container">
         <h1>Repertoire</h1>
-        <RepertoireSearchContainer searchData={this.state} handleChange={this.handleChange}/>
+        <RepertoireHeader searchData={this.state} handleChange={this.handleChange}/>
         <RepertoireDisplay songs={this.filterAndSortSongs()}/>
       </div>
     )
