@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form, Row, Col } from 'react-bootstrap'
+import { Button, Form, Row, Col, Container } from 'react-bootstrap'
 import update from 'immutability-helper'
 
 
@@ -58,19 +58,19 @@ class SongForm extends Component {
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={1}>Name</Form.Label>
-            <Col sm={11}>
+            <Col sm={4}>
               <Form.Control name="name" type="text" placeholder="Intro" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={1}>Chords</Form.Label>
-            <Col sm={11}>
+            <Col sm={6}>
               <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Col sm={{ span: 11, offset: 1 }}>
-              <Button onClick={() => this.removeSection(index)}>Remove</Button>
+              <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>
             </Col>
           </Form.Group>
         </div>
@@ -103,60 +103,67 @@ class SongForm extends Component {
     const { guitar_type, capo, strumming, notes } = this.state
 
     return (
-      <Form onSubmit={event => handleSubmit(event, this.state)}>
 
-        <h3>Song Info</h3>
+      <Container>
+        <Form onSubmit={event => handleSubmit(event, this.state)}>
 
-        {/* Guitar Type */}
-        <fieldset>
-          <Form.Group as={Row} onChange={this.handleChange}>
-            <Form.Label as="legend" column sm={1}>Guitar Type</Form.Label>
-            <Col sm={11}>
-              <Form.Check type="radio" name="guitar_type" label="Any" value="" checked={!guitar_type} onChange={this.handleChange}/>
-              <Form.Check type="radio" name="guitar_type" label="Acoustic" value="Acoustic" checked={guitar_type === 'Acoustic'} onChange={this.handleChange}/>
-              <Form.Check type="radio" name="guitar_type" label="Electric" value="Electric" checked={guitar_type === 'Electric'} onChange={this.handleChange}/>
+          <h3>Song Info</h3>
+
+          {/* Guitar Type */}
+          <fieldset>
+            <Form.Group as={Row} onChange={this.handleChange}>
+              <Form.Label as="legend" column sm={1}>Guitar</Form.Label>
+              <Col sm={11}>
+                <Form.Check inline type="radio" name="guitar_type" label="Any" value="" checked={!guitar_type} onChange={this.handleChange}/>
+                <Form.Check inline type="radio" name="guitar_type" label="Acoustic" value="Acoustic" checked={guitar_type === 'Acoustic'} onChange={this.handleChange}/>
+                <Form.Check inline type="radio" name="guitar_type" label="Electric" value="Electric" checked={guitar_type === 'Electric'} onChange={this.handleChange}/>
+              </Col>
+            </Form.Group>
+          </fieldset>
+
+          {/* Capo */}
+          <Form.Group as={Row}>
+            <Form.Label column sm={1}>Capo</Form.Label>
+            <Col sm={1}>
+              <Form.Control name="capo" type="number" value={capo} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
-        </fieldset>
 
-        {/* Capo */}
-        <Form.Group as={Row}>
-          <Form.Label column sm={1}>Capo</Form.Label>
-          <Col sm={11}>
-            <Form.Control name="capo" type="number" value={capo} onChange={this.handleChange}/>
-          </Col>
-        </Form.Group>
+          {/* Strumming */}
+          <Form.Group as={Row}>
+            <Form.Label column sm={1}>Strumming</Form.Label>
+            <Col sm={5}>
+              <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
+            </Col>
+          </Form.Group>
+          
+          {/* Notes */}
+          <Form.Group as={Row}>
+            <Form.Label column sm={1}>Notes</Form.Label>
+            <Col sm={10}>
+              <Form.Control as="textarea" rows="5" name="notes" value={notes} onChange={this.handleChange}/>
+            </Col>
+          </Form.Group>
 
-        {/* Strumming */}
-        <Form.Group as={Row}>
-          <Form.Label column sm={1}>Strumming</Form.Label>
-          <Col sm={11}>
-            <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
-          </Col>
-        </Form.Group>
-        
-        {/* Notes */}
-        <Form.Group as={Row}>
-          <Form.Label column sm={1}>Notes</Form.Label>
-          <Col sm={11}>
-            <Form.Control as="textarea" rows="5" name="notes" value={notes} onChange={this.handleChange}/>
-          </Col>
-        </Form.Group>
+          <h3>Sections</h3>
 
-        <h3>Sections</h3>
+          {this.renderSections()}
+          <Form.Group as={Row}>
+            <Col sm={{ span: 11, offset: 1 }}>
+              <Button size="sm" onClick={this.addSection}>Add Section</Button>
+            </Col>
+          </Form.Group>
+          
+          {/* Buttons */}
+          <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh'}}>
+            <Col sm={{ span: 11, offset: 1 }}>
+              <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
+              <Button type="submit">Save</Button>
+            </Col>
+          </Form.Group>
 
-        {this.renderSections()}
-        <Button onClick={this.addSection}>Add Section</Button>
-
-        {/* Buttons */}
-        <Form.Group as={Row}>
-          <Col sm={{ span: 11, offset: 1 }}>
-            <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
-            <Button type="submit">Save</Button>
-          </Col>
-        </Form.Group>
-
-      </Form>
+        </Form>
+      </Container>
     )
   }
 }
