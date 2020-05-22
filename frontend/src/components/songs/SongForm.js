@@ -104,10 +104,10 @@ class SongForm extends Component {
 
     return (
 
-      <Container>
+      <Container className="border" style={{marginBottom: '5vh'}}>
         <Form onSubmit={event => handleSubmit(event, this.state)}>
 
-          <h3>Song Info</h3>
+          <h3 className="form-heading">Song Info</h3>
 
           {/* Guitar Type */}
           <fieldset>
@@ -145,7 +145,7 @@ class SongForm extends Component {
             </Col>
           </Form.Group>
 
-          <h3>Sections</h3>
+          <h3 className="form-heading">Sections</h3>
 
           {this.renderSections()}
           <Form.Group as={Row}>

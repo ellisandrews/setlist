@@ -60,7 +60,7 @@ class NewSongContainer extends Component {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <div id="new-song">
+          <div id="new-song" className="border">
             <SongHeader spotifyTrack={this.state.spotifyTrack}/>
             <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
           </div>
