@@ -4,6 +4,7 @@ class CreateSongs < ActiveRecord::Migration[6.0]
     create_table :songs do |t|
       t.string :guitar_type
       t.integer :capo
+      t.text :strumming
       t.text :notes
       t.references :user, null: false, foreign_key: true
       t.references :spotify_track, null: false, foreign_key: true

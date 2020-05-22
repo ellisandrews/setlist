@@ -14,27 +14,25 @@ song_data = [
         artwork_url: "https://i.scdn.co/image/ab67616d0000b2732e35d25eb7288830d5540484",
         spotify_id: "3420nZEhm99I1bLc6Yx4XH",
         songs_attributes: [{
-            guitar_type: 'Acoustic',
+            guitar_type: "Acoustic",
             capo: 3,
+            strumming: "DudU udU udu udu",
             notes: "The F is played as 3 finger open chord (open high 'e' string). Second and third chords change on the up beats! Indicated by the capital letters here: ONE and two AND ... and 4 AND",
             user: user,
             sections_attributes: [
                 {
                     name: "Intro/Chorus",
                     chords: "F C G G",
-                    strumming: "DudU udU udu udu",
                     display_order: 1
                 },
                 {
                     name: "Verse",
                     chords: "G G F G",
-                    strumming: "D DU UDU",
                     display_order: 2
                 },
                 {
                     name: "Bridge",
                     chords: "C C7 F F, C C7 F Dm",
-                    strumming: "DUDU UDU",
                     display_order: 3
                 }
             ]
@@ -48,19 +46,18 @@ song_data = [
         songs_attributes: [{
             guitar_type: nil,
             capo: nil,
+            strumming: "DU D UDUDD DU",
             notes: "Hammer on with the Am and Dsus2 in the Intro/Verse/Solo.",
             user: user,
             sections_attributes: [
                 {
                     name: "Intro/Verse/Solo",
                     chords: "Am G Dsus2 Am",
-                    strumming: "DU D UDUDD DU",
                     display_order: 1
                 },
                 {
                     name: "Chorus",
                     chords: "Em7 Em7 A / Em7 Em7 A G",
-                    strumming: nil,
                     display_order: 2,
                 }
             ]
@@ -74,19 +71,18 @@ song_data = [
         songs_attributes: [{
             guitar_type: "Electric",
             capo: nil,
+            strumming: "D D DUD UDUDU",
             notes: "Put a little reverb on it and take your time.",
             user: user,
             sections_attributes: [
                 {
                     name: "Intro/Chorus/Outro",
                     chords: "G C",
-                    strumming: "D D DUD UDUDU",
                     display_order: 1
                 },
                 {
                     name: "Verse",
                     chords: "Am7 D7 Gm/Bb Ebmaj7 D7",
-                    strumming: "D D DUD UDUDU",
                     display_order: 2,
                 }
             ]

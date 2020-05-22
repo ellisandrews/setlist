@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2020_05_18_213054) do
   create_table "sections", force: :cascade do |t|
     t.string "name", null: false
     t.string "chords", null: false
-    t.string "strumming"
     t.integer "display_order"
     t.bigint "song_id", null: false
     t.datetime "created_at", precision: 6, null: false
@@ -30,6 +29,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_213054) do
   create_table "songs", force: :cascade do |t|
     t.string "guitar_type"
     t.integer "capo"
+    t.text "strumming"
     t.text "notes"
     t.bigint "user_id", null: false
     t.bigint "spotify_track_id", null: false

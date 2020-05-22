@@ -10,22 +10,23 @@ class SongForm extends Component {
 
     // Initialze state with either the provided song's or a new song's data
     const initialSong = props.song || this.songFactory()
-    const { guitar_type, capo, notes, sections } = initialSong
+    const { guitar_type, capo, strumming, notes, sections } = initialSong
 
     this.state = {
       guitar_type,
       capo,
+      strumming,
       notes,
       sections
     }
   }
   
-  sectionFactory = (name='', chords='', strumming='') => {
-    return { name, chords, strumming }
+  sectionFactory = (name='', chords='') => {
+    return { name, chords }
   }
 
-  songFactory = (guitar_type='', capo='', notes='', sections=[ this.sectionFactory() ]) => {
-    return { guitar_type, capo, notes, sections }
+  songFactory = (guitar_type='', capo='', strumming='', notes='', sections=[ this.sectionFactory() ]) => {
+    return { guitar_type, capo, strumming, notes, sections }
   }
 
   handleChange = event => {
@@ -53,7 +54,7 @@ class SongForm extends Component {
   renderSections = () => {
     return this.state.sections.map((section, index) => {
       return (
-        <div id="song-form" key={index + 1}>
+        <div key={index + 1}>
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={2}>Name</Form.Label>
@@ -65,12 +66,6 @@ class SongForm extends Component {
             <Form.Label column sm={2}>Chords</Form.Label>
             <Col sm={10}>
               <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm={2}>Strumming</Form.Label>
-            <Col sm={10}>
-              <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={section.strumming} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
@@ -105,12 +100,12 @@ class SongForm extends Component {
   render() {
     
     const { handleCancel, handleSubmit } = this.props
-    const { guitar_type, capo, notes } = this.state
+    const { guitar_type, capo, strumming, notes } = this.state
 
     return (
       <Form onSubmit={event => handleSubmit(event, this.state)}>
 
-        <h3>Setup</h3>
+        <h3>Song Info</h3>
 
         {/* Guitar Type */}
         <fieldset>
@@ -132,13 +127,14 @@ class SongForm extends Component {
           </Col>
         </Form.Group>
 
-        <h3>Sections</h3>
-
-        {this.renderSections()}
-        <Button onClick={this.addSection}>Add Section</Button>
-
-        <h3>Notes</h3>
-
+        {/* Strumming */}
+        <Form.Group as={Row}>
+          <Form.Label column sm={2}>Strumming</Form.Label>
+          <Col sm={10}>
+            <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
+          </Col>
+        </Form.Group>
+        
         {/* Notes */}
         <Form.Group as={Row}>
           <Form.Label column sm={2}>Notes</Form.Label>
@@ -146,6 +142,11 @@ class SongForm extends Component {
             <Form.Control as="textarea" rows="5" name="notes" value={notes} onChange={this.handleChange}/>
           </Col>
         </Form.Group>
+
+        <h3>Sections</h3>
+
+        {this.renderSections()}
+        <Button onClick={this.addSection}>Add Section</Button>
 
         {/* Buttons */}
         <Form.Group as={Row}>
