@@ -22,19 +22,19 @@ song_data = [
                 {
                     name: "Intro/Chorus",
                     chords: "F C G G",
-                    strumming: "dUDu UDu UDU UDU",
+                    strumming: "DudU udU udu udu",
                     display_order: 1
                 },
                 {
                     name: "Verse",
                     chords: "G G F G",
-                    strumming: "dUDu UDu UDU UDU",
+                    strumming: "D DU UDU",
                     display_order: 2
                 },
                 {
                     name: "Bridge",
                     chords: "C C7 F F, C C7 F Dm",
-                    strumming: "DUD DUD",
+                    strumming: "DUDU UDU",
                     display_order: 3
                 }
             ]
