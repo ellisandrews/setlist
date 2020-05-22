@@ -57,19 +57,19 @@ class SongForm extends Component {
         <div key={index + 1}>
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Name</Form.Label>
-            <Col sm={10}>
+            <Form.Label column sm={1}>Name</Form.Label>
+            <Col sm={11}>
               <Form.Control name="name" type="text" placeholder="Intro" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
-            <Form.Label column sm={2}>Chords</Form.Label>
-            <Col sm={10}>
+            <Form.Label column sm={1}>Chords</Form.Label>
+            <Col sm={11}>
               <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
-            <Col sm={{ span: 10, offset: 2 }}>
+            <Col sm={{ span: 11, offset: 1 }}>
               <Button onClick={() => this.removeSection(index)}>Remove</Button>
             </Col>
           </Form.Group>
@@ -110,8 +110,8 @@ class SongForm extends Component {
         {/* Guitar Type */}
         <fieldset>
           <Form.Group as={Row} onChange={this.handleChange}>
-            <Form.Label as="legend" column sm={2}>Guitar Type</Form.Label>
-            <Col sm={10}>
+            <Form.Label as="legend" column sm={1}>Guitar Type</Form.Label>
+            <Col sm={11}>
               <Form.Check type="radio" name="guitar_type" label="Any" value="" checked={!guitar_type} onChange={this.handleChange}/>
               <Form.Check type="radio" name="guitar_type" label="Acoustic" value="Acoustic" checked={guitar_type === 'Acoustic'} onChange={this.handleChange}/>
               <Form.Check type="radio" name="guitar_type" label="Electric" value="Electric" checked={guitar_type === 'Electric'} onChange={this.handleChange}/>
@@ -121,24 +121,24 @@ class SongForm extends Component {
 
         {/* Capo */}
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Capo</Form.Label>
-          <Col sm={10}>
+          <Form.Label column sm={1}>Capo</Form.Label>
+          <Col sm={11}>
             <Form.Control name="capo" type="number" value={capo} onChange={this.handleChange}/>
           </Col>
         </Form.Group>
 
         {/* Strumming */}
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Strumming</Form.Label>
-          <Col sm={10}>
+          <Form.Label column sm={1}>Strumming</Form.Label>
+          <Col sm={11}>
             <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
           </Col>
         </Form.Group>
         
         {/* Notes */}
         <Form.Group as={Row}>
-          <Form.Label column sm={2}>Notes</Form.Label>
-          <Col sm={10}>
+          <Form.Label column sm={1}>Notes</Form.Label>
+          <Col sm={11}>
             <Form.Control as="textarea" rows="5" name="notes" value={notes} onChange={this.handleChange}/>
           </Col>
         </Form.Group>
@@ -150,7 +150,7 @@ class SongForm extends Component {
 
         {/* Buttons */}
         <Form.Group as={Row}>
-          <Col sm={{ span: 10, offset: 2 }}>
+          <Col sm={{ span: 11, offset: 1 }}>
             <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
             <Button type="submit">Save</Button>
           </Col>

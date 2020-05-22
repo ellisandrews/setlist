@@ -55,8 +55,7 @@ class NewSongContainer extends Component {
 
   render() {
     return (
-      <div id="new-song-container">
-        <h1>New Song</h1>
+      <div id="new-song-container" className="border">
         {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
