@@ -15,28 +15,28 @@ song_data = [
         spotify_id: "3420nZEhm99I1bLc6Yx4XH",
         songs_attributes: [{
             guitar_type: 'Acoustic',
-            capo: 1,
-            notes: "Keep the rhythm chugging.",
+            capo: 3,
+            notes: "The F is played as 3 finger open chord (open high 'e' string). Second and third chords change on the up beats! Indicated by the capital letters here: ONE and two AND ... and 4 AND",
             user: user,
             sections_attributes: [
                 {
-                    name: "Intro",
-                    chords: "Em G A (x3), Em Bm A",
-                    strumming: "DUD DUD",
+                    name: "Intro/Chorus",
+                    chords: "F C G G",
+                    strumming: "dUDu UDu UDU UDU",
                     display_order: 1
                 },
                 {
-                    name: "Intro",
-                    chords: "Em G A (x3), Em Bm D, Em G A (x3), Em Bm A",
-                    strumming: "DUD DUD",
+                    name: "Verse",
+                    chords: "G G F G",
+                    strumming: "dUDu UDu UDU UDU",
                     display_order: 2
                 },
                 {
                     name: "Bridge",
-                    chords: "D G Em, D G Am, Em G A",
+                    chords: "C C7 F F, C C7 F Dm",
                     strumming: "DUD DUD",
                     display_order: 3
-                },
+                }
             ]
         }]
     },
