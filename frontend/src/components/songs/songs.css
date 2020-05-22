@@ -1,3 +1,7 @@
-#show-song-container, #edit-song-container, #new-song {
+#show-song, #edit-song, #new-song {
     text-align: left;
+}
+
+#song-header {
+    justify-content: left;
 }

@@ -13,11 +13,7 @@ const EditSongContainer = props => {
   const { songId } = useParams()
   const song = songs.find(song => song.id === parseInt(songId))
   
-  return (
-    <div id="edit-song-container">
-      <EditSong song={song} />
-    </div>
-  )
+  return <EditSong song={song} />
 }
 
 

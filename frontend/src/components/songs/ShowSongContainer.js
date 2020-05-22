@@ -13,11 +13,7 @@ const ShowSongContainer = props => {
   const { songId } = useParams()
   const song = songs.find(song => song.id === parseInt(songId))
   
-  return (
-    <div id="show-song-container">
-      <ShowSong song={song} />
-    </div>
-  )
+  return <ShowSong song={song}/>
 }
 
 

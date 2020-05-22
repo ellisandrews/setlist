@@ -48,7 +48,7 @@ class ShowSong extends Component {
           <h3>Song Info</h3>
           <h5>Guitar Type: {guitar_type || 'Any'}</h5>
           <h5>Capo: {capo || 'None'}</h5>
-          <h5>Struming: {strumming || 'None'}</h5>
+          <h5>Strumming: {strumming || 'None'}</h5>
           <h5>Notes: {notes || 'None'}</h5>
         </div>
 
