@@ -1,3 +1,3 @@
 class SectionSerializer < ActiveModel::Serializer
-    attributes :id, :name, :chords, :strumming, :display_order
+    attributes :id, :name, :chords, :display_order
 end

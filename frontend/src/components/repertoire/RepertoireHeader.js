@@ -21,7 +21,7 @@ class RepertoireHeader extends Component {
     const { searchData: { query, guitarType, orderBy, ascending }, handleChange } = this.props
     
     return (
-      <Container id="search-filters">
+      <Container id="search-filters" className="border">
         <Row>
           <Col>
             <Form.Group>

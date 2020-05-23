@@ -16,10 +16,8 @@ class ShowSong extends Component {
       const sectionNumber = index + 1
       return (
         <div id={`section-${sectionNumber}`} key={sectionNumber}>
-          <h4>Section {sectionNumber}</h4>
           <h5>{section.name}</h5>
           <h6>Chords: {section.chords}</h6>
-          <h6>Strumming: {section.strumming}</h6>
         </div>
       )
     })
@@ -39,27 +37,24 @@ class ShowSong extends Component {
 
   render() {
     
-    const { id, spotify_track, guitar_type, capo, notes } = this.props.song
+    const { id, guitar_type, capo, strumming, notes, spotify_track } = this.props.song
 
     return (
       <div id="show-song">
         
         <SongHeader spotifyTrack={spotify_track}/>
 
-        <div id="setup">
-          <h3>Setup</h3>
+        <div id="song-info">
+          <h3>Song Info</h3>
           <h5>Guitar Type: {guitar_type || 'Any'}</h5>
           <h5>Capo: {capo || 'None'}</h5>
+          <h5>Strumming: {strumming || 'None'}</h5>
+          <h5>Notes: {notes || 'None'}</h5>
         </div>
 
         <div id="sections">
           <h3>Sections</h3>
           {this.renderSections()}
-        </div>
-              
-        <div id="notes">
-          <h3>Notes</h3>
-          <p>{notes || 'None'}</p>
         </div>
 
         <LinkContainer to={`/songs/${id}/edit`}>

@@ -49,7 +49,7 @@ class SearchContainer extends Component {
     const { query, results } = this.state
 
     return (
-      <Container id='search-container'>
+      <Container id='search-container' className="border">
         <SearchHeader/>
         <SearchForm query={query} handleChange={this.handleChange} />
         <SearchResults results={results} handleSpotifyTrack={this.props.handleSpotifyTrack}/>

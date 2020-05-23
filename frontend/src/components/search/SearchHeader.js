@@ -6,6 +6,7 @@ import spotifyIcon from './spotify_icon.png'
 const SearchHeader = () => {
   return (
     <div id="search-header">
+      <h1 style={{marginBottom: '3vh'}}>New Song</h1>
       <Container id="spotify-logo">
         <Image fluid src={spotifyIcon} alt="spotify-logo" />
       </Container>

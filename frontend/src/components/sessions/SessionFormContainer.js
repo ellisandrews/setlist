@@ -12,16 +12,19 @@ const SessionFormContainer = () => {
   const location = useLocation()
 
   return (
-    <Container id="session-form-container" className="border">
-      <Row className="align-items-center h-100">
-        <Col className="h-100">
-          <Image src={sessionFormImg} alt="session-form-image" className="h-100"/>
-        </Col>
-        <Col>
-          { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
-        </Col>
-      </Row>
-    </Container>
+    <div className="vertical-center">
+      <Container id="session-form-container" className="border">
+        <Row className="align-items-center h-100">
+         <Col className="h-100" style={{paddingLeft: 0}}>
+            <Image src={sessionFormImg} alt="session-form-image" className="h-100"/>
+          </Col>
+          <Col>
+            { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
+          </Col>
+        </Row>
+      </Container>
+    </div>
+    
   )
 }
 

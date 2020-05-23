@@ -4,7 +4,6 @@ class CreateSections < ActiveRecord::Migration[6.0]
     create_table :sections do |t|
       t.string :name, null: false
       t.string :chords, null: false
-      t.string :strumming
       t.integer :display_order
       t.references :song, null: false, foreign_key: true
 
