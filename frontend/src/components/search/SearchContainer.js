@@ -51,7 +51,7 @@ class SearchContainer extends Component {
 
       // Enter key
       case 13:
-        console.log('Enter Key. Selected index:', selectedIndex)
+        this.props.handleSpotifyTrack(results[selectedIndex])
         break
 
       default:
