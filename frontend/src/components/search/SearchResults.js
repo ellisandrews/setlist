@@ -8,9 +8,9 @@ class SearchResults extends Component {
 
   renderResults = () => {
 
-    const { results, handleSpotifyTrack } = this.props
+    const { results, selectedIndex, handleSpotifyTrack } = this.props
 
-    return results.map(result => {
+    return results.map( (result, index) => {
 
       // Extract the relevant data from the result object
       const artwork_url = result.album.images.find(image => image.height === 64).url
@@ -18,7 +18,7 @@ class SearchResults extends Component {
       const artist = result.artists[0].name
 
       return (
-        <ListGroup.Item action as='button' onClick={() => handleSpotifyTrack(result)} key={result.id}>
+        <ListGroup.Item active={index === selectedIndex} action as='button' onClick={() => handleSpotifyTrack(result)} key={result.id}>
           <SearchResult artwork_url={artwork_url} title={title} artist={artist} />
         </ListGroup.Item>
       )
@@ -27,7 +27,7 @@ class SearchResults extends Component {
 
   render() {
     return (
-      <ListGroup id='search-results'>
+      <ListGroup id="search-results" variant="flush" className="border">
         {this.renderResults()}
       </ListGroup>
     )

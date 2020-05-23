@@ -13,7 +13,49 @@ class SearchContainer extends Component {
 
     this.state = {
       query: '',
-      results: []
+      results: [],
+      selectedIndex: 0,  // Index of results array that is currently selected
+    }
+  }
+
+  handleKeyDown = event => {
+
+    const { results, selectedIndex } = this.state
+    
+    const keyCode = event.keyCode
+
+    // Prevent cursor from going to start/end of input box (we want to scroll instead) for arrow up/down
+    if ( keyCode === 38 || keyCode === 40 ) {
+      event.preventDefault()     
+    }
+
+    switch ( keyCode ) {
+      
+      // Arrow up key
+      case 38:
+        if ( selectedIndex > 0 ) {
+          this.setState(prevState => ({
+            selectedIndex: prevState.selectedIndex - 1
+          }))
+        }
+        break
+
+      // Arrow down key
+      case 40:
+        if ( selectedIndex < results.length - 1 ) {
+          this.setState( prevState => ({
+            selectedIndex: prevState.selectedIndex + 1
+          }))
+        }
+        break
+
+      // Enter key
+      case 13:
+        this.props.handleSpotifyTrack(results[selectedIndex])
+        break
+
+      default:
+        return
     }
   }
 
@@ -29,13 +71,17 @@ class SearchContainer extends Component {
     // If there is no query string, set the results back to empty array and return.
     if (!query) {
       this.setState({
-        results: []
+        results: [],
+        selectedIndex: 0
       })
       return
     }
 
     const success = results => {
-      this.setState({ results })
+      this.setState({
+        results,
+        selectedIndex: 0  // When the results change, set the selectedIndex back to 0
+      })
     }
 
     // Make a request to the backend, which hits the Spotify API and returns the results.
@@ -46,13 +92,13 @@ class SearchContainer extends Component {
   }
 
   render() {
-    const { query, results } = this.state
+    const { query, results, selectedIndex } = this.state
 
     return (
-      <Container id='search-container' className="border">
+      <Container id="search-container" className="border">
         <SearchHeader/>
-        <SearchForm query={query} handleChange={this.handleChange} />
-        <SearchResults results={results} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
+        <SearchForm query={query} handleChange={this.handleChange} handleKeyDown={this.handleKeyDown}/>
+        <SearchResults results={results} selectedIndex={selectedIndex} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
       </Container>
     )
   }
