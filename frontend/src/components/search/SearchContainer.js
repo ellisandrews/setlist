@@ -18,21 +18,44 @@ class SearchContainer extends Component {
     }
   }
 
-  handleKeyPress = event => {
-
-    console.log(event)
+  handleKeyDown = event => {
 
     const { results, selectedIndex } = this.state
     
-    // Only handle arrow up or down keys, which will navigate the selected item of the results list
-    if (event.keyCode === 38 && selectedIndex > 0) {
-      this.setState(prevState => ({
-        selectedIndex: prevState.selectedIndex - 1
-      }))
-    } else if (event.keyCode === 40 && selectedIndex < results.length - 1) {
-      this.setState( prevState => ({
-        selectedIndex: prevState.selectedIndex + 1
-      }))
+    const keyCode = event.keyCode
+
+    // Prevent cursor from going to start/end of input box (we want to scroll instead) for arrow up/down
+    if ( keyCode === 38 || keyCode === 40 ) {
+      event.preventDefault()     
+    }
+
+    switch ( keyCode ) {
+      
+      // Arrow up key
+      case 38:
+        if ( selectedIndex > 0 ) {
+          this.setState(prevState => ({
+            selectedIndex: prevState.selectedIndex - 1
+          }))
+        }
+        break
+
+      // Arrow down key
+      case 40:
+        if ( selectedIndex < results.length - 1 ) {
+          this.setState( prevState => ({
+            selectedIndex: prevState.selectedIndex + 1
+          }))
+        }
+        break
+
+      // Enter key
+      case 13:
+        console.log('Enter Key. Selected index:', selectedIndex)
+        break
+
+      default:
+        return
     }
   }
 
@@ -74,7 +97,7 @@ class SearchContainer extends Component {
     return (
       <Container id="search-container" className="border">
         <SearchHeader/>
-        <SearchForm query={query} handleChange={this.handleChange}/>
+        <SearchForm query={query} handleChange={this.handleChange} handleKeyDown={this.handleKeyDown}/>
         <SearchResults results={results} selectedIndex={selectedIndex} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
       </Container>
     )
