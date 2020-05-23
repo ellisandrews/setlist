@@ -27,7 +27,7 @@ class SearchResults extends Component {
 
   render() {
     return (
-      <ListGroup id='search-results'>
+      <ListGroup id="search-results" variant="flush" className="border">
         {this.renderResults()}
       </ListGroup>
     )
