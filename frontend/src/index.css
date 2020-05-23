@@ -1,0 +1,11 @@
+#main-display {
+    min-height: 100vh;
+}
+
+.bg-grey {
+    background-color: gainsboro;
+}
+
+.bg-white {
+    background-color: white;
+}

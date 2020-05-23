@@ -10,7 +10,7 @@ import './layout.css'
 
 const MainDisplay = () => {
   return (
-    <div id='main-display'>
+    <div id="main-display" className="bg-grey">
       <Switch>
         <Route exact path='/'>
           <Home/>

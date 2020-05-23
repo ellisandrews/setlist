@@ -85,7 +85,6 @@ class RepertoireContainer extends Component {
   render() {
     return (
       <div id="repertoire-container">
-        <h1>Repertoire</h1>
         <RepertoireHeader searchData={this.state} handleChange={this.handleChange}/>
         <RepertoireDisplay songs={this.filterAndSortSongs()}/>
       </div>

@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom'
 import { applyMiddleware, compose, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import 'bootstrap/dist/css/bootstrap.min.css'
 import App from './App'
 import rootReducer from './reducers/rootReducer'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import './index.css'
 
 
 // Create the redux store (with redux-thunk for async operations)

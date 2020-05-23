@@ -38,7 +38,7 @@ class Home extends Component {
   render() {
     return (
       <div className="vertical-center">
-        <Container id="home" className="border" style={{maxWidth: '50vw'}}>
+        <Container id="home" className="border bg-white" style={{maxWidth: '50vw'}}>
           <h1>Setlist</h1>
           {this.renderContent()}
         </Container>
