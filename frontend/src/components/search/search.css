@@ -5,8 +5,7 @@
 }
 
 #search-results {
-    max-height: 50vh;
-    margin-bottom: 10vh;
+    max-height: 45vh;
     overflow: scroll;
     text-align: left;
 }
@@ -14,4 +13,8 @@
 #spotify-logo {
     height: 150px;
     width: 150px;
+}
+
+.search-result img {
+    height: 35px;
 }
