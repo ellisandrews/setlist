@@ -8,7 +8,7 @@ const SongHeader = props => {
 
   return (
     <Container id="song-header" className="border">
-      <Row className="align-items-center">
+      <Row className="align-items-center my-3">
         
         <Col>
           <Row className="align-items-center">

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
+import { Container } from 'react-bootstrap'
 import SearchContainer from '../search/SearchContainer'
 import SongForm from './SongForm'
 import SongHeader from './SongHeader'
@@ -55,15 +56,15 @@ class NewSongContainer extends Component {
 
   render() {
     return (
-      <div id="new-song-container" className="border">
+      <div id="new-song-container" className="py-1">
         {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <div id="new-song" className="border">
+          <Container id="new-song" className="bg-white p-0">
             <SongHeader spotifyTrack={this.state.spotifyTrack}/>
             <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
-          </div>
+          </Container>
         }
       </div>
     )
