@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_213054) do
     t.integer "capo"
     t.text "strumming"
     t.text "notes"
+    t.string "youtube_id"
     t.bigint "user_id", null: false
     t.bigint "spotify_track_id", null: false
     t.datetime "created_at", precision: 6, null: false
