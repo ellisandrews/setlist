@@ -53,9 +53,24 @@ class SongForm extends Component {
   }
 
   renderSections = () => {
-    return this.state.sections.map((section, index) => {
+
+    const { sections } = this.state
+
+    // If there are no sections, display the button to add one
+    if ( sections.length === 0 ) {
       return (
-        <div key={index + 1}>
+        <Form.Group as={Row}>
+          <Col sm={{ span: 11, offset: 1 }}>
+            <Button size="sm" onClick={this.addSection}>Add Section</Button>
+          </Col>
+        </Form.Group>
+      )
+    }
+
+    // Display all sections
+    return sections.map((section, index) => {
+      return (
+        <div key={index}>
           <h5>Section {index + 1}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={1}>Name</Form.Label>
@@ -71,7 +86,9 @@ class SongForm extends Component {
           </Form.Group>
           <Form.Group as={Row}>
             <Col sm={{ span: 11, offset: 1 }}>
-              <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>
+              <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>{' '}
+              {/* Last section gets the "Add Section" button too */}
+              { index === sections.length - 1 ? <Button size="sm" onClick={this.addSection}>Add Section</Button> : null }
             </Col>
           </Form.Group>
         </div>
@@ -108,6 +125,7 @@ class SongForm extends Component {
       <Container className="border bg-white" style={{marginBottom: '5vh'}}>
         <Form onSubmit={event => handleSubmit(event, this.state)}>
 
+          {/* --- SONG INFO --- */}
           <h3 className="form-heading">Song Info</h3>
 
           {/* Guitar Type */}
@@ -138,14 +156,11 @@ class SongForm extends Component {
             </Col>
           </Form.Group>
 
+          {/* --- SECTIONS --- */}
           <h3 className="form-heading">Sections</h3>
           {this.renderSections()}
-          <Form.Group as={Row}>
-            <Col sm={{ span: 11, offset: 1 }}>
-              <Button size="sm" onClick={this.addSection}>Add Section</Button>
-            </Col>
-          </Form.Group>
           
+          {/* --- RESOURCES --- */}
           <h3 className="form-heading">Resources</h3>
           {/* Youtube */}
           <Form.Group as={Row}>
@@ -164,7 +179,7 @@ class SongForm extends Component {
             </Col>
           </Form.Group>
 
-          {/* Buttons */}
+          {/* --- SUBMISSION --- */}
           <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <Col>
               <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
