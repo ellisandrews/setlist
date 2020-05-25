@@ -17,6 +17,7 @@ song_data = [
             guitar_type: "Acoustic",
             capo: 3,
             strumming: "DudU udU udu udu",
+            youtube_id: "M37Ut3uaHMs",
             notes: "The F is played as 3 finger open chord (open high 'e' string). Second and third chords change on the up beats! Indicated by the capital letters here: ONE and two AND ... and 4 AND",
             user: user,
             sections_attributes: [
@@ -47,6 +48,7 @@ song_data = [
             guitar_type: nil,
             capo: nil,
             strumming: "DU D UDUDD DU",
+            youtube_id: "vKru2yeVgFg",
             notes: "Hammer on with the Am and Dsus2 in the Intro/Verse/Solo.",
             user: user,
             sections_attributes: [
