@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { connect } from 'react-redux'
@@ -40,29 +40,34 @@ class ShowSong extends Component {
     const { id, guitar_type, capo, strumming, notes, spotify_track } = this.props.song
 
     return (
-      <div id="show-song">
+      <Container id="show-song">
         
         <SongHeader spotifyTrack={spotify_track}/>
 
-        <div id="song-info">
-          <h3>Song Info</h3>
-          <h5>Guitar Type: {guitar_type || 'Any'}</h5>
-          <h5>Capo: {capo || 'None'}</h5>
-          <h5>Strumming: {strumming || 'None'}</h5>
-          <h5>Notes: {notes || 'None'}</h5>
-        </div>
+        <Container id="song-info" className="border bg-white" style={{marginBottom: '5vh'}}>
+          <div id="song-info">
+            <h3 className="form-heading">Song Info</h3>
+            <h5>Guitar Type: {guitar_type || 'Any'}</h5>
+            <h5>Capo: {capo || 'None'}</h5>
+            <h5>Strumming: {strumming || 'None'}</h5>
+            <h5>Notes: {notes || 'None'}</h5>
+          </div>
 
-        <div id="sections">
-          <h3>Sections</h3>
-          {this.renderSections()}
-        </div>
+          <div id="sections">
+            <h3 className="form-heading">Sections</h3>
+            {this.renderSections()}
+          </div>
 
-        <LinkContainer to={`/songs/${id}/edit`}>
-          <Button variant="primary">Edit</Button>
-        </LinkContainer>{' '}
-        <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
+          <div style={{marginTop: '5vh', marginBottom: '5vh'}}>
+            <LinkContainer to={`/songs/${id}/edit`}>
+              <Button variant="primary">Edit</Button>
+            </LinkContainer>{' '}
+            <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
+          </div>
 
-      </div>
+        </Container>
+
+      </Container>
     )
   }
 }

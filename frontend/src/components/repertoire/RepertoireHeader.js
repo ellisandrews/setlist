@@ -21,8 +21,9 @@ class RepertoireHeader extends Component {
     const { searchData: { query, guitarType, orderBy, ascending }, handleChange } = this.props
     
     return (
-      <Container id="search-filters" className="border">
-        <Row>
+      <Container fluid id="repertoire-header" className="border py-3 bg-white">
+        <h1>Repertoire</h1>
+        <Row className="py-1">
           <Col>
             <Form.Group>
               <p>Search Songs</p>

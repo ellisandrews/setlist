@@ -13,7 +13,7 @@ const SessionFormContainer = () => {
 
   return (
     <div className="vertical-center">
-      <Container id="session-form-container" className="border">
+      <Container id="session-form-container" className="border bg-white">
         <Row className="align-items-center h-100">
          <Col className="h-100" style={{paddingLeft: 0}}>
             <Image src={sessionFormImg} alt="session-form-image" className="h-100"/>

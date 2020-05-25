@@ -7,8 +7,8 @@ const SongHeader = props => {
   const { artwork_url, title, artist, spotify_id } = props.spotifyTrack
 
   return (
-    <Container id="song-header" className="border">
-      <Row className="align-items-center">
+    <Container id="song-header" className="border bg-white">
+      <Row className="align-items-center my-3">
         
         <Col>
           <Row className="align-items-center">
@@ -16,8 +16,8 @@ const SongHeader = props => {
               <Image thumbnail fluid src={artwork_url} alt="album-artwork"/>
             </Col>
             <Col style={{textAlign: 'left'}}>
-              <h1>{title}</h1>
-              <h4>{artist}</h4>
+              <h2>{title}</h2>
+              <h4 className="text-muted">{artist}</h4>
             </Col>
           </Row>
         </Col>

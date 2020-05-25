@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { ListGroup } from 'react-bootstrap'
-import SearchResult from './SearchResult'
+import { ListGroup, Image } from 'react-bootstrap'
 import './search.css'
 
 
@@ -16,18 +15,22 @@ class SearchResults extends Component {
       const artwork_url = result.album.images.find(image => image.height === 64).url
       const title = result.name
       const artist = result.artists[0].name
+      const displayText = `${title} - ${artist}`
 
       return (
-        <ListGroup.Item active={index === selectedIndex} action as='button' onClick={() => handleSpotifyTrack(result)} key={result.id}>
-          <SearchResult artwork_url={artwork_url} title={title} artist={artist} />
-        </ListGroup.Item>
+        <div className="search-result" key={result.id}>
+          <ListGroup.Item active={index === selectedIndex} action as='button' onClick={() => handleSpotifyTrack(result)}>
+            <Image rounded src={artwork_url} alt={`${displayText} album artwork`} />
+            <span style={{paddingLeft: 20}}>{displayText}</span>
+          </ListGroup.Item>
+        </div>
       )
     })
   }
 
   render() {
     return (
-      <ListGroup id="search-results" variant="flush" className="border">
+      <ListGroup id="search-results" variant="flush">
         {this.renderResults()}
       </ListGroup>
     )

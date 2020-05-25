@@ -32,7 +32,7 @@ class RepertoireDisplay extends Component {
   
   render() {
     return (
-      <Container id="repertoire-display" fluid className="mt-4 border">
+      <Container fluid id="repertoire-display" className="border mt-4">
         <Row className="justify-content-center">
           {this.renderSongCards()}
         </Row>
