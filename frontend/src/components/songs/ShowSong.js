@@ -3,6 +3,7 @@ import { Button, Container, Row, Col } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { connect } from 'react-redux'
+import YouTube from 'react-youtube'
 import SongHeader from './SongHeader'
 import { deleteSongAsync } from '../../actions/songs'
 
@@ -37,7 +38,7 @@ class ShowSong extends Component {
 
   render() {
     
-    const { id, guitar_type, capo, strumming, notes, spotify_track } = this.props.song
+    const { id, guitar_type, capo, strumming, youtube_id, notes, spotify_track } = this.props.song
 
     return (
       <Container id="show-song">
@@ -46,7 +47,7 @@ class ShowSong extends Component {
 
         <Container id="song-info" className="border bg-white" style={{marginBottom: '5vh'}}>
           
-          {/* Song Info */}
+          {/* --- SONG INFO --- */}
           <h3 className="form-heading">Song Info</h3>
           <Row className="py-1">
             <Col xs={2}>Guitar Type</Col>
@@ -60,16 +61,23 @@ class ShowSong extends Component {
             <Col xs={2}>Strumming</Col>
             <Col>{strumming || ''}</Col>
           </Row>
+          
+          {/* --- SECTIONS --- */}
+          <h3 className="form-heading">Sections</h3>
+          {this.renderSections()}
+
+          {/* --- RESOURCES --- */}
+          <h3 className="form-heading">Resources</h3>
+          <Row className="py-1">
+            <Col xs={2}>YouTube</Col>
+            <Col>{ youtube_id ? <YouTube videoId={youtube_id} /> : 'None' }</Col>
+          </Row>
           <Row className="py-1">
             <Col xs={2}>Notes</Col>
             <Col>{notes || ''}</Col>
           </Row>
-          
-          {/* Sections */}
-          <h3 className="form-heading">Sections</h3>
-          {this.renderSections()}
 
-          {/* Buttons */}
+          {/* --- SUBMISSION --- */}
           <div style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <LinkContainer to={`/songs/${id}/edit`}>
               <Button variant="primary">Edit</Button>
