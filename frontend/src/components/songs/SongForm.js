@@ -60,7 +60,7 @@ class SongForm extends Component {
     if ( sections.length === 0 ) {
       return (
         <Form.Group as={Row}>
-          <Col sm={{ span: 11, offset: 1 }}>
+          <Col sm={{ span: 10, offset: 2 }}>
             <Button size="sm" onClick={this.addSection}>Add Section</Button>
           </Col>
         </Form.Group>
