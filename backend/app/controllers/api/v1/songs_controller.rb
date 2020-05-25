@@ -74,7 +74,7 @@ class Api::V1::SongsController < ApplicationController
 
     def permit_song_params(raw_song_params)
         raw_song_params.permit(
-            :guitar_type, :capo, :strumming, :notes,  # User generated data
+            :guitar_type, :capo, :strumming, :youtube_url, :notes,  # User generated data
             sections_attributes: [:id, :name, :chords, :display_order, :_destroy]  # Associations data
         )
     end

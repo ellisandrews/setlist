@@ -6,6 +6,7 @@ class CreateSongs < ActiveRecord::Migration[6.0]
       t.integer :capo
       t.text :strumming
       t.text :notes
+      t.string :youtube_url
       t.references :user, null: false, foreign_key: true
       t.references :spotify_track, null: false, foreign_key: true
 
