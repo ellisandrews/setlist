@@ -10,14 +10,15 @@ class SongForm extends Component {
 
     // Initialze state with either the provided song's or a new song's data
     const initialSong = props.song || this.songFactory()
-    const { guitar_type, capo, strumming, notes, sections } = initialSong
+    const { guitar_type, capo, strumming, sections, youtube_id, notes } = initialSong
 
     this.state = {
       guitar_type,
       capo,
       strumming,
+      sections,
+      youtube_id,
       notes,
-      sections
     }
   }
   
@@ -25,8 +26,8 @@ class SongForm extends Component {
     return { name, chords }
   }
 
-  songFactory = (guitar_type='', capo='', strumming='', notes='', sections=[ this.sectionFactory() ]) => {
-    return { guitar_type, capo, strumming, notes, sections }
+  songFactory = (guitar_type='', capo='', strumming='', sections=[ this.sectionFactory() ], youtube_id='', notes='') => {
+    return { guitar_type, capo, strumming, sections, youtube_id, notes }
   }
 
   handleChange = event => {
@@ -100,7 +101,7 @@ class SongForm extends Component {
   render() {
     
     const { handleCancel, handleSubmit } = this.props
-    const { guitar_type, capo, strumming, notes } = this.state
+    const { guitar_type, capo, strumming, notes, youtube_id } = this.state
 
     return (
 
@@ -125,7 +126,7 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={1}>Capo</Form.Label>
             <Col sm={1}>
-              <Form.Control name="capo" type="number" value={capo} onChange={this.handleChange}/>
+              <Form.Control name="capo" type="number" placeholder="1" value={capo} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
 
@@ -136,17 +137,8 @@ class SongForm extends Component {
               <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
-          
-          {/* Notes */}
-          <Form.Group as={Row}>
-            <Form.Label column sm={1}>Notes</Form.Label>
-            <Col sm={10}>
-              <Form.Control as="textarea" rows="5" name="notes" value={notes} onChange={this.handleChange}/>
-            </Col>
-          </Form.Group>
 
           <h3 className="form-heading">Sections</h3>
-
           {this.renderSections()}
           <Form.Group as={Row}>
             <Col sm={{ span: 11, offset: 1 }}>
@@ -154,6 +146,24 @@ class SongForm extends Component {
             </Col>
           </Form.Group>
           
+          <h3 className="form-heading">Resources</h3>
+          {/* Youtube */}
+          <Form.Group as={Row}>
+            <Form.Label column sm={1}>YouTube ID</Form.Label>
+            <Col sm={5}>
+              <Form.Control name="youtube_id" type="text" placeholder="3_yOc3VDU5I" value={youtube_id} onChange={this.handleChange}/>
+              <Form.Text className="text-muted">Ex: https://www.youtube.com/watch?v=<b>3_yOc3VDU5I</b></Form.Text>
+            </Col>
+          </Form.Group>
+
+          {/* Notes */}
+          <Form.Group as={Row}>
+            <Form.Label column sm={1}>Notes</Form.Label>
+            <Col sm={10}>
+              <Form.Control as="textarea" rows="5" placeholder="Song notes..." name="notes" value={notes} onChange={this.handleChange}/>
+            </Col>
+          </Form.Group>
+
           {/* Buttons */}
           <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <Col>
