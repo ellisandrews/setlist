@@ -7,7 +7,7 @@ const SongHeader = props => {
   const { artwork_url, title, artist, spotify_id } = props.spotifyTrack
 
   return (
-    <Container id="song-header" className="border bg-white custom-shadow rounded">
+    <Container id="song-header" className="border bg-white custom-shadow rounded" style={{paddingLeft: '3vw'}}>
       <Row className="align-items-center my-3">
         
         <Col>

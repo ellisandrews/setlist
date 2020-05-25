@@ -17,7 +17,7 @@ class ShowSong extends Component {
       const sectionNumber = index + 1
       return (
         <Row className="my-3" key={sectionNumber}>
-          <Col xs={2}>{section.name}</Col>
+          <Col xs={2} style={{textAlign: 'right'}}>{section.name}</Col>
           <Col>{section.chords}</Col>
         </Row>
       )
@@ -45,20 +45,20 @@ class ShowSong extends Component {
         
         <SongHeader spotifyTrack={spotify_track}/>
 
-        <Container id="song-info" className="border bg-white custom-shadow rounded" style={{marginBottom: '5vh'}}>
+        <Container id="song-info" className="border bg-white custom-shadow rounded" style={{marginBottom: '5vh', paddingLeft: '3vw'}}>
           
           {/* --- SONG INFO --- */}
           <h3 className="form-heading">Song Info</h3>
           <Row className="py-1">
-            <Col xs={2}>Guitar Type</Col>
+            <Col xs={2} style={{textAlign: 'right'}}>Guitar Type</Col>
             <Col>{guitar_type || 'Any'}</Col>
           </Row>
           <Row className="py-1">
-            <Col xs={2}>Capo</Col>
+            <Col xs={2} style={{textAlign: 'right'}}>Capo</Col>
             <Col>{capo || 'None'}</Col>
           </Row>
           <Row className="py-1">
-            <Col xs={2}>Strumming</Col>
+            <Col xs={2} style={{textAlign: 'right'}}>Strumming</Col>
             <Col>{strumming || ''}</Col>
           </Row>
           
@@ -69,11 +69,11 @@ class ShowSong extends Component {
           {/* --- RESOURCES --- */}
           <h3 className="form-heading">Resources</h3>
           <Row className="py-1">
-            <Col xs={2}>YouTube</Col>
+            <Col xs={2} style={{textAlign: 'right'}}>YouTube</Col>
             <Col>{ youtube_id ? <YouTube videoId={youtube_id} /> : 'None' }</Col>
           </Row>
           <Row className="py-1">
-            <Col xs={2}>Notes</Col>
+            <Col xs={2} style={{textAlign: 'right'}}>Notes</Col>
             <Col>{notes || ''}</Col>
           </Row>
 

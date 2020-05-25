@@ -71,21 +71,21 @@ class SongForm extends Component {
     return sections.map((section, index) => {
       return (
         <div key={index}>
-          <h5>Section {index + 1}</h5>
+          <h5 className="text-muted">Section {index + 1}</h5>
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>Name</Form.Label>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>Name</Form.Label>
             <Col sm={4}>
               <Form.Control name="name" type="text" placeholder="Intro" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>Chords</Form.Label>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>Chords</Form.Label>
             <Col sm={6}>
               <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
-            <Col sm={{ span: 11, offset: 1 }}>
+            <Col sm={{ span: 10, offset: 2 }}>
               <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>{' '}
               {/* Last section gets the "Add Section" button too */}
               { index === sections.length - 1 ? <Button size="sm" onClick={this.addSection}>Add Section</Button> : null }
@@ -122,17 +122,17 @@ class SongForm extends Component {
 
     return (
 
-      <Container className="bg-white custom-shadow rounded" style={{marginBottom: '5vh'}}>
+      <Container className="bg-white custom-shadow rounded" style={{marginBottom: '5vh', paddingLeft: '3vw'}}>
         <Form onSubmit={event => handleSubmit(event, this.state)}>
 
           {/* --- SONG INFO --- */}
-          <h3 className="form-heading">Song Info</h3>
+          <h3 className="form-heading" style={{paddingTop: '3vh'}}>Song Info</h3>
 
           {/* Guitar Type */}
           <fieldset>
             <Form.Group as={Row} onChange={this.handleChange}>
-              <Form.Label as="legend" column sm={1}>Guitar</Form.Label>
-              <Col sm={11}>
+              <Form.Label as="legend" column sm={2} style={{textAlign: 'right'}}>Guitar</Form.Label>
+              <Col>
                 <Form.Check inline type="radio" name="guitar_type" label="Any" value="" checked={!guitar_type} onChange={this.handleChange}/>
                 <Form.Check inline type="radio" name="guitar_type" label="Acoustic" value="Acoustic" checked={guitar_type === 'Acoustic'} onChange={this.handleChange}/>
                 <Form.Check inline type="radio" name="guitar_type" label="Electric" value="Electric" checked={guitar_type === 'Electric'} onChange={this.handleChange}/>
@@ -142,7 +142,7 @@ class SongForm extends Component {
 
           {/* Capo */}
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>Capo</Form.Label>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>Capo</Form.Label>
             <Col sm={1}>
               <Form.Control name="capo" type="number" placeholder="1" value={capo} onChange={this.handleChange}/>
             </Col>
@@ -150,7 +150,7 @@ class SongForm extends Component {
 
           {/* Strumming */}
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>Strumming</Form.Label>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>Strumming</Form.Label>
             <Col sm={5}>
               <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
             </Col>
@@ -164,7 +164,7 @@ class SongForm extends Component {
           <h3 className="form-heading">Resources</h3>
           {/* Youtube */}
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>YouTube ID</Form.Label>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>YouTube ID</Form.Label>
             <Col sm={5}>
               <Form.Control name="youtube_id" type="text" placeholder="3_yOc3VDU5I" value={youtube_id} onChange={this.handleChange}/>
               <Form.Text className="text-muted">Ex: https://www.youtube.com/watch?v=<b>3_yOc3VDU5I</b></Form.Text>
@@ -173,8 +173,8 @@ class SongForm extends Component {
 
           {/* Notes */}
           <Form.Group as={Row}>
-            <Form.Label column sm={1}>Notes</Form.Label>
-            <Col sm={10}>
+            <Form.Label column sm={2} style={{textAlign: 'right'}}>Notes</Form.Label>
+            <Col sm={9}>
               <Form.Control as="textarea" rows="5" placeholder="Song notes..." name="notes" value={notes} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
