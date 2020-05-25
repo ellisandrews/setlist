@@ -72,6 +72,7 @@ song_data = [
             guitar_type: "Electric",
             capo: nil,
             strumming: "D D DUD UDUDU",
+            youtube_id: "3_yOc3VDU5I",
             notes: "Put a little reverb on it and take your time.",
             user: user,
             sections_attributes: [
