@@ -61,7 +61,7 @@ class NewSongContainer extends Component {
           this.state.displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
-          <Container id="new-song" className="bg-white p-0">
+          <Container id="new-song" className="p-0">
             <SongHeader spotifyTrack={this.state.spotifyTrack}/>
             <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
           </Container>

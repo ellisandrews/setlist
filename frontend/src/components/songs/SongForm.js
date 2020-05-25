@@ -104,7 +104,7 @@ class SongForm extends Component {
 
     return (
 
-      <Container className="border" style={{marginBottom: '5vh'}}>
+      <Container className="border bg-white" style={{marginBottom: '5vh'}}>
         <Form onSubmit={event => handleSubmit(event, this.state)}>
 
           <h3 className="form-heading">Song Info</h3>
