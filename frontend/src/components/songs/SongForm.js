@@ -155,8 +155,8 @@ class SongForm extends Component {
           </Form.Group>
           
           {/* Buttons */}
-          <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh'}}>
-            <Col sm={{ span: 11, offset: 1 }}>
+          <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
+            <Col>
               <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
               <Button type="submit">Save</Button>
             </Col>

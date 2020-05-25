@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Container } from 'react-bootstrap'
+import { Button, Container, Row, Col } from 'react-bootstrap'
 import { withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { connect } from 'react-redux'
@@ -15,10 +15,10 @@ class ShowSong extends Component {
     return sections.map((section, index) => {
       const sectionNumber = index + 1
       return (
-        <div id={`section-${sectionNumber}`} key={sectionNumber}>
-          <h5>{section.name}</h5>
-          <h6>Chords: {section.chords}</h6>
-        </div>
+        <Row className="my-3" key={sectionNumber}>
+          <Col xs={2}>{section.name}</Col>
+          <Col>{section.chords}</Col>
+        </Row>
       )
     })
   }
@@ -45,20 +45,32 @@ class ShowSong extends Component {
         <SongHeader spotifyTrack={spotify_track}/>
 
         <Container id="song-info" className="border bg-white" style={{marginBottom: '5vh'}}>
-          <div id="song-info">
-            <h3 className="form-heading">Song Info</h3>
-            <h5>Guitar Type: {guitar_type || 'Any'}</h5>
-            <h5>Capo: {capo || 'None'}</h5>
-            <h5>Strumming: {strumming || 'None'}</h5>
-            <h5>Notes: {notes || 'None'}</h5>
-          </div>
+          
+          {/* Song Info */}
+          <h3 className="form-heading">Song Info</h3>
+          <Row className="py-1">
+            <Col xs={2}>Guitar Type</Col>
+            <Col>{guitar_type || 'Any'}</Col>
+          </Row>
+          <Row className="py-1">
+            <Col xs={2}>Capo</Col>
+            <Col>{capo || 'None'}</Col>
+          </Row>
+          <Row className="py-1">
+            <Col xs={2}>Strumming</Col>
+            <Col>{strumming || ''}</Col>
+          </Row>
+          <Row className="py-1">
+            <Col xs={2}>Notes</Col>
+            <Col>{notes || ''}</Col>
+          </Row>
+          
+          {/* Sections */}
+          <h3 className="form-heading">Sections</h3>
+          {this.renderSections()}
 
-          <div id="sections">
-            <h3 className="form-heading">Sections</h3>
-            {this.renderSections()}
-          </div>
-
-          <div style={{marginTop: '5vh', marginBottom: '5vh'}}>
+          {/* Buttons */}
+          <div style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <LinkContainer to={`/songs/${id}/edit`}>
               <Button variant="primary">Edit</Button>
             </LinkContainer>{' '}
