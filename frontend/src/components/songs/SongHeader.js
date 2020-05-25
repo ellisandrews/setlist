@@ -7,13 +7,13 @@ const SongHeader = props => {
   const { artwork_url, title, artist, spotify_id } = props.spotifyTrack
 
   return (
-    <Container id="song-header" className="border bg-white">
+    <Container id="song-header" className="border bg-white custom-shadow rounded">
       <Row className="align-items-center my-3">
         
         <Col>
           <Row className="align-items-center">
             <Col xs={4}>
-              <Image thumbnail fluid src={artwork_url} alt="album-artwork"/>
+              <Image rounded fluid src={artwork_url} alt="album-artwork"/>
             </Col>
             <Col style={{textAlign: 'left'}}>
               <h2>{title}</h2>

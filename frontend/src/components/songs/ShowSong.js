@@ -45,7 +45,7 @@ class ShowSong extends Component {
         
         <SongHeader spotifyTrack={spotify_track}/>
 
-        <Container id="song-info" className="border bg-white" style={{marginBottom: '5vh'}}>
+        <Container id="song-info" className="border bg-white custom-shadow rounded" style={{marginBottom: '5vh'}}>
           
           {/* --- SONG INFO --- */}
           <h3 className="form-heading">Song Info</h3>

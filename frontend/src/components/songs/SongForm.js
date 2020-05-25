@@ -122,7 +122,7 @@ class SongForm extends Component {
 
     return (
 
-      <Container className="border bg-white" style={{marginBottom: '5vh'}}>
+      <Container className="bg-white custom-shadow rounded" style={{marginBottom: '5vh'}}>
         <Form onSubmit={event => handleSubmit(event, this.state)}>
 
           {/* --- SONG INFO --- */}
@@ -181,7 +181,7 @@ class SongForm extends Component {
 
           {/* --- SUBMISSION --- */}
           <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
-            <Col>
+            <Col style={{marginBottom: '5vh'}}>
               <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
               <Button type="submit">Save</Button>
             </Col>
