@@ -52,7 +52,7 @@ class Sidebar extends Component {
   
   render() {
     return (
-      <Nav className='flex-column border' id='sidebar-nav'>
+      <Nav className='flex-column' id='sidebar-nav'>
         {this.renderHomeItem()}
         {this.renderNavItems()}
       </Nav>
