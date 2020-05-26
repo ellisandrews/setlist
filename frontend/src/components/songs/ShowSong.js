@@ -55,11 +55,11 @@ class ShowSong extends Component {
           </Row>
           <Row className="py-1">
             <Col xs={2} style={{textAlign: 'right'}}>Capo</Col>
-            <Col>{capo || 'None'}</Col>
+            <Col>{capo}</Col>
           </Row>
           <Row className="py-1">
             <Col xs={2} style={{textAlign: 'right'}}>Strumming</Col>
-            <Col>{strumming || ''}</Col>
+            <Col>{strumming}</Col>
           </Row>
           
           {/* --- SECTIONS --- */}
@@ -74,7 +74,7 @@ class ShowSong extends Component {
           </Row>
           <Row className="py-1">
             <Col xs={2} style={{textAlign: 'right'}}>Notes</Col>
-            <Col>{notes || ''}</Col>
+            <Col style={{whiteSpace: 'pre-wrap'}}>{notes}</Col>
           </Row>
 
           {/* --- SUBMISSION --- */}
