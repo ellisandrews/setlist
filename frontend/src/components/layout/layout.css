@@ -19,7 +19,7 @@
 }
 
 .sidebar-link.active {
-    background-color: lightgray;  /* Selected navbar tab highlighting */
+    background-color: gainsboro;  /* Selected navbar tab highlighting */
 }
 
 /* Style main display */
