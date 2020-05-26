@@ -109,6 +109,42 @@ song_data = [
                 display_order: 1
             }]
         }]
+    },
+    {
+        title: "Californication",
+        artist: "Red Hot Chili Peppers",
+        artwork_url: "https://i.scdn.co/image/ab67616d0000b27394d08ab63e57b0cae74e8595",
+        spotify_id: "48UPSzbZjgc449aqz8bxox",
+        songs_attributes: [{
+            guitar_type: "Electric",
+            capo: nil,
+            strumming: nil,
+            youtube_id: "ryGJpnT98-E",
+            notes: "See the video for picking the Am and F for the intro and interludes.",
+            user: user,
+            sections_attributes: [
+                {
+                    name: "Verse",
+                    chords: "Am F (x2), C G F Dm",
+                    display_order: 1
+                },
+                {
+                    name: "Interlude",
+                    chords: "Am F (x2)",
+                    display_order: 2
+                },
+                {
+                    name: "Chorus",
+                    chords: "C G Dm Am, C G Dm",
+                    display_order: 3
+                },
+                {
+                    name: "Solo",
+                    chords: "F#m D (x2), Bm D A E (x3), Am F (x2)",
+                    display_order: 4
+                }
+            ]
+        }]
     }
 ]
 
