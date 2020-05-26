@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Container } from 'react-bootstrap'
 import RepertoireDisplay from './RepertoireDisplay'
 import RepertoireHeader from './RepertoireHeader'
 import { mapSongsToProps } from '../../utils'
@@ -84,10 +85,12 @@ class RepertoireContainer extends Component {
 
   render() {
     return (
-      <div id="repertoire-container">
-        <RepertoireHeader searchData={this.state} handleChange={this.handleChange}/>
+      <>
+        <Container id="repertoire-header-container" className="py-1">
+          <RepertoireHeader searchData={this.state} handleChange={this.handleChange}/>
+        </Container>
         <RepertoireDisplay songs={this.filterAndSortSongs()}/>
-      </div>
+      </>
     )
   }
 }
