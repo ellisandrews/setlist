@@ -18,7 +18,7 @@ song_data = [
             capo: 3,
             strumming: "DudU udU udu udu",
             youtube_id: "M37Ut3uaHMs",
-            notes: "The F is played as 3 finger open chord (open high 'e' string). Second and third chords change on the up beats! Indicated by the capital letters here: ONE and two AND ... and 4 AND",
+            notes: "The F is played as 3 finger open chord (open high 'e' string). \n\nSecond and third chords change on the up beats! \nIndicated by the capital letters here: ONE and two AND ... and 4 AND",
             user: user,
             sections_attributes: [
                 {
@@ -101,7 +101,7 @@ song_data = [
             capo: nil,
             strumming: "D d D du", 
             youtube_id: "a25g71iwa2A",
-            notes: "Hang out on Am, until the \"turn around\" with a single hit on each of Em and G. Play the Em7 and Dm7 as barre chords (a simple slide-down).",
+            notes: "Hang out on Am, until the \"turn around\" with a single hit on each of Em and G.\n\nPlay the Em7 and Dm7 as barre chords (a simple slide-down).",
             user: user,
             sections_attributes: [{
                 name: "Whole Song",
@@ -142,6 +142,32 @@ song_data = [
                     name: "Solo",
                     chords: "F#m D (x2), Bm D A E (x3), Am F (x2)",
                     display_order: 4
+                }
+            ]
+        }]
+    },
+    {
+        title: "Say It Ain't So",
+        artist: "Weezer",
+        artwork_url: "https://i.scdn.co/image/ab67616d0000b273345536847e60f622ee0eae96",
+        spotify_id: "6VoIBz0VhCyz7OdEoRYDiA",
+        songs_attributes: [{
+            guitar_type: "Electric",
+            capo: nil,
+            strumming: nil,
+            youtube_id: "tTYBNpDZ4CE",
+            notes: "The low E string is technically tuned down a half step to Eb, but not necessary.\n\nHammer on the \"E-shape\" of C#m. \n\nPlay all chords as barre chords (the E is an A-shape rooted on the 7th fret).\n\nFor the chorus can play the notes as power chords. In this case, the E is played down at the open position (open low E string, second fret on the A and the D strings).",
+            user: user,
+            sections_attributes:[
+                {
+                    name: "Verse / Chorus",
+                    chords: "C#m G# A E",
+                    display_order: 1
+                },
+                {
+                    name: "Bridge",
+                    chords: "B B/A# E G (Power Chords)",
+                    display_order: 2
                 }
             ]
         }]
