@@ -90,6 +90,25 @@ song_data = [
                 }
             ]
         }]
+    },
+    {
+        title: "Ain't No Sunshine",
+        artist: "Bill Withers",
+        artwork_url: "https://i.scdn.co/image/ab67616d0000b273e1e350d06ffebd2e19e047ce", 
+        spotify_id: "1k1Bqnv2R0uJXQN4u6LKYt",
+        songs_attributes: [{
+            guitar_type: "Acoustic",
+            capo: nil,
+            strumming: "D d D du", 
+            youtube_id: "a25g71iwa2A",
+            notes: "Hang out on Am, until the \"turn around\" with a single hit on each of Em and G. Play the Em7 and Dm7 as barre chords (a simple slide-down).",
+            user: user,
+            sections_attributes: [{
+                name: "Whole Song",
+                chords: "Am Em G Am (x2), Em7 Dm7, Am Em G Am",
+                display_order: 1
+            }]
+        }]
     }
 ]
 
