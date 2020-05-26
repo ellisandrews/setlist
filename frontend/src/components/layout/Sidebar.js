@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Nav } from 'react-bootstrap'
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { mapUserToProps } from '../../utils'
 import { logout } from '../../actions/sessions'
@@ -12,8 +12,8 @@ class Sidebar extends Component {
   renderHomeItem = () => {
     // TODO: Change this first item to be a clickable app logo instead?
     return (
-      <NavLink to='/'>
-        <Nav.Item className='sidebar-link'>              
+      <NavLink exact to='/' className='sidebar-link'>
+        <Nav.Item>              
           <ion-icon name='home-outline'></ion-icon><br/>
           <span>Home</span>
         </Nav.Item>
@@ -29,24 +29,24 @@ class Sidebar extends Component {
     if ( !!user ) {
       return (
         <>
-          <NavLink to='/songs/new'>
-            <Nav.Item className='sidebar-link'>
+          <NavLink exact to='/songs/new' className='sidebar-link'>
+            <Nav.Item>
               <ion-icon name='musical-notes-outline'></ion-icon><br/>
               <span>New Song</span>
             </Nav.Item>
           </NavLink>            
-          <NavLink to='/repertoire'>
-            <Nav.Item className='sidebar-link'>
+          <NavLink exact to='/repertoire' className='sidebar-link'>
+            <Nav.Item>
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
             </Nav.Item>
           </NavLink>
-          <NavLink to='/' onClick={logout}>
-            <Nav.Item className='sidebar-link' onClick={logout}>
+          <Link to='/' onClick={logout} className='sidebar-link'>
+            <Nav.Item>
               <ion-icon name='log-out-outline'></ion-icon><br/>
               <span>Log Out</span>
             </Nav.Item>
-          </NavLink>
+          </Link>
         </>
       )
     }
