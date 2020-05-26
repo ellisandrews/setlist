@@ -29,8 +29,6 @@ class RepertoireContainer extends Component {
 
   sortSongs = (property, ascending) => {
 
-    console.log(property, ascending)
-
     return (song1, song2) => {
 
       let operand1
@@ -85,12 +83,12 @@ class RepertoireContainer extends Component {
 
   render() {
     return (
-      <>
+      <div id="repertoire-container">
         <Container id="repertoire-header-container" className="py-1">
           <RepertoireHeader searchData={this.state} handleChange={this.handleChange}/>
         </Container>
         <RepertoireDisplay songs={this.filterAndSortSongs()}/>
-      </>
+      </div>
     )
   }
 }
