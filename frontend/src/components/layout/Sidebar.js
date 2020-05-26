@@ -12,12 +12,12 @@ class Sidebar extends Component {
   renderHomeItem = () => {
     // TODO: Change this first item to be a clickable app logo instead?
     return (
-      <Nav.Item className='sidebar-link'>              
-        <NavLink to='/'>
+      <NavLink to='/'>
+        <Nav.Item className='sidebar-link'>              
           <ion-icon name='home-outline'></ion-icon><br/>
           <span>Home</span>
-        </NavLink>
-      </Nav.Item>
+        </Nav.Item>
+      </NavLink>
     )
   }
 
@@ -29,24 +29,24 @@ class Sidebar extends Component {
     if ( !!user ) {
       return (
         <>
-          <Nav.Item className='sidebar-link'>
-            <NavLink to='/songs/new'>
+          <NavLink to='/songs/new'>
+            <Nav.Item className='sidebar-link'>
               <ion-icon name='musical-notes-outline'></ion-icon><br/>
               <span>New Song</span>
-            </NavLink>            
-          </Nav.Item>
-          <Nav.Item className='sidebar-link'>
-            <NavLink to='/repertoire'>
+            </Nav.Item>
+          </NavLink>            
+          <NavLink to='/repertoire'>
+            <Nav.Item className='sidebar-link'>
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
-            </NavLink>
-          </Nav.Item>
-          <Nav.Item className='sidebar-link' onClick={logout}>
-            <NavLink to='/' onClick={logout}>
+            </Nav.Item>
+          </NavLink>
+          <NavLink to='/' onClick={logout}>
+            <Nav.Item className='sidebar-link' onClick={logout}>
               <ion-icon name='log-out-outline'></ion-icon><br/>
               <span>Log Out</span>
-            </NavLink>
-          </Nav.Item>
+            </Nav.Item>
+          </NavLink>
         </>
       )
     }
