@@ -11,7 +11,7 @@ class SongCard extends Component {
 
     return (
       <Link to={`/songs/${id}`} style={{ color: 'inherit', textDecoration: 'inherit'}} >
-        <Card style={{ width: '16rem' }} className="text-center h-100">
+        <Card style={{ width: '16rem', border: 'none' }} className="text-center h-100 custom-shadow">
           <Card.Img variant="top" src={artwork_url} />
           <Card.Body>
             <Card.Title>{title}</Card.Title>
