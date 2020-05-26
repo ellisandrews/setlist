@@ -12,14 +12,16 @@
     padding-top: 30px;
     padding-bottom: 30px;
     text-align: center;
-}
-
-.sidebar-link:focus {
-    outline:0;           /* Remove the blue outline when the sidebar-link button is clicked */
+    color: grey;                     /* Navbar links text color (when not active) */
+    text-decoration: none !important;  /* Remove undeline from navbar links */
 }
 
 .sidebar-link.active {
-    background-color: lightgray;  /* Selected navbar tab highlighting */
+    color: black;  /* Selected navbar link text color */
+}
+
+.sidebar-link:hover {
+    color: black;  /* Hover over navbar link text color */
 }
 
 /* Style main display */
