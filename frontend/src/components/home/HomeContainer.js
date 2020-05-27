@@ -7,7 +7,7 @@ import HomeCarousel from './HomeCarousel'
 class HomeContainer extends Component {
   render() {
     return (
-      <Container id="home-container" className="py-1">
+      <Container id="home-container" className="py-1" style={{maxWidth: '55vw'}}>
         <HomeHeader/>
         <HomeCarousel/>
       </Container>

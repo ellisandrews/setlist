@@ -66,7 +66,7 @@ class HomeCarousel extends Component {
 
   render() {
     return (
-      <Container id="home-carousel" className="my-3 p-0" style={{maxWidth: '55vw'}}>
+      <Container id="home-carousel" className="my-3 p-0">
         {this.renderContent()}
       </Container>
     )
