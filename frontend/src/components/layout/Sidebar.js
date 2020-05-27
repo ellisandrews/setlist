@@ -10,23 +10,21 @@ import './layout.css'
 
 class Sidebar extends Component {
   
-  renderHomeItem = () => {
-    // TODO: Change this first item to be a clickable app logo instead?
-    return (
-      <NavLink exact to='/' className='sidebar-link'>
-        <Nav.Item>
-          <Image style={{maxWidth: '60%'}} rounded src={setlistLogo} alt='setlist logo'></Image>
-        </Nav.Item>
-      </NavLink>
-    )
-  }
-
   renderNavItems = () => {
 
     const { user, logout } = this.props
 
-    // Render navbar links if the user is logged in
-    if ( !!user ) {
+    // Session-dependent nav links
+    if ( !user ) {
+      return (
+        <NavLink exact to='/login' className='sidebar-link'>
+          <Nav.Item>
+            <ion-icon name='log-in-outline'></ion-icon><br/>
+            <span>Log In</span>
+          </Nav.Item>
+        </NavLink>
+      )
+    } else {
       return (
         <>
           <NavLink exact to='/songs/new' className='sidebar-link'>
@@ -55,7 +53,15 @@ class Sidebar extends Component {
   render() {
     return (
       <Nav className='flex-column' id='sidebar-nav'>
-        {this.renderHomeItem()}
+
+        {/* Home icon link (always viewable) */}
+        <NavLink exact to='/' className='sidebar-link'>
+          <Nav.Item>
+            <Image style={{maxWidth: '60%'}} rounded src={setlistLogo} alt='setlist logo'></Image>
+          </Nav.Item>
+        </NavLink>
+
+        {/* Session-dependent links */}
         {this.renderNavItems()}
       </Nav>
     )
