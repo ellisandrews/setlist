@@ -4,8 +4,8 @@ import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { mapUserToProps } from '../../utils'
 import { logout } from '../../actions/sessions'
+import setlistLogo from '../../SetlistLogo.png'
 import './layout.css'
-import setlistLogo from './SetlistLogo.png'
 
 
 class Sidebar extends Component {
