@@ -23,3 +23,9 @@
 .carousel-indicators .active{
     background-color: black;
 }
+
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+    align-items: flex-end;
+    padding-bottom: 5vh;
+}
