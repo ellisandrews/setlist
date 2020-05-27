@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { Nav } from 'react-bootstrap'
+import { Nav, Image } from 'react-bootstrap'
 import { Link, NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { mapUserToProps } from '../../utils'
 import { logout } from '../../actions/sessions'
 import './layout.css'
+import setlistLogo from './SetlistLogo.png'
 
 
 class Sidebar extends Component {
@@ -13,9 +14,8 @@ class Sidebar extends Component {
     // TODO: Change this first item to be a clickable app logo instead?
     return (
       <NavLink exact to='/' className='sidebar-link'>
-        <Nav.Item>              
-          <ion-icon name='home-outline'></ion-icon><br/>
-          <span>Home</span>
+        <Nav.Item>
+          <Image style={{maxWidth: '60%'}} rounded src={setlistLogo} alt='setlist logo'></Image>
         </Nav.Item>
       </NavLink>
     )
