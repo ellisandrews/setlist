@@ -3,6 +3,7 @@ import { Container, Carousel, Card } from 'react-bootstrap'
 import { SocialIcon } from 'react-social-icons'
 import electricWallpaper from './electric-wallpaper.jpg'
 import acousticWallpaper from './acoustic-wallpaper-spotify.jpg'
+import headstockWallpaper from './headstock-wallpaper.jpg'
 
 
 class HomeCarousel extends Component {
@@ -41,7 +42,7 @@ class HomeCarousel extends Component {
 
         <Carousel.Item>
           <Card style={{ border: 'none', height: '75vh' }} className="pb-5">
-            <Card.Img variant="top" src={acousticWallpaper}/>
+            <Card.Img variant="top" src={headstockWallpaper}/>
             <Card.Body>
               <h3>About</h3>
               <Card.Text>
