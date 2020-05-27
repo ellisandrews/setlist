@@ -20,7 +20,7 @@ class HomeCarousel extends Component {
               <Card.Text>
                 As guitarists, we love covering songs by our favorite artists.
                 When we bounce around from one jam to another, however, it's often easy to forget what we've learned in the past.
-                Setlist was built to help us revisist those tunes we may have forgotten, without starting from scratch!
+                Setlist was built to help us revisit those tunes we may have forgotten, without starting from scratch!
               </Card.Text>
             </Card.Body>
           </Card>
@@ -32,9 +32,9 @@ class HomeCarousel extends Component {
             <Card.Body>
               <h3>Method</h3>
               <Card.Text>
-                At it's core, Setlist is a notepad for you to jot down the chords, strumming and sections for songs you learn to play.
+                At it's core, Setlist is a notepad for jotting down sections, chords, and strumming for the songs you learn to play.
                 On top of that, Setlist seamlessly integrates with Spotify's Web API so you can listen to tracks natively while you practice or play along.
-                You can also embed a youtube video you used to learn a song if your own notes aren't quite cutting it.
+                You can also embed a youtube video if your own notes aren't quite cutting it.
               </Card.Text>
             </Card.Body>
           </Card>
