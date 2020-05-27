@@ -3,7 +3,7 @@
 }
 
 .bg-grey {
-    background-color: gainsboro;
+    background-color: #d8d8d8;
 }
 
 .bg-white {
@@ -14,4 +14,18 @@
     -webkit-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
     -moz-box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
     box-shadow: 0px 0px 20px 10px rgba(0,0,0,0.15);
+}
+
+.carousel-indicators li {
+    background-color: grey;
+}
+
+.carousel-indicators .active{
+    background-color: black;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    filter: invert(100%);
+    align-items: flex-end;
+    padding-bottom: 5vh;
 }

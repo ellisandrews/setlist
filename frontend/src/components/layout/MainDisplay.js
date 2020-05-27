@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import Home from '../Home'
+import HomeContainer from '../home/HomeContainer'
 import PrivateRoute from '../PrivateRoute'
 import RepertoireContainer from '../repertoire/RepertoireContainer'
 import SessionFormContainer from '../sessions/SessionFormContainer'
@@ -13,7 +13,7 @@ const MainDisplay = () => {
     <div id="main-display" className="bg-grey">
       <Switch>
         <Route exact path='/'>
-          <Home/>
+          <HomeContainer/>
         </Route>
         <Route exact path={['/login', '/signup']}>
           <SessionFormContainer/>

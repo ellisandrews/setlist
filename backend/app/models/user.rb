@@ -6,8 +6,9 @@ class User < ApplicationRecord
     has_secure_password
 
     # Validations
-    validates :first_name, :last_name, :email, :password_digest, presence: true 
+    validates :first_name, :last_name, :email, :password_confirmation, presence: true 
     validates :email, uniqueness: { case_sensitive: false }
+    validates :password, length: { minimum: 8 }
 
     # ActiveRecord callbacks
     before_save :downcase_name
