@@ -26,13 +26,13 @@ class RepertoireHeader extends Component {
         <Row className="py-1">
           <Col>
             <Form.Group>
-              <p>Search Songs</p>
+              <p style={{fontSize: 18}}className="text-muted">Search Songs</p>
               <Form.Control type='text' name='query' placeholder='Search by song title or artist...' value={query} onChange={handleChange}/>
             </Form.Group>
           </Col>
           <Col>
             <Form.Group>
-              <p>Guitar Type</p>
+              <p style={{fontSize: 18}} className="text-muted">Guitar Type</p>
               <ToggleButtonGroup type="radio" name="guitarType" defaultValue={guitarType} onChange={value => this.mockChangeEvent('guitarType', value)}>
                 <ToggleButton value="">Any</ToggleButton>
                 <ToggleButton value="Acoustic">Acoustic</ToggleButton>
@@ -42,7 +42,7 @@ class RepertoireHeader extends Component {
           </Col>
           <Col>
             <Form.Group>
-              <p>Order By</p>
+              <p style={{fontSize: 18}} className="text-muted">Order By</p>
               <ToggleButtonGroup type="radio" name="orderBy" defaultValue={orderBy} onChange={value => this.mockChangeEvent('orderBy', value)}>
                 <ToggleButton value="title">Title</ToggleButton>
                 <ToggleButton value="artist">Artist</ToggleButton>
