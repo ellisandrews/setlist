@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Container, Carousel, Card } from 'react-bootstrap'
 import { SocialIcon } from 'react-social-icons'
-import electricWallpaper from './electric-wallpaper.jpg'
-import acousticWallpaper from './acoustic-wallpaper-spotify.jpg'
-import headstockWallpaper from './headstock-wallpaper.jpg'
+import missionImage from './mission-image.jpg'
+import methodImage from './method-image.jpg'
+import aboutImage from './about-image.jpg'
 
 
 class HomeCarousel extends Component {
@@ -14,7 +14,7 @@ class HomeCarousel extends Component {
         
         <Carousel.Item>  
           <Card style={{ border: 'none', height: '75vh' }} className="pb-5">
-            <Card.Img variant="top" src={electricWallpaper}/>
+            <Card.Img variant="top" src={missionImage}/>
             <Card.Body>
               <h3>Mission</h3>
               <Card.Text>
@@ -28,7 +28,7 @@ class HomeCarousel extends Component {
 
         <Carousel.Item>
           <Card style={{ border: 'none', height: '75vh' }} className="pb-5">
-            <Card.Img variant="top" src={acousticWallpaper}/>
+            <Card.Img variant="top" src={methodImage}/>
             <Card.Body>
               <h3>Method</h3>
               <Card.Text>
@@ -42,7 +42,7 @@ class HomeCarousel extends Component {
 
         <Carousel.Item>
           <Card style={{ border: 'none', height: '75vh' }} className="pb-5">
-            <Card.Img variant="top" src={headstockWallpaper}/>
+            <Card.Img variant="top" src={aboutImage}/>
             <Card.Body>
               <h3>About</h3>
               <Card.Text>
