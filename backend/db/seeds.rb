@@ -18,22 +18,22 @@ song_data = [
             capo: 3,
             strumming: "DudU udU udu udu",
             youtube_id: "M37Ut3uaHMs",
-            notes: "The F is played as 3 finger open chord (open high 'e' string). \n\nSecond and third chords change on the up beats! \nIndicated by the capital letters here: ONE and two AND ... and 4 AND",
+            notes: "The second and third chords change on the up beats!\nIndicated by the capital letters here: ONE and two AND ... and 4 AND",
             user: user,
             sections_attributes: [
                 {
                     name: "Intro/Chorus",
-                    chords: "F C G G",
+                    chords: "Fmaj7 C G G",
                     display_order: 1
                 },
                 {
                     name: "Verse",
-                    chords: "G G F G",
+                    chords: "G G Fmaj7 G",
                     display_order: 2
                 },
                 {
                     name: "Bridge",
-                    chords: "C C7 F F, C C7 F Dm",
+                    chords: "C C7 Fmaj7 Fmaj7, C C7 Fmaj7 Dm",
                     display_order: 3
                 }
             ]

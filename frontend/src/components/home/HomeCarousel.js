@@ -33,7 +33,7 @@ class HomeCarousel extends Component {
               <h3>Method</h3>
               <Card.Text>
                 At it's core, Setlist is a notepad for jotting down sections, chords, and strumming for the songs you learn to play.
-                On top of that, Setlist seamlessly integrates with Spotify's Web API so you can listen to tracks natively while you practice or play along.
+                On top of that, Setlist seamlessly integrates with <a style={{color: '#1DB954'}} href="https://developer.spotify.com/documentation/web-api/">Spotify's Web API</a> so you can listen to tracks natively while you practice or play along.
                 You can also embed a youtube video if your own notes aren't quite cutting it.
               </Card.Text>
             </Card.Body>
