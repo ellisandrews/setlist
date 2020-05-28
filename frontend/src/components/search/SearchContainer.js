@@ -91,6 +91,13 @@ class SearchContainer extends Component {
       .then(resp => handleResponse(resp, success))
   }
 
+  handleMouseEnter = resultIndex => {
+    // When a user hovers over a result, set the selectedIndex to that result
+    this.setState({
+      selectedIndex: resultIndex
+    })
+  }
+
   render() {
     const { query, results, selectedIndex } = this.state
 
@@ -98,7 +105,7 @@ class SearchContainer extends Component {
       <Container id="search-container" className="bg-white custom-shadow rounded my-4">
         <SearchHeader/>
         <SearchForm query={query} handleChange={this.handleChange} handleKeyDown={this.handleKeyDown}/>
-        <SearchResults results={results} selectedIndex={selectedIndex} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
+        <SearchResults results={results} selectedIndex={selectedIndex} handleMouseEnter={this.handleMouseEnter} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
       </Container>
     )
   }

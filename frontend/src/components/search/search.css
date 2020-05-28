@@ -18,3 +18,8 @@
 .search-result img {
     height: 35px;
 }
+
+.list-group-item.active {
+    background-color: #292b2c !important;
+    border-color: #292b2c !important;
+}
