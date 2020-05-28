@@ -64,7 +64,7 @@ class SignUpForm extends Component {
             <Button variant="dark" type="submit">Submit</Button>
           </Container>
         </Form>
-        <p style={{paddingTop: 20, fontSize: "smaller"}}>Already have an account? <Link to="/login">Log In</Link></p>
+        <p style={{paddingTop: 20, fontSize: "smaller"}}>Already have an account? <Link style={{color: 'grey'}} to="/login">Log In</Link></p>
       </Container>
     )
   }
