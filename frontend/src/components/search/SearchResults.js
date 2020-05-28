@@ -7,7 +7,7 @@ class SearchResults extends Component {
 
   renderResults = () => {
 
-    const { results, selectedIndex, handleSpotifyTrack } = this.props
+    const { results, selectedIndex, handleMouseEnter, handleSpotifyTrack } = this.props
 
     return results.map( (result, index) => {
 
@@ -18,7 +18,7 @@ class SearchResults extends Component {
       const displayText = `${title} - ${artist}`
 
       return (
-        <div className="search-result" key={result.id}>
+        <div className="search-result" key={result.id} onMouseEnter={() => handleMouseEnter(index)}>
           <ListGroup.Item active={index === selectedIndex} action as='button' onClick={() => handleSpotifyTrack(result)}>
             <Image rounded src={artwork_url} alt={`${displayText} album artwork`} />
             <span style={{paddingLeft: 20}}>{displayText}</span>
