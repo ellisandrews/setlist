@@ -17,12 +17,20 @@ class Sidebar extends Component {
     // Session-dependent nav links
     if ( !user ) {
       return (
-        <NavLink exact to='/login' className='sidebar-link'>
-          <Nav.Item>
-            <ion-icon name='log-in-outline'></ion-icon><br/>
-            <span>Log In</span>
-          </Nav.Item>
-        </NavLink>
+        <>
+          <NavLink exact to='/login' className='sidebar-link'>
+            <Nav.Item>
+              <ion-icon name='log-in-outline'></ion-icon><br/>
+              <span>Log In</span>
+            </Nav.Item>
+          </NavLink>
+          <NavLink exact to='/signup' className='sidebar-link'>
+            <Nav.Item>
+              <ion-icon name='person-add-outline'></ion-icon><br/>
+              <span>Sign Up</span>
+            </Nav.Item>
+          </NavLink>
+        </>
       )
     } else {
       return (
