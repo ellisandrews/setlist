@@ -35,16 +35,16 @@ class Sidebar extends Component {
     } else {
       return (
         <>
-          <NavLink exact to='/songs/new' className='sidebar-link'>
-            <Nav.Item>
-              <ion-icon name='musical-notes-outline'></ion-icon><br/>
-              <span>New Song</span>
-            </Nav.Item>
-          </NavLink>            
           <NavLink exact to='/repertoire' className='sidebar-link'>
             <Nav.Item>
               <ion-icon name='copy-outline'></ion-icon><br/>
               <span>Repertoire</span>
+            </Nav.Item>
+          </NavLink>
+          <NavLink exact to='/songs/new' className='sidebar-link'>
+            <Nav.Item>
+              <ion-icon name='musical-notes-outline'></ion-icon><br/>
+              <span>New Song</span>
             </Nav.Item>
           </NavLink>
           <Link to='/' onClick={logout} className='sidebar-link'>
