@@ -34,9 +34,9 @@ class RepertoireHeader extends Component {
             <Form.Group>
               <p style={{fontSize: 18}} className="text-muted">Guitar Type</p>
               <ToggleButtonGroup type="radio" name="guitarType" defaultValue={guitarType} onChange={value => this.mockChangeEvent('guitarType', value)}>
-                <ToggleButton value="">Any</ToggleButton>
-                <ToggleButton value="Acoustic">Acoustic</ToggleButton>
-                <ToggleButton value="Electric">Electric</ToggleButton>
+                <ToggleButton variant="dark" value="">Any</ToggleButton>
+                <ToggleButton variant="dark" value="Acoustic">Acoustic</ToggleButton>
+                <ToggleButton variant="dark" value="Electric">Electric</ToggleButton>
               </ToggleButtonGroup>
             </Form.Group>
           </Col>
@@ -44,8 +44,8 @@ class RepertoireHeader extends Component {
             <Form.Group>
               <p style={{fontSize: 18}} className="text-muted">Order By</p>
               <ToggleButtonGroup type="radio" name="orderBy" defaultValue={orderBy} onChange={value => this.mockChangeEvent('orderBy', value)}>
-                <ToggleButton value="title">Title</ToggleButton>
-                <ToggleButton value="artist">Artist</ToggleButton>
+                <ToggleButton variant="dark" value="title">Title</ToggleButton>
+                <ToggleButton variant="dark" value="artist">Artist</ToggleButton>
               </ToggleButtonGroup>{' '}
               <Form.Switch inline id="order-switch" label={ ascending ? 'Ascending' : 'Descending' } onChange={() => this.mockChangeEvent('ascending', !ascending)} />
             </Form.Group>

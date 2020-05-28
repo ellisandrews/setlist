@@ -61,7 +61,7 @@ class SignUpForm extends Component {
             <Form.Control type="password" name="password_confirmation" placeholder="Password Confirmation" value={this.state.password_confirmation} onChange={this.handleInputChange}/>
           </Form.Group>
           <Container className="mx-auto text-center">
-            <Button variant="primary" type="submit">Submit</Button>
+            <Button variant="dark" type="submit">Submit</Button>
           </Container>
         </Form>
         <p style={{paddingTop: 20, fontSize: "smaller"}}>Already have an account? <Link to="/login">Log In</Link></p>

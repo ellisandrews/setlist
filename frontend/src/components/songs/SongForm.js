@@ -88,7 +88,7 @@ class SongForm extends Component {
             <Col sm={{ span: 10, offset: 2 }}>
               <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>{' '}
               {/* Last section gets the "Add Section" button too */}
-              { index === sections.length - 1 ? <Button size="sm" onClick={this.addSection}>Add Section</Button> : null }
+              { index === sections.length - 1 ? <Button variant="dark" size="sm" onClick={this.addSection}>Add Section</Button> : null }
             </Col>
           </Form.Group>
         </div>
@@ -183,7 +183,7 @@ class SongForm extends Component {
           <Form.Group as={Row} style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <Col style={{marginBottom: '5vh'}}>
               <Button variant="secondary" onClick={handleCancel}>Cancel</Button>{' '}
-              <Button type="submit">Save</Button>
+              <Button variant="dark" type="submit">Save</Button>
             </Col>
           </Form.Group>
 

@@ -80,7 +80,7 @@ class ShowSong extends Component {
           {/* --- SUBMISSION --- */}
           <div style={{marginTop: '5vh', marginBottom: '5vh', textAlign: 'center'}}>
             <LinkContainer to={`/songs/${id}/edit`}>
-              <Button variant="primary">Edit</Button>
+              <Button variant="dark">Edit</Button>
             </LinkContainer>{' '}
             <Button variant="danger" onClick={this.handleDeleteClick}>Delete</Button>
           </div>

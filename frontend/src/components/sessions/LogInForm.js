@@ -53,7 +53,7 @@ class LogInForm extends Component {
             <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
           </Form.Group>
           <Container className="mx-auto text-center">
-            <Button variant="primary" type="submit">Submit</Button>
+            <Button variant="dark" type="submit">Submit</Button>
           </Container>
         </Form>
         <p style={{paddingTop: 20, fontSize: "smaller"}}>Don't have an account? <Link to="/signup">Sign Up</Link></p>
