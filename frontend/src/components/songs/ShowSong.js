@@ -70,7 +70,7 @@ class ShowSong extends Component {
           <h3 className="form-heading">Resources</h3>
           <Row className="py-1">
             <Col xs={2} className="right-label text-muted">YouTube</Col>
-            <Col>{ youtube_id ? <YouTube videoId={youtube_id} /> : 'None' }</Col>
+            <Col>{ youtube_id ? <YouTube videoId={youtube_id} /> : null }</Col>
           </Row>
           <Row className="py-1">
             <Col xs={2} className="right-label text-muted">Notes</Col>
