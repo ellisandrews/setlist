@@ -75,13 +75,13 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Name</Form.Label>
             <Col sm={4}>
-              <Form.Control name="name" type="text" placeholder="Intro" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control name="name" type="text" placeholder="e.g. Chorus" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Chords</Form.Label>
             <Col sm={6}>
-              <Form.Control name="chords" type="text" placeholder="Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control name="chords" type="text" placeholder="e.g. Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
@@ -144,7 +144,7 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Capo</Form.Label>
             <Col sm={1}>
-              <Form.Control name="capo" type="number" placeholder="1" value={capo} onChange={this.handleChange}/>
+              <Form.Control name="capo" type="number" value={capo} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
 
@@ -152,7 +152,7 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Strumming</Form.Label>
             <Col sm={5}>
-              <Form.Control name="strumming" type="text" placeholder="D DU UDU" value={strumming} onChange={this.handleChange}/>
+              <Form.Control name="strumming" type="text" placeholder="e.g. D DU UDU" value={strumming} onChange={this.handleChange}/>
             </Col>
           </Form.Group>
 
@@ -166,7 +166,7 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">YouTube ID</Form.Label>
             <Col sm={5}>
-              <Form.Control name="youtube_id" type="text" placeholder="3_yOc3VDU5I" value={youtube_id} onChange={this.handleChange}/>
+              <Form.Control name="youtube_id" type="text" placeholder="e.g. 3_yOc3VDU5I" value={youtube_id} onChange={this.handleChange}/>
               <Form.Text className="text-muted">Ex: https://www.youtube.com/watch?v=<b>3_yOc3VDU5I</b></Form.Text>
             </Col>
           </Form.Group>
