@@ -24,13 +24,13 @@ class RepertoireHeader extends Component {
       <Container id="repertoire-header" className="py-3 my-4 bg-white custom-shadow rounded">
         <h1>Repertoire</h1>
         <Row className="py-1">
-          <Col>
+          <Col md={true}>
             <Form.Group>
               <p style={{fontSize: 18}}className="text-muted">Search Songs</p>
               <Form.Control type='text' name='query' placeholder='Search by song title or artist...' value={query} onChange={handleChange}/>
             </Form.Group>
           </Col>
-          <Col>
+          <Col md={true}>
             <Form.Group>
               <p style={{fontSize: 18}} className="text-muted">Guitar Type</p>
               <ToggleButtonGroup type="radio" name="guitarType" defaultValue={guitarType} onChange={value => this.mockChangeEvent('guitarType', value)}>
@@ -40,7 +40,7 @@ class RepertoireHeader extends Component {
               </ToggleButtonGroup>
             </Form.Group>
           </Col>
-          <Col>
+          <Col md={true}>
             <Form.Group>
               <p style={{fontSize: 18}} className="text-muted">Order By</p>
               <ToggleButtonGroup type="radio" name="orderBy" defaultValue={orderBy} onChange={value => this.mockChangeEvent('orderBy', value)}>
