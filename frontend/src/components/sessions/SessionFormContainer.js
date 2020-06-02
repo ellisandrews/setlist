@@ -13,18 +13,17 @@ const SessionFormContainer = () => {
 
   return (
     <div className="vertical-center">
-      <Container id="session-form-container" className="bg-white custom-shadow rounded">
-        <Row className="align-items-center h-100">
-         <Col className="h-100" style={{paddingLeft: 0}}>
-            <Image src={sessionFormImg} alt="session-form-image" className="h-100"/>
+      <Container style={{width: '65%'}} className="bg-white custom-shadow">
+        <Row className="align-items-center">
+          <Col xs={5} className="pl-0">
+            <Image fluid src={sessionFormImg} alt="session-form-image"/>
           </Col>
           <Col>
-            { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/>}
+            { location.pathname === '/signup' ? <SignUpForm/> : <LogInForm/> }
           </Col>
-        </Row>
+        </Row>      
       </Container>
     </div>
-    
   )
 }
 
