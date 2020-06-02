@@ -6,7 +6,7 @@ class HomeHeader extends Component {
   render() {
     return (
       <Container id="home-header" className="bg-white custom-shadow rounded py-2 my-4">
-        <h1 style={{fontSize: 50, fontWeight: 500}}> S e t l i s t</h1>
+        <h1 style={{fontSize: 50, fontWeight: 700}}>S e t l i s t</h1>
       </Container>
     )
   }
