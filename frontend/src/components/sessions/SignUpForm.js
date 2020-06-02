@@ -42,7 +42,7 @@ class SignUpForm extends Component {
   render() {
 
     return (
-      <Container className="col-10 text-center">
+      <Container className="col-10 text-center my-3">
         <h1 className="session-form-header">Sign Up</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
