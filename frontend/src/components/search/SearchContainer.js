@@ -102,7 +102,7 @@ class SearchContainer extends Component {
     const { query, results, selectedIndex } = this.state
 
     return (
-      <Container id="search-container" className="bg-white custom-shadow rounded my-4">
+      <Container id="search-container" className="bg-white custom-shadow rounded my-4 pb-3">
         <SearchHeader/>
         <SearchForm query={query} handleChange={this.handleChange} handleKeyDown={this.handleKeyDown}/>
         <SearchResults results={results} selectedIndex={selectedIndex} handleMouseEnter={this.handleMouseEnter} handleSpotifyTrack={this.props.handleSpotifyTrack}/>
