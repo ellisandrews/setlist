@@ -56,8 +56,12 @@ class SongForm extends Component {
 
     const { sections } = this.state
 
+    // Count all sections that do not have a `_destroy: true` key-value pair.
+    // This is required due to how rails protects nested objects from being destroyed.
+    const numSections = sections.reduce((count, section) => !section._destroy ? ++count : count, 0)
+
     // If there are no sections, display the button to add one
-    if ( sections.length === 0 ) {
+    if ( numSections === 0 ) {
       return (
         <Form.Group as={Row}>
           <Col sm={{ span: 10, offset: 2 }}>
@@ -67,11 +71,21 @@ class SongForm extends Component {
       )
     }
 
-    // Display all sections
+    // Counter for the number of sections that have been rendered thus far. Used for determining where to put the "Add Section" button
+    let renderedSections = 0
+
     return sections.map((section, index) => {
+
+      // Do not render sections that are slated for desctruction. This tracking is necessary for rails purposes.
+      if ( section._destroy ) {
+        return null
+      }
+
+      // Increment the rendered sections counter and render the section
+      renderedSections++
       return (
         <div key={index}>
-          <h5 className="text-muted">Section {index + 1}</h5>
+          <h5 className="text-muted">Section {renderedSections}</h5>
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Name</Form.Label>
             <Col sm={4}>
@@ -87,8 +101,8 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Col sm={{ span: 10, offset: 2 }}>
               <Button variant="danger" size="sm" onClick={() => this.removeSection(index)}>Remove</Button>{' '}
-              {/* Last section gets the "Add Section" button too */}
-              { index === sections.length - 1 ? <Button variant="dark" size="sm" onClick={this.addSection}>Add Section</Button> : null }
+              {/* The last rendered section gets the "Add Section" button */}
+              { renderedSections === numSections ? <Button variant="dark" size="sm" onClick={this.addSection}>Add Section</Button> : null }
             </Col>
           </Form.Group>
         </div>
@@ -107,10 +121,11 @@ class SongForm extends Component {
   }
 
   removeSection = index => {
-    // Update the state to remove the section at position `index`
+    // Update the state to add a `_destroy: true` key-value pair to the section at position `index`.
+    // Again, this is due to how rails handles nested object destruction.
     this.setState(prevState => {
       return {
-        sections: prevState.sections.filter((section, i) => i !== index)
+        sections: prevState.sections.map( (section, i) => i === index ? { ...section, _destroy: true } : section )
       }
     })
   }

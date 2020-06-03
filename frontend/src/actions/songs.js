@@ -1,4 +1,4 @@
-import { backendURL, getAuthTokenHeader, handleResponse } from '../utils'
+import { backendURL, getAuthTokenHeader, handleResponse, genericAPIFailure } from '../utils'
 
 
 // Synchronus action creators 
@@ -22,7 +22,7 @@ export const deleteSong = songId => {
 
 // Asynchronus action creators (redux thunk)
 
-export const addSongAsync = (formData, spotifyTrack, redirectToSong, failure) => {
+export const addSongAsync = (formData, spotifyTrack, redirectToSong, failure = genericAPIFailure) => {
   return dispatch => {
 
     const req = {
@@ -42,19 +42,13 @@ export const addSongAsync = (formData, spotifyTrack, redirectToSong, failure) =>
       redirectToSong(song.id)  // Redirect to the song's show page
     }
 
-    // const failure = error => {
-    //   window.alert(error.messages.join(', '))
-    // }
-
     fetch(`${backendURL}/songs`, req)
       .then(resp => handleResponse(resp, success, failure))
-      .catch(err => {
-        window.alert(`Unknown Error: ${err}`)
-      })
+      .catch(genericAPIFailure)
   }
 }
 
-export const updateSongAsync = (songId, formData, redirectToSong) => {
+export const updateSongAsync = (songId, formData, redirectToSong, failure = genericAPIFailure) => {
   return dispatch => {    
 
     const req = {
@@ -72,20 +66,14 @@ export const updateSongAsync = (songId, formData, redirectToSong) => {
       dispatch(updateSong(songId, song))
       redirectToSong(song.id)
     }
-
-    const failure = error => {
-      window.alert(error.messages.join(', '))
-    }
     
     fetch(`${backendURL}/songs/${songId}`, req)
       .then(resp => handleResponse(resp, success, failure))
-      .catch(err => {
-        window.alert(`Unknown Error: ${err}`)
-      })
+      .catch(genericAPIFailure)
   }
 }
 
-export const deleteSongAsync = (songId, redirect) => {
+export const deleteSongAsync = (songId, redirect, failure = genericAPIFailure) => {
   return dispatch => {    
 
     const req = {
@@ -98,15 +86,9 @@ export const deleteSongAsync = (songId, redirect) => {
       dispatch(deleteSong(songId))  // Dispatch the synchronus action to remove the deleted song from redux store state
     }
 
-    const failure = error => {
-      window.alert(error.messages.join(', '))
-    }
-
     fetch(`${backendURL}/songs/${songId}`, req)
       .then(resp => handleResponse(resp, success, failure))
-      .catch(err => {
-        window.alert(`Unknown Error: ${err}`)
-      })
+      .catch(genericAPIFailure)
   }
 }
 
@@ -120,8 +102,23 @@ const formatSongData = formData => {
   // Rename `sections` to `sections_attributes` which is what the server expects.
   delete Object.assign(songData, formData, { sections_attributes: formData.sections }).sections
 
-  // Add/updated the `display_order` attribute for each section. Use the order of the array.
-  songData.sections_attributes = songData.sections_attributes.map((section, index) => ({...section, display_order: index + 1}))
+  // Add/update the `display_order` attribute for each *non-destroyed* section. Use the order of the array.
+  let displayOrder = 1
+  songData.sections_attributes = songData.sections_attributes.map( section => {
+      
+      let updatedSection
+
+      // Display order will only be adjusted for non-destroyed sections
+      if ( section._destroy ) {
+        updatedSection = section
+      } else {
+        updatedSection = { ...section, display_order: displayOrder }
+        displayOrder++
+      }
+
+      return updatedSection
+    }
+  )
 
   // Return the formatted data that is ready to be sent to the server.
   return songData
