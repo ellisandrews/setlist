@@ -39,13 +39,13 @@ class ApplicationController < ActionController::API
 
     def authorized
         # A filter for checking that a valid user is logged in before an action
-        render json: { error: 'Unauthorized', messages: ['Unauthorized: Please Log In.'] }, status: :unauthorized unless logged_in?
+        render json: { error: 'Unauthorized', messages: ['Unauthorized. Please Log In.'] }, status: :unauthorized unless logged_in?
     end
 
     def authorized_user
         # A filter that prevents the special read-only preview user from editing data.
         if !@user || @user.email == 'johndoe@fake.com'
-            render json: { error: 'Unauthorized', messages: ["Unauthorized: Preview mode is read-only!"]}, status: :unauthorized
+            render json: { error: 'Unauthorized', messages: ["Preview mode is read-only!"]}, status: :unauthorized
         end
     end
 

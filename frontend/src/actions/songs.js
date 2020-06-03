@@ -22,7 +22,7 @@ export const deleteSong = songId => {
 
 // Asynchronus action creators (redux thunk)
 
-export const addSongAsync = (formData, spotifyTrack, redirectToSong) => {
+export const addSongAsync = (formData, spotifyTrack, redirectToSong, failure) => {
   return dispatch => {
 
     const req = {
@@ -42,9 +42,9 @@ export const addSongAsync = (formData, spotifyTrack, redirectToSong) => {
       redirectToSong(song.id)  // Redirect to the song's show page
     }
 
-    const failure = error => {
-      window.alert(error.messages.join(', '))
-    }
+    // const failure = error => {
+    //   window.alert(error.messages.join(', '))
+    // }
 
     fetch(`${backendURL}/songs`, req)
       .then(resp => handleResponse(resp, success, failure))
