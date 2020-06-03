@@ -1,16 +1,31 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Alert } from 'react-bootstrap'
+import { Switch, Route, Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 import HomeContainer from '../home/HomeContainer'
 import PrivateRoute from '../PrivateRoute'
 import RepertoireContainer from '../repertoire/RepertoireContainer'
 import SessionFormContainer from '../sessions/SessionFormContainer'
 import SongsContainer from '../songs/SongsContainer'
+import { logout } from '../../actions/sessions'
+import { mapUserToProps } from '../../utils'
 import './layout.css'
 
 
-const MainDisplay = () => {
+const MainDisplay = props => {
   return (
     <div id="main-display" className="bg-grey">
+      
+      { /* Render sticky preview mode alert banner if logged in as the preview user */
+        props.user && props.user.email === 'johndoe@fake.com' ? 
+        <Alert variant="danger" style={{ top: 0, zIndex: 999 }} className="position-sticky">
+          Preview Mode | <Link to='/' onClick={props.logout} style={{color: 'inherit', fontWeight: 700}}>Log out</Link> to exit
+        </Alert> 
+          : 
+          null 
+      }
+
+      {/* Switch for top-level routes */}
       <Switch>
         <Route exact path='/'>
           <HomeContainer/>
@@ -25,9 +40,13 @@ const MainDisplay = () => {
           <RepertoireContainer/>
         </PrivateRoute>
       </Switch>
+
     </div>
   )
 }
 
 
-export default MainDisplay
+export default connect(
+  mapUserToProps,
+  { logout }
+)(MainDisplay)
