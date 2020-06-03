@@ -46,19 +46,19 @@ class SignUpForm extends Component {
         <h1 className="session-form-header">Sign Up</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Control type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleInputChange}/>
+            <Form.Control required type="text" name="first_name" placeholder="First Name" value={this.state.first_name} onChange={this.handleInputChange}/>
           </Form.Group>
           <Form.Group>
-            <Form.Control type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/>
+            <Form.Control required type="text" name="last_name" placeholder="Last Name" value={this.state.last_name} onChange={this.handleInputChange}/>
           </Form.Group>
           <Form.Group>
-            <Form.Control type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
+            <Form.Control required type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
           </Form.Group>
           <Form.Group>
-            <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
+            <Form.Control required type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
           </Form.Group>
           <Form.Group>
-            <Form.Control type="password" name="password_confirmation" placeholder="Password Confirmation" value={this.state.password_confirmation} onChange={this.handleInputChange}/>
+            <Form.Control required type="password" name="password_confirmation" placeholder="Password Confirmation" value={this.state.password_confirmation} onChange={this.handleInputChange}/>
           </Form.Group>
           <Container className="mx-auto text-center">
             <Button variant="dark" type="submit">Submit</Button>
