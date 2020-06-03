@@ -37,9 +37,9 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
 
   const success = userData => {
     dispatch(setLoggedInUser(userData.user))  // Store user's data in redux
-    dispatch(setSongs(userData.songs))    // Store the user's songs in redux
+    dispatch(setSongs(userData.songs))        // Store the user's songs in redux
     setAuthToken(userData.token)              // Save the user's auth token in localStorage
-    callback()
+    if (!!callback) { callback() }            // Exexcute the callback if necessary
   }
 
   // Fall back on the generic API failure of `handleResponse`

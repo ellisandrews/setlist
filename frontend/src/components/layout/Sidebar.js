@@ -1,15 +1,24 @@
 import React, { Component } from 'react'
 import { Nav, Image } from 'react-bootstrap'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { mapUserToProps } from '../../utils'
-import { logout } from '../../actions/sessions'
+import { login, logout } from '../../actions/sessions'
 import setlistLogo from '../../SetlistLogo.png'
 import './layout.css'
 
 
 class Sidebar extends Component {
   
+  previewLogin = () => {
+    // Log in the read-only preview user
+    const { history, login } = this.props
+    login(
+      { email: 'johndoe@fake.com', password: 'password'}, 
+      () => history.push('/repertoire')
+    )
+  }
+
   renderNavItems = () => {
 
     const { user, logout } = this.props
@@ -30,6 +39,12 @@ class Sidebar extends Component {
               <span>Sign Up</span>
             </Nav.Item>
           </NavLink>
+          <Link onClick={this.previewLogin} className='sidebar-link'>
+            <Nav.Item>
+              <ion-icon name='desktop-outline'></ion-icon><br/>
+              <span>Preview</span>
+            </Nav.Item>
+          </Link>
         </>
       )
     } else {
@@ -79,5 +94,5 @@ class Sidebar extends Component {
 
 export default connect(
   mapUserToProps,
-  { logout }
-)(Sidebar)
+  { login, logout }
+)(withRouter(Sidebar))
