@@ -10,15 +10,6 @@ import './layout.css'
 
 class Sidebar extends Component {
   
-  previewLogin = () => {
-    // Log in the read-only preview user
-    const { history, login } = this.props
-    login(
-      { email: 'johndoe@fake.com', password: 'password'}, 
-      () => history.push('/repertoire')
-    )
-  }
-
   renderNavItems = () => {
 
     const { user, logout } = this.props
@@ -73,6 +64,16 @@ class Sidebar extends Component {
     }
   }
   
+  previewLogin = () => {
+    // Log in the read-only preview user. Note that this is not a real user, and the preview user's priveleges are
+    // very restricted on the backend so I have no issue with storing these credentials here.
+    const { history, login } = this.props
+    login(
+      { email: 'johndoe@fake.com', password: 'password' }, 
+      () => history.push('/repertoire')
+    )
+  }
+
   render() {
     return (
       <Nav className='flex-column' id='sidebar-nav'>
