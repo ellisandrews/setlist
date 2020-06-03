@@ -47,10 +47,10 @@ class LogInForm extends Component {
         <h1 className="session-form-header">Log In</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group>
-            <Form.Control type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
+            <Form.Control required type="email" name="email" placeholder="Email" value={this.state.email} onChange={this.handleInputChange}/>
           </Form.Group>
           <Form.Group>
-            <Form.Control type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
+            <Form.Control required type="password" name="password" placeholder="Password" value={this.state.password} onChange={this.handleInputChange}/>
           </Form.Group>
           <Container className="mx-auto text-center">
             <Button variant="dark" type="submit">Submit</Button>

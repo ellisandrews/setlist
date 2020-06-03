@@ -52,7 +52,7 @@ class Api::V1::SongsController < ApplicationController
             song.destroy!
             render json: { messages: ['Song successfully deleted'] }
         rescue ActiveRecord::RecordNotDestroyed => invalid
-            render json: { error: 'Failed to delete song', message: invalid.record.errors.full_messages }, status: :internal_server_error
+            render json: { error: 'Failed to delete song', messages: invalid.record.errors.full_messages }, status: :internal_server_error
         end
     end
 

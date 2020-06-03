@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
+import ErrorAlert from '../layout/ErrorAlert'
 import SearchContainer from '../search/SearchContainer'
 import SongForm from './SongForm'
 import SongHeader from './SongHeader'
@@ -13,11 +14,11 @@ class NewSongContainer extends Component {
   constructor(props) {
     super(props)
 
-    // Hold spotify trakc data that will be collected via search and then passed along to the SongForm.
-    // Also hold a boolean for whether to display the spotify search bar, or the SongForm
     this.state = {
-      displaySearch: true,
-      spotifyTrack: this.spotifyTrackFactory()
+      displaySearch: true,  // A boolean for whether to display the spotify search bar, or the SongForm
+      spotifyTrack: this.spotifyTrackFactory(),  // spotify track data that will be collected via search and then passed along to the SongForm
+      showErrors: true,  // By default, show an alert if there are errors
+      errors: []  // Any errors returned from the backend during song creation
     }
   }
 
@@ -50,22 +51,42 @@ class NewSongContainer extends Component {
     addSongAsync(
       formData,
       this.state.spotifyTrack,
-      songId => { history.push(`/songs/${songId}`) }
+      songId => { history.push(`/songs/${songId}`) },
+      error => { this.setState({ errors: error.messages, showErrors: true }) }  // On failure, update this component state with the error messages to be displayed
     )
   }
 
+  hideErrors = () => {
+    this.setState({
+      showErrors: false
+    })
+  }
+
   render() {
+
+    const { displaySearch, spotifyTrack, showErrors, errors } = this.state
+
     return (
       <div id="new-song-container" className="py-1">
+
         {
-          this.state.displaySearch ?
+          /* Render any errors if desired */
+          showErrors && errors.length > 0 ?
+          <ErrorAlert errors={errors} hideErrors={this.hideErrors}/>
+            :
+          null
+        }
+
+        { /* Conditionally display the spotify search or the song form */
+          displaySearch ?
           <SearchContainer handleSpotifyTrack={this.handleSpotifyTrack}/>
             :
           <Container id="new-song" className="p-0">
-            <SongHeader spotifyTrack={this.state.spotifyTrack}/>
+            <SongHeader spotifyTrack={spotifyTrack}/>
             <SongForm handleCancel={this.handleCancel} handleSubmit={this.handleSubmit} />
           </Container>
         }
+
       </div>
     )
   }

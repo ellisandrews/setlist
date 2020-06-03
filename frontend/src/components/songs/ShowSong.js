@@ -4,12 +4,21 @@ import { withRouter } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
 import { connect } from 'react-redux'
 import YouTube from 'react-youtube'
+import ErrorAlert from '../layout/ErrorAlert'
 import SongHeader from './SongHeader'
 import { deleteSongAsync } from '../../actions/songs'
 
 
 class ShowSong extends Component {
   
+  constructor(props) {
+    super(props)
+    this.state = {
+      showErrors: true,
+      errors: []
+    }
+  }
+
   renderSections = () => {
     const { sections } = this.props.song
 
@@ -31,18 +40,34 @@ class ShowSong extends Component {
       const { history, song, deleteSongAsync } = this.props
       deleteSongAsync(
         song.id, 
-        () => { history.push('/repertoire') }
+        () => { history.push('/repertoire') },
+        error => { this.setState({ errors: error.messages, showErrors: true }) }  // On failure, update this component state with the error messages to be displayed
       )
     }
   }
 
+  hideErrors = () => {
+    this.setState({
+      showErrors: false
+    })
+  }
+
   render() {
     
+    const { showErrors, errors } = this.state
     const { id, guitar_type, capo, strumming, youtube_id, notes, spotify_track } = this.props.song
 
     return (
       <Container id="show-song">
         
+        {
+          /* Render any errors if desired */
+          showErrors && errors.length > 0 ?
+          <ErrorAlert errors={errors} hideErrors={this.hideErrors}/>
+            :
+          null
+        }
+
         <SongHeader spotifyTrack={spotify_track}/>
 
         <Container id="song-info" className="bg-white custom-shadow rounded py-2" style={{marginBottom: '5vh', paddingLeft: '3vw'}}>

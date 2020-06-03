@@ -18,7 +18,7 @@ const MainDisplay = props => {
       
       { /* Render sticky preview mode alert banner if logged in as the preview user */
         props.user && props.user.email === 'johndoe@fake.com' ? 
-        <Alert variant="danger" style={{ top: 0, zIndex: 999 }} className="position-sticky">
+        <Alert variant="info" style={{ top: 0, zIndex: 999 }} className="position-sticky">
           Preview Mode | <Link to='/' onClick={props.logout} style={{color: 'inherit', fontWeight: 700}}>Log out</Link> to exit
         </Alert> 
           : 
