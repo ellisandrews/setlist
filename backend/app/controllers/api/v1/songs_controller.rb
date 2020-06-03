@@ -1,5 +1,8 @@
 class Api::V1::SongsController < ApplicationController
 
+    # Do not allow the "preview mode" user to edit any song data
+    before_action :authorized_user
+
     def create
         # Note: SpotifyTrack is a parent object of Song. Normally, a parent object would accept_nested_attributes_for 
         #       the child object to create the dependent child. However, due to the fact that we do not want to create a 
