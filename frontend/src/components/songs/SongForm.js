@@ -89,13 +89,13 @@ class SongForm extends Component {
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Name</Form.Label>
             <Col sm={4}>
-              <Form.Control name="name" type="text" placeholder="e.g. Chorus" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control required name="name" type="text" placeholder="e.g. Chorus" value={section.name} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Chords</Form.Label>
             <Col sm={6}>
-              <Form.Control name="chords" type="text" placeholder="e.g. Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
+              <Form.Control required name="chords" type="text" placeholder="e.g. Em C G D" value={section.chords} onChange={event => this.handleSectionChange(event, index)}/>
             </Col>
           </Form.Group>
           <Form.Group as={Row}>
