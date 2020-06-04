@@ -25,14 +25,12 @@ class EditSong extends Component {
     }
   }
 
-  handleSubmit = (event, formData) => {
-    event.preventDefault()
-  
+  handleSubmit = values => {
     const { history, updateSongAsync, song } = this.props
     
     updateSongAsync(
       song.id,
-      formData,
+      values,
       songId => { history.push(`/songs/${songId}`) },
       error => { this.setState({ errors: error.messages, showErrors: true }) }  // On failure, update this component state with the error messages to be displayed
     )
