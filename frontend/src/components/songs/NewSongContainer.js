@@ -43,13 +43,11 @@ class NewSongContainer extends Component {
   }
 
   // Form submit action that is specific to creating a new song (must pass spotify data and form data to backend)
-  handleSubmit = (event, formData) => {
-    event.preventDefault()
-    
+  handleSubmit = values => {    
     const { addSongAsync, history } = this.props
 
     addSongAsync(
-      formData,
+      values,
       this.state.spotifyTrack,
       songId => { history.push(`/songs/${songId}`) },
       error => { this.setState({ errors: error.messages, showErrors: true }) }  // On failure, update this component state with the error messages to be displayed
