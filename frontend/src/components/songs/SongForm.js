@@ -7,7 +7,7 @@ import { object, array, string, boolean } from 'yup'
 class SongForm extends Component {
 
   getInitialFormValues = () => {
-    // Initialze state with either the provided song's or a new song's data
+    // Initialze the form data with either the provided song or a new one.
     const initialSong = this.props.song || this.songFactory()
     const { guitar_type, capo, strumming, sections, youtube_id, notes } = initialSong
     
@@ -22,14 +22,17 @@ class SongForm extends Component {
   }
 
   sectionFactory = (name='', chords='') => {
+    // Create an object representing a new section
     return { name, chords }
   }
 
   songFactory = (guitar_type='', capo='', strumming='', sections=[ this.sectionFactory() ], youtube_id='', notes='') => {
+    // Create an object representing a new song
     return { guitar_type, capo, strumming, sections, youtube_id, notes }
   }
 
   sectionFieldInvalid = (fieldName, sectionIndex, sectionsTouched, sectionsErrors) => {
+    // Check whether a given field of a section is invalid, meaning it has been touched and has validation errors.
     return !!(
       this.sectionFieldTouched(fieldName, sectionIndex, sectionsTouched) &&
       this.sectionFieldErrors(fieldName, sectionIndex, sectionsErrors)
@@ -37,16 +40,21 @@ class SongForm extends Component {
   }
 
   sectionFieldTouched = (fieldName, sectionIndex, sectionsTouched) => {
+    // Check whether a given field of a section has been touched (using Formik's tracking)
     return sectionsTouched && sectionsTouched[sectionIndex] && sectionsTouched[sectionIndex][fieldName]
   }
 
   sectionFieldErrors = (fieldName, sectionIndex, sectionsErrors) => {
+    // Check whether a given field of a section has errors (checking against Formik/Yup validation)
     return sectionsErrors && sectionsErrors[sectionIndex] && sectionsErrors[sectionIndex][fieldName]
   }
 
   renderSections = ({ push, replace, form }) => {
+    // Render the variable number of sections in the form. There is some fancy logic in here due to the fact that
+    // Rails requires nested objects to be POSTed with a `_destroy: true` key in order to delete them from a parent object.
+    // Thus we need to hold onto all sections, but we need to only display the ones without this special property.
 
-    // Extract relevant methods and data from the `form` object
+    // Extract relevant methods and data from the Formik `form` object
     const { 
       handleChange, 
       handleBlur, 
@@ -59,7 +67,7 @@ class SongForm extends Component {
     // This is required due to how rails protects nested objects from being destroyed.
     const numSectionsToRender = sections.reduce((count, section) => !section._destroy ? ++count : count, 0)
 
-    // If there are no sections to render display the button to add one
+    // If there are no sections to render, display the button to add one. Then we're done.
     if ( numSectionsToRender === 0 ) {
       return (
         <Form.Group as={Row}>
@@ -70,9 +78,10 @@ class SongForm extends Component {
       )
     }
 
-    // Counter for the number of sections that have been rendered thus far. Used for determining where to put the "Add Section" button
+    // Counter for the number of sections that have been rendered thus far. Used for determining where to put the "Add Section" button.
     let renderedSections = 0
 
+    // Render the sections
     return sections.map((section, index) => {
 
       // Do not render sections that are slated for desctruction. This tracking is necessary for rails purposes.
@@ -80,7 +89,7 @@ class SongForm extends Component {
         return null
       }
 
-      // Increment the rendered sections counter and render the section
+      // Increment the rendered sections counter and render the section that is slated for display.
       renderedSections++
       return (
         <div key={index}>
@@ -113,7 +122,7 @@ class SongForm extends Component {
 
   removeSection = (section, index, replace) => {  
     // Add a `_destroy: true` key-value pair to the section (for rails nested deletion purposes), and then call the
-    // Formik arrayHelper.replace() method to update the section in the array of values.
+    // Formik `arrayHelper.replace()` method to update the section in the array of values.
     const updatedSection = {
       ...section,
       _destroy: true
@@ -123,9 +132,9 @@ class SongForm extends Component {
   }
 
   render() {
-    
     const { handleCancel, handleSubmit } = this.props
 
+    // Render the form with Formik control and Yup validation
     return (
       <Container className="bg-white custom-shadow rounded" style={{marginBottom: '5vh', paddingLeft: '3vw'}}>
         
@@ -151,10 +160,7 @@ class SongForm extends Component {
             handleSubmit,
             handleChange,
             handleBlur,
-            values,
-            errors,
-            touched,
-            status  // This is where generalErrors from the backend will get passed (in the sumbit handler)
+            values
           }) => (
             <Form onSubmit={handleSubmit}>
 
