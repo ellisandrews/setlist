@@ -8,7 +8,7 @@ import { login } from '../../actions/sessions'
 
 class LogInForm extends Component {
   
-  handleSubmit = values => {
+  handleSubmit = (values, { setSubmitting, setStatus, resetForm }) => {
 
     // Grab `history` and `location` for managing login redirects, and the `login` action creator
     const { history, location, login } = this.props
@@ -17,10 +17,15 @@ class LogInForm extends Component {
     // Note destructuring, so `from` variable will be an object with top-level key of `pathname` regardless.
     const { from } = location.state || { from: { pathname: '/' } }
 
-    // Call the login action creator with a callback to send the user to the homepage after successful login
+    // Call the login action creator. Render an error from the server on failure or redirect on success.
     login(
       values,
-      () => history.replace(from)
+      error => {
+        resetForm()
+        setStatus({ generalError: error.status >= 500 ? error.error : error.message }) 
+        setSubmitting(false)
+      },
+      () => { history.replace(from) }
     )
   }
   
@@ -43,9 +48,10 @@ class LogInForm extends Component {
             handleSubmit,
             handleChange,
             values,
-            errors
+            status  // This is where generalError from the backend will get passed (in the sumbit handler)
           }) => (
             <Form noValidate onSubmit={handleSubmit}>
+              { status && status.generalError && <p style={{color: 'red'}}>{status.generalError}</p> }
               <Form.Group>
                 <Form.Control type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange}/>
               </Form.Group>

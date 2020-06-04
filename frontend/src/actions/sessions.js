@@ -2,15 +2,15 @@ import { backendURL, handleResponse, setAuthToken, removeAuthToken } from '../ut
 import { setSongs } from './songs'
 
 
-export const signup = (bodyData, callback) => {
+export const signup = (bodyData, handleFailure, redirect) => {
   return dispatch => {
-    sessionRequest('signup', bodyData, callback, dispatch)
+    sessionRequest('signup', bodyData, handleFailure, redirect, dispatch)
   }
 }
 
-export const login = (bodyData, callback) => {
+export const login = (bodyData, handleFailure, redirect) => {
   return dispatch => {
-    sessionRequest('login', bodyData, callback, dispatch)
+    sessionRequest('login', bodyData, handleFailure, redirect, dispatch)
   }
 }
 
@@ -23,7 +23,7 @@ export const setLoggedInUser = user => {
   return { type: 'LOG_IN_USER', user }
 }
 
-const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
+const sessionRequest = (endpoint, bodyData, handleFailure, redirect, dispatch) => {
 
   const req = {
     method: 'POST',
@@ -39,12 +39,12 @@ const sessionRequest = (endpoint, bodyData, callback, dispatch) => {
     dispatch(setLoggedInUser(userData.user))  // Store user's data in redux
     dispatch(setSongs(userData.songs))        // Store the user's songs in redux
     setAuthToken(userData.token)              // Save the user's auth token in localStorage
-    if (!!callback) { callback() }            // Exexcute the callback if necessary
+    if (!!redirect) { redirect() }            // Exexcute the redirect callback if applicable
   }
 
   // Fall back on the generic API failure of `handleResponse`
   fetch(`${backendURL}/${endpoint}`, req)
-    .then(resp => handleResponse(resp, success))
+    .then(resp => handleResponse(resp, success, handleFailure))
     .catch(err => {
       window.alert(`Unknown Error: ${err}`)
     })

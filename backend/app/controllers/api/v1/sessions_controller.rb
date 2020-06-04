@@ -12,7 +12,7 @@ class Api::V1::SessionsController < ApplicationController
                 token: token
             }, status: :created
         else
-            render json: { error: 'Failed to log in', messages: ['Invalid email or password'] }, status: :forbidden
+            render json: { error: 'Failed to log in', message: 'Invalid email or password' }, status: :forbidden
         end
     end
 

@@ -9,24 +9,17 @@ import { signup } from '../../actions/sessions'
 
 class SignUpForm extends Component {
   
-  constructor(props) {
-    super(props)
-    this.state = {
-      first_name: '',
-      last_name: '',
-      email: '',
-      password: '',
-      password_confirmation: ''
-    }
-  }
-
-  handleSubmit = values => {
+  handleSubmit = (values, { setSubmitting, setStatus }) => {
     // Grab `history` for managing login redirects, and the `sigup` action creator
     const { history, signup } = this.props
 
-    // Call the signup action creator with a callback to send the user to the homepage after success
+    // Call the signup action creator. On failure render server erros, on success redirect the user to the homepage.
     signup(
       values,
+      error => {
+        setStatus({ generalErrors: error.status >= 500 ? [error.error] : error.messages }) 
+        setSubmitting(false)
+      },
       () => history.push('/')
     )
   }
@@ -40,8 +33,8 @@ class SignUpForm extends Component {
         <Formik
           initialValues={{first_name: '', last_name: '', email: '', password: '', password_confirmation: ''}}
           validationSchema={object({
-            first_name: string().required('Required'),
-            last_name: string().required('Required'),
+            first_name: string().trim().required('Required').max(30, 'Must be at most 30 characters'),
+            last_name: string().trim().required('Required').max(30, 'Must be at most 30 characters'),
             email: string().required('Required').email('Invalid email address'),
             password: string().required('Required').min(8, 'Must be at least 8 characters'),
             password_confirmation: string().required('Required').min(8, 'Must be at least 8 characters')
@@ -55,9 +48,11 @@ class SignUpForm extends Component {
             handleBlur,
             values,
             errors,
-            touched
+            touched,
+            status  // This is where generalErrors from the backend will get passed (in the sumbit handler)
           }) => (
             <Form noValidate onSubmit={handleSubmit}>
+              { status && status.generalErrors && <p style={{color: 'red'}}>{status.generalErrors.join(', ')}</p> }
               <Form.Group>
                 <Form.Control required type="text" name="first_name" placeholder="First Name" value={values.first_name} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.first_name && !!errors.first_name}/>
                 <Form.Control.Feedback type="invalid">{errors.first_name}</Form.Control.Feedback>
