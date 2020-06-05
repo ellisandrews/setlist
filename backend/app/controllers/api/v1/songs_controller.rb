@@ -1,7 +1,7 @@
 class Api::V1::SongsController < ApplicationController
 
-    # Do not allow the "preview mode" user to edit any song data
-    before_action :authorized_user
+    # Do not allow the "preview mode" user to create or edit any song data
+    before_action :preview_mode
 
     def create
         # Note: SpotifyTrack is a parent object of Song. Normally, a parent object would accept_nested_attributes_for 
@@ -37,19 +37,27 @@ class Api::V1::SongsController < ApplicationController
     end
     
     def update
-        song = Song.find(params[:id])
-        song.assign_attributes(update_params)
-        if song.save
-            render json: song, status: :created
+        @song = Song.find(params[:id])
+        
+        # Only allow the song owner to update the song. Return is necessary to avoid double render error.
+        assert_song_owner && return
+        
+        @song.assign_attributes(update_params)
+        if @song.save
+            render json: @song, status: :created
         else
-            render json: { error: 'Failed to update song', messages: song.errors.full_messages }, status: :bad_request
+            render json: { error: 'Failed to update song', messages: @song.errors.full_messages }, status: :bad_request
         end
     end
 
     def destroy
-        song = Song.find(params[:id])
+        @song = Song.find(params[:id])
+
+        # Only allow the song owner to delete the song. Return is necessary to avoid double render error.
+        assert_song_owner && return
+
         begin
-            song.destroy!
+            @song.destroy!
             render json: { messages: ['Song successfully deleted'] }
         rescue ActiveRecord::RecordNotDestroyed => invalid
             render json: { error: 'Failed to delete song', messages: invalid.record.errors.full_messages }, status: :internal_server_error
@@ -85,4 +93,11 @@ class Api::V1::SongsController < ApplicationController
     def permit_spotify_track_params(raw_spotify_track_params)
         raw_spotify_track_params.permit(:title, :artist, :spotify_id, :artwork_url)
     end
+
+    def assert_song_owner
+        unless @song.user == @user
+            render json: { error: 'Unauthorized', messages: ['Unauthorized'] }, status: :unauthorized
+        end
+    end
+
 end

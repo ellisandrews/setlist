@@ -37,7 +37,7 @@ const MainDisplay = props => {
         <PrivateRoute path='/songs'>
           <SongsContainer/>
         </PrivateRoute>
-        <PrivateRoute path='/repertoire'>
+        <PrivateRoute exact path='/repertoire'>
           <RepertoireContainer/>
         </PrivateRoute>
         <Route path="*">
