@@ -16,11 +16,11 @@ class SignUpForm extends Component {
     // Call the signup action creator. On failure render server erros, on success redirect the user to the homepage.
     signup(
       values,
+      () => history.push('/'),
       error => {
         setStatus({ generalErrors: error.status >= 500 ? [error.error] : error.messages }) 
         setSubmitting(false)
-      },
-      () => history.push('/')
+      }
     )
   }
   

@@ -20,12 +20,12 @@ class LogInForm extends Component {
     // Call the login action creator. Render an error from the server on failure or redirect on success.
     login(
       values,
+      () => { history.replace(from) },
       error => {
         resetForm()
         setStatus({ generalError: error.status >= 500 ? error.error : error.message }) 
         setSubmitting(false)
-      },
-      () => { history.replace(from) }
+      }
     )
   }
   
