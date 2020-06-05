@@ -1,16 +1,16 @@
-import { backendURL, handleResponse, setAuthToken, removeAuthToken } from '../utils'
+import { backendURL, handleResponse, setAuthToken, removeAuthToken, genericAPIFailure } from '../utils'
 import { setSongs } from './songs'
 
 
-export const signup = (bodyData, handleFailure, redirect) => {
+export const signup = (bodyData, redirect, handleFailure = genericAPIFailure ) => {
   return dispatch => {
-    sessionRequest('signup', bodyData, handleFailure, redirect, dispatch)
+    sessionRequest('signup', bodyData, redirect, handleFailure, dispatch)
   }
 }
 
-export const login = (bodyData, handleFailure, redirect) => {
+export const login = (bodyData, redirect, handleFailure = genericAPIFailure ) => {
   return dispatch => {
-    sessionRequest('login', bodyData, handleFailure, redirect, dispatch)
+    sessionRequest('login', bodyData, redirect, handleFailure, dispatch)
   }
 }
 
@@ -23,7 +23,7 @@ export const setLoggedInUser = user => {
   return { type: 'LOG_IN_USER', user }
 }
 
-const sessionRequest = (endpoint, bodyData, handleFailure, redirect, dispatch) => {
+const sessionRequest = (endpoint, bodyData, redirect, handleFailure, dispatch) => {
 
   const req = {
     method: 'POST',
