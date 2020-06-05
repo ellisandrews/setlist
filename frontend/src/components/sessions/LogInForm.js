@@ -35,7 +35,7 @@ class LogInForm extends Component {
     // e.g. <Form.Control.Feedback type="invalid">{errors.general}</Form.Control.Feedback>
 
     return (
-      <Container className="col-10 text-center">
+      <Container className="col-10 text-center my-3">
         <h1 className="session-form-header">Log In</h1>
 
         {/* Begin form, controlled by Formik */}
@@ -53,10 +53,10 @@ class LogInForm extends Component {
             <Form noValidate onSubmit={handleSubmit}>
               { status && status.generalError && <p style={{color: 'red'}}>{status.generalError}</p> }
               <Form.Group>
-                <Form.Control type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange}/>
+                <Form.Control size="sm" type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange}/>
               </Form.Group>
               <Form.Group>
-                <Form.Control type="password" name="password" placeholder="Password" value={values.password} onChange={handleChange}/>
+                <Form.Control size="sm" type="password" name="password" placeholder="Password" value={values.password} onChange={handleChange}/>
               </Form.Group>
               <Container className="mx-auto text-center">
                 <Button variant="dark" type="submit">Submit</Button>

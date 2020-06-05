@@ -54,23 +54,23 @@ class SignUpForm extends Component {
             <Form noValidate onSubmit={handleSubmit}>
               { status && status.generalErrors && <p style={{color: 'red'}}>{status.generalErrors.join(', ')}</p> }
               <Form.Group>
-                <Form.Control required type="text" name="first_name" placeholder="First Name" value={values.first_name} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.first_name && !!errors.first_name}/>
+                <Form.Control size="sm" type="text" name="first_name" placeholder="First Name" value={values.first_name} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.first_name && !!errors.first_name}/>
                 <Form.Control.Feedback type="invalid">{errors.first_name}</Form.Control.Feedback>
               </Form.Group>
               <Form.Group>
-                <Form.Control required type="text" name="last_name" placeholder="Last Name" value={values.last_name} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.last_name && !!errors.last_name}/>
+                <Form.Control size="sm" type="text" name="last_name" placeholder="Last Name" value={values.last_name} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.last_name && !!errors.last_name}/>
                 <Form.Control.Feedback type="invalid">{errors.last_name}</Form.Control.Feedback>
               </Form.Group>
               <Form.Group>
-                <Form.Control required type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.email && !!errors.email}/>
+                <Form.Control size="sm" type="email" name="email" placeholder="Email" value={values.email} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.email && !!errors.email}/>
                 <Form.Control.Feedback type="invalid">{errors.email}</Form.Control.Feedback>
               </Form.Group>
               <Form.Group>
-                <Form.Control required type="password" name="password" placeholder="Password" value={values.password} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.password && !!errors.password}/>
+                <Form.Control size="sm" type="password" name="password" placeholder="Password" value={values.password} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.password && !!errors.password}/>
                 <Form.Control.Feedback type="invalid">{errors.password}</Form.Control.Feedback>
               </Form.Group>
               <Form.Group>
-                <Form.Control required type="password" name="password_confirmation" placeholder="Password Confirmation" value={values.password_confirmation} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.password_confirmation && !!errors.password_confirmation}/>
+                <Form.Control size="sm" type="password" name="password_confirmation" placeholder="Password Confirmation" value={values.password_confirmation} onChange={handleChange} onBlur={handleBlur} isInvalid={touched.password_confirmation && !!errors.password_confirmation}/>
                 <Form.Control.Feedback type="invalid">{errors.password_confirmation}</Form.Control.Feedback>
               </Form.Group>
               <Container className="mx-auto text-center">
