@@ -103,8 +103,8 @@ class SongForm extends Component {
           </Form.Group>
           <Form.Group as={Row}>
             <Form.Label column sm={2} className="right-label text-muted">Chords</Form.Label>
-            <Col sm={6}>
-              <Form.Control name={`sections.${index}.chords`} type="text" placeholder="e.g. Em C G D" value={section.chords} onChange={handleChange} onBlur={handleBlur} isInvalid={ this.sectionFieldInvalid('chords', index, sectionsTouched, sectionsErrors) }/>
+            <Col sm={9}>
+              <Form.Control name={`sections.${index}.chords`} as="textarea" rows="2" placeholder="e.g. Em C G D" value={section.chords} onChange={handleChange} onBlur={handleBlur} isInvalid={ this.sectionFieldInvalid('chords', index, sectionsTouched, sectionsErrors) }/>
               <Form.Control.Feedback type="invalid">{this.sectionFieldErrors('chords', index, sectionsErrors)}</Form.Control.Feedback>
             </Col>
           </Form.Group>

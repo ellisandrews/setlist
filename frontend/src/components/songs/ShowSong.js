@@ -27,7 +27,7 @@ class ShowSong extends Component {
       return (
         <Row className="my-3" key={sectionNumber}>
           <Col xs={2} className="right-label text-muted">{section.name}</Col>
-          <Col>{section.chords}</Col>
+          <Col style={{whiteSpace: 'pre-wrap'}}>{section.chords}</Col>
         </Row>
       )
     })
