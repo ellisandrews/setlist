@@ -28,7 +28,7 @@ class SignUpForm extends Component {
 
     return (
       <Container className="col-10 text-center my-3">
-        <h1 className="session-form-header">Sign Up</h1>
+        <h2 className="session-form-header">Sign Up</h2>
         
         <Formik
           initialValues={{first_name: '', last_name: '', email: '', password: '', password_confirmation: ''}}

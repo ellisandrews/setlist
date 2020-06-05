@@ -36,7 +36,7 @@ class LogInForm extends Component {
 
     return (
       <Container className="col-10 text-center my-3">
-        <h1 className="session-form-header">Log In</h1>
+        <h2 className="session-form-header">Log In</h2>
 
         {/* Begin form, controlled by Formik */}
         <Formik 
