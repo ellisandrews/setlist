@@ -13,7 +13,7 @@ class SignUpForm extends Component {
     // Grab `history` for managing login redirects, and the `sigup` action creator
     const { history, signup } = this.props
 
-    // Call the signup action creator. On failure render server erros, on success redirect the user to the homepage.
+    // Call the signup action creator. On failure render server errors, on success redirect the user to the homepage.
     signup(
       values,
       () => history.push('/'),

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Row, Col, Image, Card } from 'react-bootstrap'
 import { useLocation } from 'react-router-dom'
-import sessionFormImg from './session_form_trimmed.jpg'
+import sessionFormImg from './session_form.jpg'
 import SignUpForm from './SignUpForm'
 import LogInForm from './LogInForm'
 import './sessions.css'
