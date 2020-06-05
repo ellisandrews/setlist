@@ -10,6 +10,7 @@ import SongsContainer from '../songs/SongsContainer'
 import { logout } from '../../actions/sessions'
 import { mapUserToProps } from '../../utils'
 import './layout.css'
+import NotFound from '../NotFound'
 
 
 const MainDisplay = props => {
@@ -36,9 +37,12 @@ const MainDisplay = props => {
         <PrivateRoute path='/songs'>
           <SongsContainer/>
         </PrivateRoute>
-        <PrivateRoute path='/repertoire'>
+        <PrivateRoute exact path='/repertoire'>
           <RepertoireContainer/>
         </PrivateRoute>
+        <Route path="*">
+          <NotFound/>
+        </Route>
       </Switch>
 
     </div>
