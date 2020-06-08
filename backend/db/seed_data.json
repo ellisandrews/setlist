@@ -197,5 +197,47 @@
         }
       ]
     }
+  },
+  {
+    "spotify_track": {
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b27329f951c74e9cbfffeb7b52f9",
+      "spotify_id": "4w7RuuQAVP0JXlAom3z1aC"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": 2,
+      "strumming": "DDD DUDUD D DU | DUD D DU U UDUDU",
+      "youtube_id": "ukjfq1iVOGA",
+      "notes": "This video does a really good job of teaching the strumming, which is the hardest part. Strumming pattern walk-through starts @ 8:00 mark.\n\nhttps://tabs.ultimate-guitar.com/tab/oasis/wonderwall-chords-39144",
+      "sections_attributes": [
+        {
+          "name": "Intro",
+          "chords": "Em7 G  Dsus4 A7sus4",
+          "display_order": 1
+        },
+        {
+          "name": "Verse I",
+          "chords": "Em7 G  Dsus4 A7sus4 (x3)\nCadd9 Dsus4 A7sus4",
+          "display_order": 2
+        },
+        {
+          "name": "Verse II",
+          "chords": "Em7 G Dsus4 A7sus4 (x4)",
+          "display_order": 3
+        },
+        {
+          "name": "Bridge",
+          "chords": "Cadd9 Dsus4 Em7 Em7 (x2)\nCadd9 Dsus4 G D/F# Em7 A7sus4 A7sus4",
+          "display_order": 4
+        },
+        {
+          "name": "Chorus",
+          "chords": "Cadd9 Em7 G Em7 (x4)",
+          "display_order": 5
+        }
+      ]
+    }
   }
 ]
