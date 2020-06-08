@@ -239,5 +239,74 @@
         }
       ]
     }
+  },
+  {
+    "spotify_track": {
+      "title": "Shallow",
+      "artist": "Lady Gaga",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273e2d156fdc691f57900134342",
+      "spotify_id": "2VxeLyX666F8uXCJ0dZF8B"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": null,
+      "strumming": "",
+      "youtube_id": "jnYes88W2ic",
+      "notes": "Video teaches the finger picking, or you can just kind of loosely pick the chords.",
+      "sections_attributes": [
+        {
+          "name": "Intro/Verse",
+          "chords": "Em7 D/F# G\nC G D",
+          "display_order": 1
+        },
+        {
+          "name": "Chorus",
+          "chords": "Am D G D/F# Em (repeats)",
+          "display_order": 2
+        },
+        {
+          "name": "Build Up",
+          "chords": "Em Bm D A Em (x2)",
+          "display_order": 3
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "The Less I Know The Better",
+      "artist": "Tame Impala",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79",
+      "spotify_id": "6K4t31amVTZDgR3sKmwUJJ"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": "",
+      "youtube_id": "rCFk144LHZg",
+      "notes": "See the video for how to play the baseline.",
+      "sections_attributes": [
+        {
+          "name": "Intro",
+          "chords": "C#m B E G#m B\nC#m B E G#m\nC#m B E",
+          "display_order": 1
+        },
+        {
+          "name": "Verse I",
+          "chords": "G#m C#m B E",
+          "display_order": 2
+        },
+        {
+          "name": "Chorus",
+          "chords": "E C#m D\nE C#m D B\nE C#m D\nE C#m D C#m",
+          "display_order": 3
+        },
+        {
+          "name": "Outro",
+          "chords": "E G#m C#m A",
+          "display_order": 4
+        }
+      ]
+    }
   }
 ]
