@@ -1,0 +1,334 @@
+[
+  {
+    "spotify_track": {
+      "title": "Lonely Weekend",
+      "artist": "Kacey Musgraves",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2732e35d25eb7288830d5540484",
+      "spotify_id": "3420nZEhm99I1bLc6Yx4XH"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": 3,
+      "strumming": "DudU udU udu udu",
+      "youtube_id": "M37Ut3uaHMs",
+      "notes": "The second and third chords change on the up beats!\nIndicated by the capital letters here: ONE and two AND ... and 4 AND",
+      "sections_attributes": [
+        {
+          "name": "Intro/Chorus",
+          "chords": "Fmaj7 C G G",
+          "display_order": 1
+        },
+        {
+          "name": "Verse",
+          "chords": "G G Fmaj7 G",
+          "display_order": 2
+        },
+        {
+          "name": "Bridge",
+          "chords": "C C7 Fmaj7 Fmaj7\nC C7 Fmaj7 Dm",
+          "display_order": 3
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Mary Jane's Last Dance",
+      "artist": "Tom Petty and the Heartbreakers",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2730c3a1b46b6b846dfdfbc6a7d",
+      "spotify_id": "3dmqIB2Qxe2XZobw9gXxJ6"
+    },
+    "song": {
+      "guitar_type": null,
+      "capo": null,
+      "strumming": "DU D UDUDD DU",
+      "youtube_id": "vKru2yeVgFg",
+      "notes": "Hammer on with the Am and Dsus2 in the Intro/Verse/Solo.",
+      "sections_attributes": [
+        {
+          "name": "Intro/Verse/Solo",
+          "chords": "Am G Dsus2 Am",
+          "display_order": 1
+        },
+        {
+          "name": "Chorus",
+          "chords": "Em7 Em7 A\nEm7 Em7 A G",
+          "display_order": 2
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Gravity",
+      "artist": "John Mayer",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2737af5fdc5ef048a68db62b85f",
+      "spotify_id": "3SktMqZmo3M9zbB7oKMIF7"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": "D D DUD UDUDU",
+      "youtube_id": "3_yOc3VDU5I",
+      "notes": "Put a little reverb on it and take your time.",
+      "sections_attributes": [
+        {
+          "name": "Intro/Chorus/Outro",
+          "chords": "G C",
+          "display_order": 1
+        },
+        {
+          "name": "Verse",
+          "chords": "Am7 D7 Gm/Bb Ebmaj7 D7",
+          "display_order": 2
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Ain't No Sunshine",
+      "artist": "Bill Withers",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273e1e350d06ffebd2e19e047ce",
+      "spotify_id": "1k1Bqnv2R0uJXQN4u6LKYt"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": null,
+      "strumming": "D d D du",
+      "youtube_id": "a25g71iwa2A",
+      "notes": "Hang out on Am, until the \"turn around\" with a single hit on each of Em and G.\n\nPlay the Em7 and Dm7 as barre chords (a simple slide-down).",
+      "sections_attributes": [
+        {
+          "name": "Whole Song",
+          "chords": "Am Em G Am (x2)\nEm7 Dm7\nAm Em G Am",
+          "display_order": 1
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Californication",
+      "artist": "Red Hot Chili Peppers",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b27394d08ab63e57b0cae74e8595",
+      "spotify_id": "48UPSzbZjgc449aqz8bxox"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": null,
+      "youtube_id": "ryGJpnT98-E",
+      "notes": "See the video for picking the Am and F for the intro and interludes.",
+      "sections_attributes": [
+        {
+          "name": "Chorus",
+          "chords": "C G Dm Am\nC G Dm",
+          "display_order": 3
+        },
+        {
+          "name": "Interlude",
+          "chords": "Am F (x2)",
+          "display_order": 2
+        },
+        {
+          "name": "Verse",
+          "chords": "Am F (x2)\nC G F Dm",
+          "display_order": 1
+        },
+        {
+          "name": "Solo",
+          "chords": "F#m D (x2)\nBm D A E (x3)\nAm F (x2)",
+          "display_order": 4
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Say It Ain't So",
+      "artist": "Weezer",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273345536847e60f622ee0eae96",
+      "spotify_id": "6VoIBz0VhCyz7OdEoRYDiA"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": null,
+      "youtube_id": "tTYBNpDZ4CE",
+      "notes": "The low E string is technically tuned down a half step to Eb, but not necessary.\n\nHammer on the \"E-shape\" of C#m. \n\nPlay all chords as barre chords (the E is an A-shape rooted on the 7th fret).\n\nFor the chorus can play the notes as power chords. In this case, the E is played down at the open position (open low E string, second fret on the A and the D strings).",
+      "sections_attributes": [
+        {
+          "name": "Verse / Chorus",
+          "chords": "C#m G# A E",
+          "display_order": 1
+        },
+        {
+          "name": "Bridge",
+          "chords": "B B/A# E G (Power Chords)",
+          "display_order": 2
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Fast Car",
+      "artist": "Tracy Chapman",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2737602becfedf6e25752cb54ff",
+      "spotify_id": "2M9ro2krNb7nr7HSprkEgo"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": 2,
+      "strumming": "DUDU UD",
+      "youtube_id": "ca7RuPahaQc",
+      "notes": "See the video for the finger picking if you want to get fancy and match the record.",
+      "sections_attributes": [
+        {
+          "name": "Intro/Verse",
+          "chords": "Cmaj7 G Em D",
+          "display_order": 1
+        },
+        {
+          "name": "Chorus",
+          "chords": "C G (x2)\nEm C Em D\nC Em D (x2)\nEm C Em",
+          "display_order": 2
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Wonderwall",
+      "artist": "Oasis",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b27329f951c74e9cbfffeb7b52f9",
+      "spotify_id": "4w7RuuQAVP0JXlAom3z1aC"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": 2,
+      "strumming": "DDD DUDUD D DU | DUD D DU U UDUDU",
+      "youtube_id": "ukjfq1iVOGA",
+      "notes": "This video does a really good job of teaching the strumming, which is the hardest part. Strumming pattern walk-through starts @ 8:00 mark.",
+      "sections_attributes": [
+        {
+          "name": "Intro",
+          "chords": "Em7 G  Dsus4 A7sus4",
+          "display_order": 1
+        },
+        {
+          "name": "Verse I",
+          "chords": "Em7 G  Dsus4 A7sus4 (x3)\nCadd9 Dsus4 A7sus4",
+          "display_order": 2
+        },
+        {
+          "name": "Verse II",
+          "chords": "Em7 G Dsus4 A7sus4 (x4)",
+          "display_order": 3
+        },
+        {
+          "name": "Bridge",
+          "chords": "Cadd9 Dsus4 Em7 Em7 (x2)\nCadd9 Dsus4 G D/F# Em7 A7sus4 A7sus4",
+          "display_order": 4
+        },
+        {
+          "name": "Chorus",
+          "chords": "Cadd9 Em7 G Em7 (x4)",
+          "display_order": 5
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Shallow",
+      "artist": "Lady Gaga",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273e2d156fdc691f57900134342",
+      "spotify_id": "2VxeLyX666F8uXCJ0dZF8B"
+    },
+    "song": {
+      "guitar_type": "Acoustic",
+      "capo": null,
+      "strumming": "",
+      "youtube_id": "jnYes88W2ic",
+      "notes": "Video teaches the finger picking, or you can just kind of loosely pick the chords.",
+      "sections_attributes": [
+        {
+          "name": "Intro/Verse",
+          "chords": "Em7 D/F# G\nC G D",
+          "display_order": 1
+        },
+        {
+          "name": "Chorus",
+          "chords": "Am D G D/F# Em (repeats)",
+          "display_order": 2
+        },
+        {
+          "name": "Build Up",
+          "chords": "Em Bm D A Em (x2)",
+          "display_order": 3
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "The Less I Know The Better",
+      "artist": "Tame Impala",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b2739e1cfc756886ac782e363d79",
+      "spotify_id": "6K4t31amVTZDgR3sKmwUJJ"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": "",
+      "youtube_id": "rCFk144LHZg",
+      "notes": "See the video for how to play the baseline.",
+      "sections_attributes": [
+        {
+          "name": "Intro",
+          "chords": "C#m B E G#m B\nC#m B E G#m\nC#m B E",
+          "display_order": 1
+        },
+        {
+          "name": "Verse I",
+          "chords": "G#m C#m B E",
+          "display_order": 2
+        },
+        {
+          "name": "Chorus",
+          "chords": "E C#m D\nE C#m D B\nE C#m D\nE C#m D C#m",
+          "display_order": 3
+        },
+        {
+          "name": "Outro",
+          "chords": "E G#m C#m A",
+          "display_order": 4
+        }
+      ]
+    }
+  },
+  {
+    "spotify_track": {
+      "title": "Fly Away",
+      "artist": "Lenny Kravitz",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273550699c44dd74a7663c6ebfa",
+      "spotify_id": "0n0eMsX7WgEtc7dlscbuKU"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": "D DUDUD(U)D DUDU | UD DUDU UD DUDU",
+      "youtube_id": "yXi1kfjH2hc",
+      "notes": "Can either play the chords as power chords or barre chords.\n\nSlide up from the B to the C.",
+      "sections_attributes": [
+        {
+          "name": "Whole Song",
+          "chords": "A B C G D",
+          "display_order": 1
+        }
+      ]
+    }
+  }
+]
