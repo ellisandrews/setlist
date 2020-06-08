@@ -308,5 +308,27 @@
         }
       ]
     }
+  },
+  {
+    "spotify_track": {
+      "title": "Fly Away",
+      "artist": "Lenny Kravitz",
+      "artwork_url": "https://i.scdn.co/image/ab67616d0000b273550699c44dd74a7663c6ebfa",
+      "spotify_id": "0n0eMsX7WgEtc7dlscbuKU"
+    },
+    "song": {
+      "guitar_type": "Electric",
+      "capo": null,
+      "strumming": "D DUDUD(U)D DUDU | UD DUDU UD DUDU",
+      "youtube_id": "yXi1kfjH2hc",
+      "notes": "Can either play the chords as power chords or barre chords.\n\nSlide up from the B to the C.",
+      "sections_attributes": [
+        {
+          "name": "Whole Song",
+          "chords": "A B C G D",
+          "display_order": 1
+        }
+      ]
+    }
   }
 ]
