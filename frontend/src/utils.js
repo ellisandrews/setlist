@@ -1,4 +1,5 @@
-export const backendURL = 'http://localhost:3000/api/v1'
+// Read the backend API URL from environment variable
+export const backendURL = process.env.REACT_APP_API_URL
 
 export const genericAPIFailure = errorData => {
   const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
