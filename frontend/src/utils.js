@@ -1,5 +1,5 @@
-// Read the backend API URL from environment variable
-export const backendURL = process.env.REACT_APP_API_URL
+// Set the backend API URL based on the environment
+export const backendURL = process.env.NODE_ENV === 'production' ? 'http://setlist-backend.herokuapp.com' : 'http://localhost:3000/api/v1'
 
 export const genericAPIFailure = errorData => {
   const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
