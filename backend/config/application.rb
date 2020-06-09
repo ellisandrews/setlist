@@ -37,7 +37,7 @@ module Backend
     # TODO: Update this CORS setup before deploying!! 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*'
+        origins "setlist-frontend.herokuapp.com", "localhost:3001"
         resource '*', headers: :any, methods: :any
       end
     end
