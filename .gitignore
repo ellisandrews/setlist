@@ -73,5 +73,5 @@ yarn-debug.log*
 backend/log/*
 backend/tmp/*
 
-# Script for exporting private variables
-backend/env_variables.sh
+# Environment variables files
+*.env
