@@ -1,4 +1,5 @@
 FROM ruby:2.6.1
+
 RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 RUN mkdir /setlist-backend
 WORKDIR /setlist-backend

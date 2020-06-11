@@ -1,0 +1,17 @@
+# This is the development environment, which will be loaded by `docker-compose` by default given its `override` name.
+version: "3.4"
+
+services:
+  db:
+    volumes:
+      - ./backend/tmp/dev/db:/var/lib/postgresql/data
+
+  api:
+    environment:
+      RAILS_ENV: development
+      RACK_ENV: development
+
+  ui:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.dev
