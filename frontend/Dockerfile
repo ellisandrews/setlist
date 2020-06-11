@@ -1,0 +1,17 @@
+# Base image
+FROM node:13.12.0-alpine
+
+# Set working directory
+WORKDIR /setlist-frontend
+
+# Add app code
+COPY . .
+
+# Install app dependencies
+RUN npm install
+
+# Port
+EXPOSE 3000
+
+# Start the app
+CMD ["npm", "run", "build"]
