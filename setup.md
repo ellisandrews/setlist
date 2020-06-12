@@ -1,5 +1,18 @@
-# Setup
+# Deployment
 -
+
+## Overview
+Setlist is comprised of 3 services:
+
+1. PostgreSQL Database
+2. Ruby on Rails JSON API
+3. React UI
+
+For ease of development and deployment, each service be run in its own docker container. For managing all three containers at once, the project has been set up to use [Docker Compose](https://docs.docker.com/compose/).
+
+-
+
+
 
 ### Pre-setup
 * Make sure `docker` and `docker-compose` are installed.

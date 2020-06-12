@@ -7,11 +7,13 @@ services:
       - ./backend/tmp/prod/db:/var/lib/postgresql/data
   
   api:
+    image: eandrews08/setlist-api:production
     environment:
       RAILS_ENV: production
       RACK_ENV: production
 
   ui:
+    image: eandrews08/setlist-ui:production
     build: 
       context: ./frontend
       dockerfile: Dockerfile.prod
