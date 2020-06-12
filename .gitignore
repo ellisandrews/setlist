@@ -73,6 +73,5 @@ yarn-debug.log*
 backend/log/*
 backend/tmp/*
 
-# Environment variables files
-*.env
-*.env.*
+# Backend private environment variables files
+backend/*.env
