@@ -75,3 +75,4 @@ backend/tmp/*
 
 # Environment variables files
 *.env
+*.env.*
