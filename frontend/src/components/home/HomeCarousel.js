@@ -52,7 +52,7 @@ class HomeCarousel extends Component {
                 </p>
                 <Container id="social-icons">
                   <SocialIcon url="https://github.com/ellisandrews/setlist" bgColor="black" style={{ height: 40, width: 40 }}/>{' '}
-                  <SocialIcon url="https://www.linkedin.com/in/ellis-andrews-b08528102" style={{ height: 40, width: 40 }}/>{' '}
+                  <SocialIcon url="https://www.linkedin.com/in/ellis-andrews" style={{ height: 40, width: 40 }}/>{' '}
                   <SocialIcon url="https://medium.com/@ellisandrews1" style={{ height: 40, width: 40 }} />{' '}
                 </Container>
               </Card.Text>

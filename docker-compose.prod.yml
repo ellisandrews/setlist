@@ -1,0 +1,19 @@
+# This is the production environment, which needs to be specified explicitly with the `-f` flag of docker-compose.
+version: "3.4"
+
+services:
+  db:
+    volumes:
+      - ./backend/tmp/prod/db:/var/lib/postgresql/data
+  
+  api:
+    environment:
+      RAILS_ENV: production
+      RACK_ENV: production
+
+  ui:
+    build: 
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3001:80"

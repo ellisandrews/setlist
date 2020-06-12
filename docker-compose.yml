@@ -18,7 +18,5 @@ services:
 
   ui:
     stdin_open: true  # Required due to a bug in react-scripts v3.4.1
-    ports:
-      - "3001:3000"
     depends_on:
       - api
