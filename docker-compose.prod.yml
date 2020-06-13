@@ -1,21 +1,28 @@
 # This is the production environment, which needs to be specified explicitly with the `-f` flag of docker-compose.
+# Note that this environment is configured for Heroku.
+
 version: "3.4"
 
 services:
   db:
     volumes:
-      - ./backend/tmp/prod/db:/var/lib/postgresql/data
+      - ./backend/tmp/db/prod:/var/lib/postgresql/data
   
   api:
     image: eandrews08/setlist-api:production
+    ports:
+      - "3002:3002"
     environment:
+      PORT: 3002
       RAILS_ENV: production
       RACK_ENV: production
 
   ui:
     image: eandrews08/setlist-ui:production
     build: 
-      context: ./frontend
       dockerfile: Dockerfile.prod
     ports:
-      - "3001:80"
+      - "3003:3003"
+    environment:
+      PORT: 3003
+      REACT_APP_API_URL: "https://setlist-backend.herokuapp.com/api/v1"

@@ -13,7 +13,10 @@ COPY . /setlist-backend
 COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
+
+# NOTE: Heroku does not support the `EXPOSE` keyword, as a port is assigned at runtime.
+#       Therefore, we must read in the $PORT environment variable which gets set by Heroku.
+#       If running locally (e.g. in development env) $PORT mussed be passed as en environment variable.
 
 # Start the main process.
-CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0", "-p", "3000"]
+CMD bundle exec rails server -b 0.0.0.0 -p $PORT

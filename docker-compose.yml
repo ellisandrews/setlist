@@ -11,12 +11,12 @@ services:
       context: ./backend
       dockerfile: Dockerfile
     env_file: ./backend/.env
-    ports:
-      - "3000:3000"
     depends_on:
       - db
 
   ui:
+    build: 
+      context: ./frontend
     stdin_open: true  # Required due to a bug in react-scripts v3.4.1
     depends_on:
       - api
