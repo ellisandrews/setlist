@@ -115,3 +115,20 @@ $ docker-compose down
 ```
 
 Database data will be persisted in the `backend/tmp/db/dev/` directory, and read in again automatically upon restart. If you delete this directory, you will need to initialize, migrate, and seed the database again.
+
+## Heroku
+
+The production environment is set up to run on Heroku. The backend runs on `setlist-backend.herokuapp.com` and the frontend runs on `setlist-frontend.herokuapp.com`. 
+
+To deploy new images to Heroku, tag them according to convention and push them to the Heroku container registry. Example for 
+```
+# Backend
+$ docker tag eandrews08/setlist-api:production registry.heroku.com/setlist-backend/web
+$ docker push registry.heroku.com/setlist-backend/web
+
+Frontend
+$ docker tag eandrews08/setlist-ui:production registry.heroku.com/setlist-frontend/web
+$ docker push registry.heroku.com/setlist-frontend/web
+```
+
+Note that they each run as the `web` process in the Heroku app. Also note that Postgres is run as a [Heroku add-on](https://elements.heroku.com/addons) in production, instead of the official `postgres` image used in development.
