@@ -120,7 +120,7 @@ Database data will be persisted in the `backend/tmp/db/dev/` directory, and read
 
 The production environment is set up to run on Heroku. The backend runs on `setlist-backend.herokuapp.com` and the frontend runs on `setlist-frontend.herokuapp.com`. 
 
-To deploy new images to Heroku, tag them according to convention and push them to the Heroku container registry. Example for 
+To deploy new images to Heroku, tag them according to convention and push them to the Heroku container registry. 
 ```
 # Backend
 $ docker tag eandrews08/setlist-api:production registry.heroku.com/setlist-backend/web
