@@ -6,17 +6,21 @@
 
 ## Motivation
 
-Many guitar players in the age of the internet are teaching themselves songs using internet resources. This process often looks something like this:
+Many guitar players in the age of the internet are teaching themselves songs using online resources. This process often looks something like this:
 
-1. Identify the song to learn.
+1. **Identify the song to learn.**
     - Listen to it on a music streaming service like Spotify.
-2. Search the internet for the chords.
+
+2. **Search the internet for the chords.**
     - Sort through a pile of alternate tabs. There are usually _many_ ways to play a song listed on a site like [ultimate-guitar.com](https://www.ultimate-guitar.com/), with varying degress of accuracy and difficulty. Eventually find one you like and that sounds close to the record.
-3. Pull up a YouTube video tutorial.
+
+3. **Pull up a YouTube video tutorial.**
     - There are some fantastic YouTube channels dedicated to teaching popular guitar songs. These can be super helpful when just looking at the chords isn't enough.
-4. Learn the song.
+
+4. **Learn the song.**
     - Click back and forth between browser windows of the chords and the YouTube tutorial, while occasionally listening to the original song on Spotify while you learn to play the song. 
-5. Decide to revisit the song a day, a week, or a month later.
+
+5. **Decide to revisit the song a day, a week, or a month later.**
     - Often, it's easy to forget entirely what song you were working on in the past. If you do remember which song it was, you likely won't remember the exact chords you selected or the YouTube video you found helpful. You now have to go through the same research process you did the first time.
 
 
