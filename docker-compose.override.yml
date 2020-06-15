@@ -1,0 +1,26 @@
+# This is the development environment, which will be loaded by `docker-compose` by default given its `override` name.
+version: "3.4"
+
+services:
+  db:
+    volumes:
+      - ./backend/tmp/db/dev:/var/lib/postgresql/data
+
+  api:
+    image: eandrews08/setlist-api:development
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      RAILS_ENV: development
+      RACK_ENV: development
+
+  ui:
+    image: eandrews08/setlist-ui:development
+    build:
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3001:3001"
+    environment:
+      PORT: 3001
+      REACT_APP_API_URL: "http://localhost:3000/api/v1"

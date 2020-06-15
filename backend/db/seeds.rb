@@ -1,6 +1,6 @@
-# Clean out the database of all data
-DatabaseCleaner.strategy = :truncation
-DatabaseCleaner.clean
+# Uncomment these lines to clean out the database of all data on each run. Will not work in production for obvious reasons.
+# DatabaseCleaner.strategy = :truncation
+# DatabaseCleaner.clean
 
 # Create the preview mode fake user
 user = User.create!(first_name: 'John', last_name: 'Doe', email: 'johndoe@fake.com', password: 'password', password_confirmation: 'password')
