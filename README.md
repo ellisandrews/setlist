@@ -24,7 +24,7 @@ Many guitar players in the age of the internet are teaching themselves songs usi
     - Often, it's easy to forget entirely what song you were working on in the past. If you do remember which song it was, you likely won't remember the exact chords you selected or the YouTube video you found helpful. You now have to go through the same research process you did the first time.
 
 
-Setlist was built to ease this process, so that you can remember the songs you learn to play and how _you_ play them. Setlist can be your single browser window open while revisiting a song. The Spotify track, chords, YouTube video, notes and more all right there on one page!
+Setlist was built to ease this process, so that you can remember the songs you learn to play and how _you_ play them. Setlist can be your single browser window open while revisiting a song. The Spotify track, chords, YouTube video, notes and more are all right there on one page!
 
 ## UI
 
