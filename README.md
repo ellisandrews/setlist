@@ -36,4 +36,4 @@ A read-only mode pre-populated with a handful of songs can be accessed by clicki
 
 ## Development
 
-Please see [setup.md](setup.md). Setlist is fully dockerized, and can be run locally without installing any packages on your machine other than docker! That means no Postgres, Ruby on Rails, React, etc. Your environment is good to go out of the box after a little configuration.
+Please see [deployment.md](deployment.md). Setlist is fully dockerized, and can be run locally without installing any packages on your machine other than docker! That means no Postgres, Ruby on Rails, React, etc. Your environment is good to go out of the box after a little configuration.
