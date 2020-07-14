@@ -27,6 +27,7 @@ Many guitar players in the age of the internet are teaching themselves songs usi
 Setlist was built to ease this process, so that you can remember the songs you learn to play and how _you_ play them. Setlist can be your single browser window open while revisiting a song. The Spotify track, chords, YouTube video, notes and more are all right there on one page!
 
 ## UI
+For a brief narrated tour of the app, see this [YouTube Demo](https://www.youtube.com/watch?v=lUlh2D7BDMc).
 
 ![](setlist-tour.gif)
 
