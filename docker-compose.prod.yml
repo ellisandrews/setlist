@@ -21,8 +21,9 @@ services:
     image: eandrews08/setlist-ui:production
     build: 
       dockerfile: Dockerfile.prod
+      args:
+        REACT_APP_API_URL: "https://setlist-backend.herokuapp.com/api/v1"  # Must be set in Dockerfile at `npm run build` time
     ports:
       - "3003:3003"
     environment:
       PORT: 3003
-      REACT_APP_API_URL: "https://setlist-backend.herokuapp.com/api/v1"

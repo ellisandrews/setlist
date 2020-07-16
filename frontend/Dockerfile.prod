@@ -3,6 +3,8 @@
 # Stage 1 - Build the production react app 
 FROM node:13.12.0-alpine as build
 WORKDIR /setlist-frontend
+ARG REACT_APP_API_URL
+ENV REACT_APP_API_URL $REACT_APP_API_URL
 ENV PATH /setlist-frontend/node_modules/.bin:$PATH
 COPY ./package.json /setlist-frontend/package.json
 RUN npm install

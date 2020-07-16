@@ -14,7 +14,9 @@ services:
       PORT: 3000
       RAILS_ENV: development
       RACK_ENV: development
-
+    volumes:
+      - ./backend:/setlist-backend  # Mount code so you can edit without rebuilding image!
+  
   ui:
     image: eandrews08/setlist-ui:development
     build:
@@ -24,3 +26,5 @@ services:
     environment:
       PORT: 3001
       REACT_APP_API_URL: "http://localhost:3000/api/v1"
+    volumes:
+      - ./frontend:/setlist-frontend  # Mount code so you can edit without rebuilding image!

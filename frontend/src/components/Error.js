@@ -1,17 +1,14 @@
 import React from 'react'
-import { Spinner, Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 
-const Loading = ({header, message}) => {
+const Error = ({message}) => {
   return (
     <Container className="h-100 py-5">
       <Container className="row h-100 justify-content-center align-items-center">
         <Container className="text-center">
-          <h3 className="py-2">{header}</h3>
+          <h3 className="py-2">Oops! Something went wrong.</h3>
           <h6 className="py-2">{message}</h6>
-          <div className="py-2">
-            <Spinner animation="border" variant="dark"/>
-          </div>
         </Container>
       </Container>
     </Container>
@@ -19,4 +16,4 @@ const Loading = ({header, message}) => {
 }
 
 
-export default Loading
+export default Error

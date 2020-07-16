@@ -14,7 +14,8 @@ Rails.application.routes.draw do
       post '/login', to: 'sessions#create'
       get '/current_user', to: 'sessions#show'
       get '/search/tracks', to: 'search#tracks'
-    
+      get '/ping', to: 'home#ping'
+
     end
   end
 

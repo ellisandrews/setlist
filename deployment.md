@@ -1,6 +1,6 @@
 # Deployment
 
-This guide will take you through setting up a local development environment for a Setlist instance.
+This guide will take you through setting up a local development environment for a Setlist instance, as well as the current [production deployment on Heroku](https://setlist-frontend.herokuapp.com).
 
 ## Overview
 
@@ -79,7 +79,7 @@ docker-compose version 1.25.5, build 8a1c60f6
 ```
 
 #### Local Development
-Spin up the three containers (`db`, `api`, and `ui`) in development mode. Note that if you don't have the docker images downloaded, this will build them first.
+Spin up the three containers (`db`, `api`, and `ui`) in development mode. Note that if you don't have the docker images downloaded, this will build them first. The source code is mounted into the `api` and `ui` containers so you can edit it in real time without rebuilding.
 
 ```
 $ docker-compose up -d
@@ -118,17 +118,32 @@ Database data will be persisted in the `backend/tmp/db/dev/` directory, and read
 
 ## Heroku
 
-The production environment is set up to run on Heroku. The backend runs on `setlist-backend.herokuapp.com` and the frontend runs on `setlist-frontend.herokuapp.com`. 
+The production deployment is hosted for free on Heroku. The backend and frontend run as separate Heroku apps:
 
-To deploy new images to Heroku, tag them according to convention and push them to the Heroku container registry. 
+* DB/API: `setlist-backend.herokuapp.com`
+* UI: [`setlist-frontend.herokuapp.com`](https://setlist-frontend.herokuapp.com)
+ 
+To deploy new images to Heroku, build, tag, and push them to the Heroku container registry, and then release them.
+
 ```
-# Backend
-$ docker tag eandrews08/setlist-api:production registry.heroku.com/setlist-backend/web
-$ docker push registry.heroku.com/setlist-backend/web
+# Build
+$ docker-compose -f docker-compose.yml -f docker-compose.prod.yml build
 
-Frontend
+# Tag
+$ docker tag eandrews08/setlist-api:production registry.heroku.com/setlist-backend/web
 $ docker tag eandrews08/setlist-ui:production registry.heroku.com/setlist-frontend/web
+
+# Login to Heroku
+$ heroku login
+$ heroku container:login
+
+# Push
+$ docker push registry.heroku.com/setlist-backend/web
 $ docker push registry.heroku.com/setlist-frontend/web
+
+# Release
+$ heroku container:release web --app setlist-backend
+$ heroku container:release web --app setlist-frontend
 ```
 
 Note that they each run as the `web` process in the Heroku app. Also note that Postgres is run as a [Heroku add-on](https://elements.heroku.com/addons) in production, instead of the official `postgres` image used in development.
