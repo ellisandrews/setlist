@@ -3,7 +3,7 @@ export const backendURL = process.env.REACT_APP_API_URL
 
 export const genericAPIFailure = errorData => {
   const errorMessage = errorData.status >= 500 ? errorData.error : errorData.messages.join(', ')
-  window.alert(`Unknown Error: ${errorMessage}`)
+  window.alert(errorMessage)
 }
 
 export const handleResponse = (resp, success, failure = genericAPIFailure) => {
